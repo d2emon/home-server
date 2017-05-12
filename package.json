@@ -1,0 +1,25 @@
+{
+  "name": "home-server",
+  "version": "0.1.0",
+  "description": "My Home Server",
+  "main": "src/app.js",
+  "bin": {
+    "app": "./src/app.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d2emon/home-server.git"
+  },
+  "author": "Dmitry Kutsenko",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/d2emon/home-server/issues"
+  },
+  "homepage": "https://github.com/d2emon/home-server#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
