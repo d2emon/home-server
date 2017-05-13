@@ -2,13 +2,16 @@
   "name": "home-server",
   "version": "0.1.0",
   "description": "My Home Server",
-  "main": "src/app.js",
+  "private": true,
+  "main": "./src/app.js",
   "bin": {
-    "app": "./src/app.js"
+    "app": "./bin/www"
   },
   "scripts": {
+    "start": "nodejs ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/d2emon/home-server#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/d2emon/home-server.git"
@@ -18,8 +21,14 @@
   "bugs": {
     "url": "https://github.com/d2emon/home-server/issues"
   },
-  "homepage": "https://github.com/d2emon/home-server#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "~4.0.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "jade": "~1.3.0",
+    "less-middleware": "0.1.15"
   }
 }
