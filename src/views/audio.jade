@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  section(id='content')
+    .ic More Website Templates @ TemplateMonster.com. November 21, 2011!
+    .main
+      .content-padding-2
+        .container_12
+          .wrapper
+            .grid_12
+              .padding-grid-1
+                h3.letter Our <strong>Discography</strong>
+                - for (var a in albums)
+                  div(class='wrapper p3')
+                    article(class='grid_4 alpha')
+                      .padding-grid-2
+                        .wrapper
+                          figure(class='style-img-2 fleft')
+                            a(href='#')
+                              img(src=albums[a].image, alt='')
+                    article(class='grid_8 alpha')
+                      .padding-grid-2
+                        h4(class='margin-none indent-top1')
+                          strong #{albums[a].year}. #{albums[a].title}
+                        p.prev-indent-bot
+                          = albums[a].description
+                        .wrapper
+                          ul(class='list-1 fleft')
+                            - for (var t in albums[a].tracks)
+                              li
+                                a(href='#') #{albums[a].tracks[t].id}. #{albums[a].tracks[t].title}
+                          ul(class='list-2 fright')
+                            - for (var t in albums[a].tracks)
+                              li
+                                span
+                                  a(class='left-list', href='#')
+                                  a(class='right-list', href='#')
+
+    .block

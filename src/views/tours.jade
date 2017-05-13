@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  section(id='content')
+    .ic More Website Templates @ TemplateMonster.com. November 21, 2011!
+    .main
+      .bg-2
+        .content-padding-1
+          .container_12
+            .wrapper
+              article(class='grid_4')
+                .padding-grid-1
+                  h3 Latest <strong>News</strong>
+                  - for (var n in news)
+                    div.wrapper(class = (n < news.length - 1) ? 'img-indent-bot1' : '')
+                        time(class='time time-stule-1', datetime='#{news[n].time}')
+                          strong(class='text-1')
+                            = news[n].day
+                          strong(class='text-2')
+                            = news[n].month
+                        .extra-wrap
+                          .indent-top
+                            != news[n].text
+              article(class='grid_4 alpha')
+                .padding-grid-1
+                  h3 Tour <strong>Dates</strong>
+                  - for (var t in tours)
+                    div.wrapper(class = (t < tours.length - 1) ? 'img-indent-bot2' : '')
+                        time(class='time time-stule-2', datetime='#{tours[t].time}')
+                          strong(class='text-3')
+                            = tours[t].day
+                          strong(class='text-4')
+                            = tours[t].month
+                        .extra-wrap
+                          h4.indent-top
+                            a(href='#')
+                              = tours[t].city
+                          != ' ' + tours[t].text
+              article(class='grid_4 alpha')
+                .padding-grid-2
+                  h3.letter In Stores <strong>Now!</strong>
+                  .wrapper
+                    figure(class='style-img fleft')
+                      a(href='#')
+                        img(src=stores, alt='')
+      .content-padding-2
+        .container_12
+          .wrapper
+            article(class='grid_4')
+              .padding-grid-2
+                h3.letter Upcoming <strong>Events</strong>
+                - for (var e in events)
+                  div.wrapper(class = (e < events.length - 1) ? 'img-indent-bot1' : '')
+                    time(class='time time-stule-3', datetime='#{events[e].time}')
+                      strong(class='text-5')
+                        = events[e].day
+                      strong(class='text-6')
+                        = events[e].month
+                    .extra-wrap
+                      .indent-top
+                        != events[e].text
+            article(class='grid_4 alpha')
+              .padding-grid-2
+                h3.letter Latest <strong>Video</strong>
+                - for (var v in videos)
+                  div.wrapper(class = (v < videos.length - 1) ? 'img-indent-bot1' : '')
+                    figure(class='style-img-2 fleft')
+                      a(href='#')
+                      a(class='lightbox-image', href=videos[v].link, data-gal='prettyVideo[prettyVideo]')
+                        img(src=videos[v].thumb, alt='')
+            article(class='grid_4 alpha')
+              .padding-grid-2
+                h3(class='letter prev-indent-bot1') Shortly <strong>About</strong>
+                h6
+                  = article.title
+                = article.text
+
+    .block

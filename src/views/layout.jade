@@ -55,17 +55,17 @@ html
                   .grid_12
                     ul(class='menu')
                       li(class='item')
-                        a(class='active', href='index.html') About
+                        a(class=(title === 'About') ? 'active' : '', href='index.html') About
                       li
-                        a(href='audio.html') Audio
+                        a(class=(title === 'Audio') ? 'active' : '', href='audio.html') Audio
                       li
-                        a(href='video.html') Video
+                        a(class=(title === 'Video') ? 'active' : '', href='video.html') Video
                       li
-                        a(href='gallery.html') Gallery
+                        a(class=(title === 'Gallery') ? 'active' : '', href='gallery.html') Gallery
                       li(class='item-1')
-                        a(href='tour-dates.html') Tour Dates
+                        a(class=(title === 'Tour Dates') ? 'active' : '', href='tour-dates.html') Tour Dates
                       li(class='last')
-                        a(href='contacts.html') Contacts
+                        a(class=(title === 'Contacts') ? 'active' : '', href='contacts.html') Contacts
                     .clear
                   .clear
           .slider-wrapper
