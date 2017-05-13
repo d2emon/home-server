@@ -2,6 +2,102 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    meta(charset="utf-8")
+    link(rel='stylesheet', href='/stylesheets/reset.css', type='text/css', media='screen')
+    link(rel='stylesheet', href='/stylesheets/style.css', type='text/css', media='screen')
+    link(rel='stylesheet', href='/stylesheets/grid.css', type='text/css', media='screen')
+    script(type='text/javascript', src='/javascripts/jquery-1.6.3.min.js')
+    script(type='text/javascript', src='/javascripts/cufon-yui.js')
+    script(type='text/javascript', src='/javascripts/cufon-replace.js')
+    script(type='text/javascript', src='/javascripts/Vegur_700.font.js')
+    script(type='text/javascript', src='/javascripts/Vegur_400.font.js')
+    script(type='text/javascript', src='/javascripts/FF-cash.js')
+    script(type='text/javascript', src='/javascripts/script.js')
+    script(type='text/javascript', src='/javascripts/easyTooltip.js')
+    script(type='text/javascript', src='/javascripts/jquery.easing.1.3.js')
+    script(type='text/javascript', src='/javascripts/hover-image.js')
+    script(type='text/javascript', src='/javascripts/jquery.prettyPhoto.js')
+    script(type='text/javascript', src='/javascripts/jquery.easing.1.3.js')
+    script(type='text/javascript', src='/javascripts/tms-0.3.js')
+    script(type='text/javascript', src='/javascripts/tms_presets.js')
+    script(type='text/javascript')
+      | $(window).load(function(){
+      | 	$('.slider')._TMS({
+      | 		duration:800,
+      | 		easing:'easeOutQuad',
+      | 		preset:'diagonalFade',
+      | 		pagination:false,
+      | 		slideshow:6000,
+      | 		banners:false,
+      | 		waitBannerAnimation:false,
+      | 		pauseOnHover:true
+      | 	});
+      | 	$("a[data-gal^='prettyVideo']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      | });
+    //if lt IE 7
+      div(style=' clear: both; text-align:center; position: relative;')
+        a(href='http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode')
+          img(src='http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg', border='0', height='42', width='820', alt='You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.')
+    //if lt IE 9
+      script(type='text/javascript', src='/js/html5.js')
+      link(rel='stylesheet', href='/stylesheets/ie.css', type='text/css', media='screen')
+  body(id="page1")
+    .extra
+      header
+        .main
+          .bg-1
+            h1
+              a(href='index.html') Rock Band
+          nav
+            .menu-bg-tail
+              .menu-bg
+                .container_12
+                  .grid_12
+                    ul(class='menu')
+                      li(class='item')
+                        a(class='active', href='index.html') About
+                      li
+                        a(href='audio.html') Audio
+                      li
+                        a(href='video.html') Video
+                      li
+                        a(href='gallery.html') Gallery
+                      li(class='item-1')
+                        a(href='tour-dates.html') Tour Dates
+                      li(class='last')
+                        a(href='contacts.html') Contacts
+                    .clear
+                  .clear
+          .slider-wrapper
+            .slider
+              ul(class='items')
+                li
+                  img(src='/images/slider/img1.jpg', alt='')
+                li
+                  img(src='/images/slider/img2.jpg', alt='')
+                li
+                  img(src='/images/slider/img3.jpg', alt='')
+
+      block content
+    footer
+      .main
+        .footer-bg
+          .container_12
+            .wrapper
+              .grid_12
+                .footer-padding
+                  .wrapper
+                    span(class='footer-link')
+                      span Superior.com &copy; 2011
+                      a(rel='nofollow', target='_blank', class='link', href='http://www.templatemonster.com/') Website Template
+                      = " by TemplateMonster.com"
+                    ul(class="list-services")
+                      li
+                        a(class='tooltips n-1', title='Twitter', href='#')
+                      li
+                        a(class='tooltips n-2', title='Facebook', href='#')
+                      li(class='last')
+                        a(class='tooltips n-3', title='Youtube', href='#')
+                  .aligncenter
+                    //{%FOOTER_LINK}
+  script(type='text/javascript') Cufon.now();

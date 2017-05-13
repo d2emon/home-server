@@ -24,8 +24,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(require('less-middleware')({ src: path.join(__dirname, '..', 'public') }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+var publicPath = path.join(__dirname, '..', 'public');
+log.info(publicPath);
+app.use(require('less-middleware')({ src: publicPath }));
+app.use(express.static(publicPath));
 
 app.use('/', routes);
 app.use('/users', users);
