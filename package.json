@@ -22,13 +22,16 @@
     "url": "https://github.com/d2emon/home-server/issues"
   },
   "dependencies": {
-    "express": "~4.0.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
     "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
+    "express": "~4.0.0",
     "jade": "~1.3.0",
-    "less-middleware": "0.1.15"
+    "less-middleware": "0.1.15",
+    "mongoose": "^4.9.8",
+    "morgan": "~1.0.0",
+    "nconf": "^0.8.4",
+    "static-favicon": "~1.0.0",
+    "winston": "^2.3.1"
   }
 }

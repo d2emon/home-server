@@ -4,6 +4,11 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('config');
+var log = require('winston');
+var mongoose = require('mongoose');
+
+log.info(config.get('port'));
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -19,7 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
+app.use(require('less-middleware')({ src: path.join(__dirname, '..', 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
