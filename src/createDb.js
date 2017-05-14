@@ -3,6 +3,7 @@ var Artist = require('models/artist').Artist;
 var News = require('models/news').News;
 var Tour = require('models/tour').Tour;
 var Album = require('models/album').Album;
+var Image = require('models/image').Image;
 var Video = require('models/video').Video;
 var Event = require('models/event').Event;
 var Track = require('models/track').Track;
@@ -75,6 +76,33 @@ var tours = [
     text: "Lorem ipsum dolor consctetur",
     tickets: "http://demolink.org/Okedo",
     phone: "+1 959 603 6035"
+  })
+];
+
+var images = [
+  new Image({
+    full: "/images/images/page4-img1.jpg",
+    thumb: "/images/images/thumb-1.jpg"
+  }),
+  new Image({
+    full: "/images/images/page4-img2.jpg",
+    thumb: "/images/images/thumb-2.jpg"
+  }),
+  new Image({
+    full: "/images/images/page4-img3.jpg",
+    thumb: "/images/images/thumb-3.jpg"
+  }),
+  new Image({
+    full: "/images/images/page4-img2.jpg",
+    thumb: "/images/images/thumb-2.jpg"
+  }),
+  new Image({
+    full: "/images/images/page4-img3.jpg",
+    thumb: "/images/images/thumb-3.jpg"
+  }),
+  new Image({
+    full: "/images/images/page4-img1.jpg",
+    thumb: "/images/images/thumb-1.jpg"
   })
 ];
 
@@ -196,6 +224,7 @@ var artist = Artist({
     text: "Iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas aspernatur."
   },
   albums: albums,
+  images: images,
   videos: videos
 });
 

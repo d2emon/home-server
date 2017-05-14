@@ -15,8 +15,8 @@ block content
                       #slideshoow.slideshow
               #thumbs.navigation
                 ul(class='thumbs noscript')
-                  - for (var i in images)
-                    li(class= ((i === '2')||(i === '5')) ? 'last' : '')
-                      a(class='thumb', href=images[i].href, title='')
-                        img(src=images[i].thumb, alt='')
+                  each i, id in images
+                    li(class= ((id % 3) === 2) ? 'last' : '')
+                      a(class='thumb', href=i.full, title='')
+                        img(src=i.thumb, alt='')
                 .clear

@@ -1,6 +1,7 @@
 var mongoose = require('db');
 var Tour = require('models/tour').Tour;
 var Album = require('models/album').Album;
+var Image = require('models/image').Image;
 var Video = require('models/video').Video;
 
 var schema = mongoose.Schema({
@@ -14,6 +15,7 @@ var schema = mongoose.Schema({
     text: String
   },
   albums: [Album.schema],
+  images: [Image.schema],
   videos: [Video.schema]
 });
 
