@@ -1,49 +1,44 @@
 extends layout
 
 block content
-  section(id='content')
-    .ic More Website Templates @ TemplateMonster.com. November 21, 2011!
-    .main
-      .content-padding-2
-        .container_12
+  .content-padding-2
+    .container_12
+      .wrapper
+        .grid_8
+          .padding-grid-1
+            h3 Tour <strong>Dates</strong>
           .wrapper
-            .grid_8
-              .padding-grid-1
-                h3 Tour <strong>Dates</strong>
-              .wrapper
-                article(class='grid_4 alpha')
-                  .padding-grid-1
-                    - for (var t in tours)
-                      div(class='wrapper img-indent-bot2')
-                        time(class='time time-stule-2', datetime=tours[t].time)
-                          strong(class='text-3')
-                            = tours[t].day
-                          strong(class='text-4')
-                            = tours[t].month
-                        .extra-wrap
-                          h4(class='indent-top')
-                            a(href='#')
-                              = tours[t].city
-                          = tours[t].text 
-                article(class='grid_4 omega')
-                  .padding-grid-4
-                    - for (var t in tours)
-                      div(class= 'margin-bot1')
-                        span(class='text-width') Tickets:
-                        span(class='inline')
-                          a(class='link', href='#')
-                            = tours[t].tickets
-                        = "\n"
-                        span(class='text-width') Telephone:
-                        span(class='color-1 inline')
-                            = tours[t].phone
             article(class='grid_4 alpha')
-              .padding-grid-3
-                h3 Past <strong>Tours</strong>
-                ul(class="list-3")
-                  - for (var p in past)
-                    li
-                      a(href="#")
-                        = past[p]
-
-    .block
+              .padding-grid-1
+                - for (var t in tours)
+                  div(class='wrapper img-indent-bot2')
+                    time(class='time time-stule-2', datetime=tours[t].time)
+                      strong(class='text-3')
+                        = tours[t].day
+                      strong(class='text-4')
+                        = tours[t].month
+                    .extra-wrap
+                      h4(class='indent-top')
+                        a(href='#')
+                          = tours[t].city
+                      = tours[t].text 
+            article(class='grid_4 omega')
+              .padding-grid-4
+                - for (var t in tours)
+                  div(class= 'margin-bot1')
+                    span(class='text-width') Tickets:
+                    span(class='inline')
+                      a(class='link', href='#')
+                        = tours[t].tickets
+                    = "\n"
+                    span(class='text-width') Telephone:
+                    span(class='color-1 inline')
+                        = tours[t].phone
+        article(class='grid_4 alpha')
+          .padding-grid-3
+            h3 Past <strong>Tours</strong>
+            ul(class="list-3")
+              - for (var p in past)
+                li
+                  a(href="#")
+                    = past[p]

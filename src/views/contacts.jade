@@ -1,42 +1,37 @@
 extends layout
 
 block content
-  section(id='content')
-    .ic More Website Templates @ TemplateMonster.com. November 21, 2011!
-    .main
-      .content-padding-2
-        .container_12
-          .wrapper
-            article.grid_8
-              .padding-grid-1
-                h3 Contact <strong>Form</strong>
-              form(id='contact-form', enctype='multipart/form-data', method='post')
-                fieldset
-                  label
-                    span.name-input Name:
-                    input(name='name', value='', onBlur='if(this.value==\'\') this.value=\'\'', onFocus='if(this.value ==\'\' ) this.value=\'\'')
-                  label
-                    span.name-input Email:
-                    input(name='name1', value='', onBlur='if(this.value==\'\') this.value=\'\'', onFocus='if(this.value ==\'\' ) this.value=\'\'')
-                  label
-                    span.name-input Message:
-                    textarea(name='name2', onBlur='if(this.value==\'\') this.value=\'\'', onFocus='if(this.value ==\'\' ) this.value=\'\'')
-                .link-form
-                  a(class='link link-margin', href='#', onClick='document.getElementById(\'contact-form\').reset()') Clear
-                  = " "
-                  a(class='link', href='#', onClick='document.getElementById(\'contact-form\').submit()') Send
-                .clear
-            article(class='grid_4 alpha')
-              .padding-grid-3
-                h3 Contact <strong>Info</strong>
-                div(class="wrapper p2")
-                  figure(class='style-img-2 fleft')
-                    iframe(width="252", height="195", src=googleMap)
-                dl(class='list-4')
-                  dt
-                    != addres
-                  dd
-                    = phone
-                  dd Email: <a class="link" href="#">#{mail}
-
-    .block
+  .content-padding-2
+    .container_12
+      .wrapper
+        article.grid_8
+          .padding-grid-1
+            h3 Contact <strong>Form</strong>
+          form(id='contact-form', enctype='multipart/form-data', method='post')
+            fieldset
+              label
+                span.name-input Name:
+                input(name='name', value='', onBlur='if(this.value==\'\') this.value=\'\'', onFocus='if(this.value ==\'\' ) this.value=\'\'')
+              label
+                span.name-input Email:
+                input(name='name1', value='', onBlur='if(this.value==\'\') this.value=\'\'', onFocus='if(this.value ==\'\' ) this.value=\'\'')
+              label
+                span.name-input Message:
+                textarea(name='name2', onBlur='if(this.value==\'\') this.value=\'\'', onFocus='if(this.value ==\'\' ) this.value=\'\'')
+            .link-form
+              a(class='link link-margin', href='#', onClick='document.getElementById(\'contact-form\').reset()') Clear
+              = " "
+              a(class='link', href='#', onClick='document.getElementById(\'contact-form\').submit()') Send
+            .clear
+        article(class='grid_4 alpha')
+          .padding-grid-3
+            h3 Contact <strong>Info</strong>
+            div(class="wrapper p2")
+              figure(class='style-img-2 fleft')
+                iframe(width="252", height="195", src=googleMap)
+            dl(class='list-4')
+              dt
+                != addres
+              dd
+                = phone
+              dd Email: <a class="link" href="#">#{mail}
