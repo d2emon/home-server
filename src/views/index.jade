@@ -8,67 +8,68 @@ block content
           article(class='grid_4')
             .padding-grid-1
               h3 Latest <strong>News</strong>
-              - for (var n in news)
-                div.wrapper(class = (n < news.length - 1) ? 'img-indent-bot1' : '')
-                  time(class='time time-stule-1', datetime='#{news[n].time}')
+              each n, id in news.slice(0, 3)
+                div.wrapper(class = (id < news.length - 1) ? 'img-indent-bot1' : '')
+                  time(class='time time-stule-1', datetime='#{n.published.toISOString()}')
                     strong(class='text-1')
-                      = news[n].day
+                      = n.moment.format('DD')
                     strong(class='text-2')
-                      = news[n].month
+                      = n.moment.format('MMM')
                   .extra-wrap
                     .indent-top
-                      != news[n].text
+                      != n.text
           article(class='grid_4 alpha')
             .padding-grid-1
               h3 Tour <strong>Dates</strong>
-              - for (var t in tours)
-                div.wrapper(class = (t < tours.length - 1) ? 'img-indent-bot2' : '')
-                  time(class='time time-stule-2', datetime='#{tours[t].time}')
+              each t, id in artist.tours.slice(-3)
+                div.wrapper(class = (id < artist.tours.length - 1) ? 'img-indent-bot2' : '')
+                  time(class='time time-stule-2', datetime='#{t.date.toISOString()}')
                     strong(class='text-3')
-                      = tours[t].day
+                      = (t.moment) ? (t.moment.format('DD')) : "00"
                     strong(class='text-4')
-                      = tours[t].month
+                      = (t.moment) ? (t.moment.format('MMM')) : "000"
                   .extra-wrap
                     h4.indent-top
                       a(href='#')
-                        = tours[t].city
-                    != ' ' + tours[t].text
+                        = t.city
+                    != ' ' + t.text
           article(class='grid_4 alpha')
             .padding-grid-2
               h3.letter In Stores <strong>Now!</strong>
               .wrapper
-                figure(class='style-img fleft')
-                  a(href='#')
-                    img(src=stores, alt='')
+                each a, id in artist.albums.slice(0, 1)
+                  figure(class='style-img fleft')
+                    a(href='#')
+                      img(src=a.thumb, alt='')
   .content-padding-2
     .container_12
       .wrapper
         article(class='grid_4')
           .padding-grid-2
             h3.letter Upcoming <strong>Events</strong>
-            - for (var e in events)
-              div.wrapper(class = (e < events.length - 1) ? 'img-indent-bot1' : '')
-                time(class='time time-stule-3', datetime='#{events[e].time}')
+            each e, id in events
+              div.wrapper(class = (id < events.length - 1) ? 'img-indent-bot1' : '')
+                time(class='time time-stule-3', datetime='#{e.date.toISOString()}')
                   strong(class='text-5')
-                    = events[e].day
+                    = (e.moment) ? (e.moment.format('DD')) : "00"
                   strong(class='text-6')
-                    = events[e].month
+                    = (e.moment) ? (e.moment.format('MMM')) : "000"
                 .extra-wrap
                   .indent-top
-                    != events[e].text
+                    != e.text
         article(class='grid_4 alpha')
           .padding-grid-2
             h3.letter Latest <strong>Video</strong>
-            - for (var v in videos)
-              div.wrapper(class = (v < videos.length - 1) ? 'img-indent-bot1' : '')
+            each v, id in artist.videos.slice(0, 1)
+              div.wrapper(class = (id < artist.videos.length - 1) ? 'img-indent-bot1' : '')
                 figure(class='style-img-2 fleft')
                   a(href='#')
-                  a(class='lightbox-image', href=videos[v].link, data-gal='prettyVideo[prettyVideo]')
-                    img(src=videos[v].thumb, alt='')
+                  a(class='lightbox-image', href=v.link, data-gal='prettyVideo[prettyVideo]')
+                    img(src=v.thumb, alt='')
         article(class='grid_4 alpha')
           .padding-grid-2
             h3(class='letter prev-indent-bot1') Shortly <strong>About</strong>
             h6
-              = article.title
-            = article.text
+              = artist.article.title
+            = artist.article.text
 
