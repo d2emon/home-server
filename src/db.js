@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var config = require('config');
 
-mongoose.connect(config.get('mongoose:uri'), config.get('mongoose:options'));
+console.log(config.get('mongo:uri'))
+mongoose.connect(config.get('mongo:uri'), config.get('mongo:options'));
 
 module.exports = mongoose;
