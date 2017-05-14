@@ -9,6 +9,11 @@ router.get('/', function(req, res) {
 router.get('/index.:format?', function(req, res) {
   res.render('index', { 
     title: 'About',
+    slides: [
+      "/images/slider/img1.jpg",
+      "/images/slider/img2.jpg",
+      "/images/slider/img3.jpg"
+    ],
     news: [
       {
         time: "2011-11-09",

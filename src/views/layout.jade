@@ -7,10 +7,11 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css', type='text/css', media='screen')
     link(rel='stylesheet', href='/stylesheets/grid.css', type='text/css', media='screen')
     script(type='text/javascript', src='/javascripts/jquery-1.6.3.min.js')
-    script(type='text/javascript', src='/javascripts/cufon-yui.js')
-    script(type='text/javascript', src='/javascripts/cufon-replace.js')
-    script(type='text/javascript', src='/javascripts/Vegur_700.font.js')
-    script(type='text/javascript', src='/javascripts/Vegur_400.font.js')
+    // script(type='text/javascript', src='/bower/Cufon/cufon.js')
+    script(type='text/javascript', src='/javascripts/fonts/cufon-yui.js')
+    script(type='text/javascript', src='/javascripts/fonts/cufon-replace.js')
+    script(type='text/javascript', src='/javascripts/fonts/Vegur_700.font.js')
+    script(type='text/javascript', src='/javascripts/fonts/Vegur_400.font.js')
     script(type='text/javascript', src='/javascripts/FF-cash.js')
     script(type='text/javascript', src='/javascripts/script.js')
     script(type='text/javascript', src='/javascripts/easyTooltip.js')
@@ -68,15 +69,13 @@ html
                         a(class=(title === 'Contacts') ? 'active' : '', href='contacts.html') Contacts
                     .clear
                   .clear
-          .slider-wrapper
-            .slider
-              ul(class='items')
-                li
-                  img(src='/images/slider/img1.jpg', alt='')
-                li
-                  img(src='/images/slider/img2.jpg', alt='')
-                li
-                  img(src='/images/slider/img3.jpg', alt='')
+          - if (slides)
+            .slider-wrapper
+              .slider
+                ul(class='items')
+                  - for (var s in slides)
+                    li
+                      img(src=slides[s], alt='')
 
       block content
     footer
