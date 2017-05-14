@@ -7,15 +7,15 @@ block content
         .grid_12
           .padding-grid-1
             h3.letter Our <strong>Music Videos</strong>
-          - for (var i in videos)
-            div.wrapper(class= (i < videos.length - 1) ? "indent-bot1" : "")
-              - for (var v in videos[i])
+          - for (var i=0; i<videos.length - 1; i+=3)
+            div.wrapper(class= (i === 0) ? "indent-bot1" : "")
+              each v, id in videos.slice(i, i+3)
                 article(class='grid_4 alpha')
-                  div(class=(v === 2) ? 'padding-grid-3' : 'padding-grid-2')
+                  div(class=(id === 1) ? 'padding-grid-3' : 'padding-grid-2')
                     div(class="wrapper p2")
                       figure(class='style-img-2 fleft')
-                        a(class='lightbox-image', href='/video/video_AS3.swf?width=495&amp;height=275&amp;fileVideo=intro06.flv', data-gal='prettyVideo[prettyVideo]')
-                          img(src=videos[i][v].thumb, alt='')
+                        a(class='lightbox-image', href=v.link, data-gal='prettyVideo[prettyVideo]')
+                          img(src=v ? v.thumb : '', alt='')
                     p.prev-indent-bot2 
-                      = videos[i][v].title
-                    a.link-2(class=videos[i][v].link, href='#')
+                      = v ? v.title : ''
+                    a.link-2(class=links[v.rate], href='#')

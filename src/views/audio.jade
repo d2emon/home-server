@@ -7,27 +7,27 @@ block content
         .grid_12
           .padding-grid-1
             h3.letter Our <strong>Discography</strong>
-          - for (var a in albums)
+          each a, id in albums
             div(class='wrapper p3')
               article(class='grid_4 alpha')
                 .padding-grid-2
                   .wrapper
                     figure(class='style-img-2 fleft')
                       a(href='#')
-                        img(src=albums[a].image, alt='')
+                        img(src=a.thumb, alt='')
               article(class='grid_8 alpha')
                 .padding-grid-2
                   h4(class='margin-none indent-top1')
-                    strong #{albums[a].year}. #{albums[a].title}
+                    strong #{(a.date) ? a.date.getFullYear() : ""}. #{a.title}
                   p.prev-indent-bot
-                    = albums[a].description
+                    = a.description
                   .wrapper
                     ul(class='list-1 fleft')
-                      - for (var t in albums[a].tracks)
+                      each t, id in a.tracks
                         li
-                          a(href='#') #{albums[a].tracks[t].id}. #{albums[a].tracks[t].title}
+                          a(href='#') #{t.trackno}. #{t.title}
                     ul(class='list-2 fright')
-                      - for (var t in albums[a].tracks)
+                      each t, id in a.tracks
                         li
                           span
                             a(class='left-list', href='#')

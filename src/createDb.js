@@ -5,6 +5,7 @@ var Tour = require('models/tour').Tour;
 var Album = require('models/album').Album;
 var Video = require('models/video').Video;
 var Event = require('models/event').Event;
+var Track = require('models/track').Track;
 
 var news = [
   new News({
@@ -79,10 +80,6 @@ var tours = [
 
 var videos = [
   new Video({
-    link: "/video/video_AS3.swf?width=495&amp;height=275&amp;fileVideo=intro06.flv",
-    thumb: "/images/page1-img2.jpg"
-  }),
-  new Video({
     title: "Temporibus autem quibusdam",
     link: "/video/video_AS3.swf?width=495&amp;height=275&amp;fileVideo=intro06.flv",
     thumb: "/images/videos/page3-img1.jpg",
@@ -120,10 +117,75 @@ var videos = [
   })
 ];
 
+var tracks = [
+  new Track({
+    trackno: 1,
+    title: "Duis aute irure dolor"
+  }),
+  new Track({
+    trackno: 2,
+    title: "In reprehenderit in voluptate"
+  }),
+  new Track({
+    trackno: 3,
+    title: "Velit esse cillum dolore"
+  }),
+  new Track({
+    trackno: 4,
+    title: "Eu fugiat nulla pariatur"
+  }),
+  new Track({
+    trackno: 5,
+    title: "Excepteur sint occaecat"
+  }),
+  new Track({
+    trackno: 6,
+    title: "Cupidatat non"
+  }),
+  new Track({
+    trackno: 7,
+    title: "Proident sunt in"
+  }),
+  new Track({
+    trackno: 8,
+    title: "Culpa qui officia deserunt mollit"
+  }),
+  new Track({
+    trackno: 9,
+    title: "Anim id est laborum"
+  }),
+  new Track({
+    trackno: 10,
+    title: "At vero eos et accusamus"
+  }),
+  new Track({
+    trackno: 11,
+    title: "Et iusto odio dignissimos"
+  })
+];
+
 var albums = [
   new Album({
-    thumb: "/images/page1-img1.jpg"
-  })
+    title: "Genres Remixes",
+    date: new Date(2011, 0, 1),
+    thumb: "/images/albums/page2-img1.jpg",
+    description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    tracks: tracks
+  }), 
+  new Album({
+    title: "Genres",
+    date: new Date(2010, 0, 1),
+    thumb: "/images/albums/page2-img2.jpg",
+    description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    tracks: tracks.slice(1, 10)
+  }), 
+  new Album({
+    title: "Rock & Roll",
+    date: new Date(2010, 0, 1),
+    thumb: "/images/albums/page2-img3.jpg",
+    description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    tracks: tracks
+  }), 
 ];
 
 var artist = Artist({

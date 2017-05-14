@@ -36,204 +36,29 @@ router.get('/index.:format?', function(req, res) {
 });
 
 router.get('/audio.:format?', function(req, res) {
-  res.render('audio', {
-    title: 'Audio',
-    albums: [
-      {
-        title: "Genres Remixes",
-	image: "/images/albums/page2-img1.jpg",
-	year: "2011",
-	description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-	tracks: [
-	  {
-            id: "01",
-	    title: "Duis aute irure dolor"
-	  },
-	  {
-            id: "02",
-	    title: "In reprehenderit in voluptate"
-	  },
-	  {
-            id: "03",
-	    title: "Velit esse cillum dolore"
-	  },
-	  {
-            id: "04",
-	    title: "Eu fugiat nulla pariatur"
-	  },
-	  {
-            id: "05",
-	    title: "Excepteur sint occaecat"
-	  },
-	  {
-            id: "06",
-	    title: "Cupidatat non"
-	  },
-	  {
-            id: "07",
-	    title: "Proident sunt in"
-	  },
-	  {
-            id: "08",
-	    title: "Culpa qui officia deserunt mollit"
-	  },
-	  {
-            id: "09",
-	    title: "Anim id est laborum"
-	  },
-	  {
-            id: "10",
-	    title: "At vero eos et accusamus"
-	  },
-	  {
-            id: "11",
-	    title: "Et iusto odio dignissimos"
-	  }
-	]
-      },
-      {
-        title: "Genres",
-	image: "/images/albums/page2-img2.jpg",
-	year: "2010",
-	description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-	tracks: [
-	  {
-            id: "01",
-	    title: "Duis aute irure dolor"
-	  },
-	  {
-            id: "02",
-	    title: "In reprehenderit in voluptate"
-	  },
-	  {
-            id: "03",
-	    title: "Velit esse cillum dolore"
-	  },
-	  {
-            id: "04",
-	    title: "Eu fugiat nulla pariatur"
-	  },
-	  {
-            id: "05",
-	    title: "Excepteur sint occaecat"
-	  },
-	  {
-            id: "06",
-	    title: "Cupidatat non"
-	  },
-	  {
-            id: "07",
-	    title: "Proident sunt in"
-	  },
-	  {
-            id: "08",
-	    title: "Culpa qui officia deserunt mollit"
-	  },
-	  {
-            id: "09",
-	    title: "Anim id est laborum"
-	  },
-	  {
-            id: "10",
-	    title: "At vero eos et accusamus"
-	  }
-	]
-      },
-      {
-        title: "Rock & Roll",
-	image: "/images/albums/page2-img3.jpg",
-	year: "2010",
-	description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-	tracks: [
-	  {
-            id: "01",
-	    title: "Duis aute irure dolor"
-	  },
-	  {
-            id: "02",
-	    title: "In reprehenderit in voluptate"
-	  },
-	  {
-            id: "03",
-	    title: "Velit esse cillum dolore"
-	  },
-	  {
-            id: "04",
-	    title: "Eu fugiat nulla pariatur"
-	  },
-	  {
-            id: "05",
-	    title: "Excepteur sint occaecat"
-	  },
-	  {
-            id: "06",
-	    title: "Cupidatat non"
-	  },
-	  {
-            id: "07",
-	    title: "Proident sunt in"
-	  },
-	  {
-            id: "08",
-	    title: "Culpa qui officia deserunt mollit"
-	  },
-	  {
-            id: "09",
-	    title: "Anim id est laborum"
-	  },
-	  {
-            id: "10",
-	    title: "At vero eos et accusamus"
-	  },
-	  {
-            id: "11",
-	    title: "Et iusto odio dignissimos"
-	  }
-	]
-      }
-    ]
+  Artist.findOne({}, function(err, artist) {
+    if (err) throw err;
+
+    res.render('audio', {
+      title: 'Audio',
+      albums: artist.albums
+    });
   });
 });
 
 router.get('/video.:format?', function(req, res) {
-  res.render('video', { 
-    title: 'Video',
-    videos: [
-      [
-        {
-          title: "Temporibus autem quibusdam",
-          thumb: "/images/videos/page3-img1.jpg",
-          link: ""
-        },
-        {
-          title: "Temporibus autem quibusdam",
-	  thumb: "/images/videos/page3-img2.jpg",
-          link: "link_style_1"
-        },
-        {
-          title: "Temporibus autem quibusdam",
-	  thumb: "/images/videos/page3-img3.jpg",
-          link: "link_style_2"
-        }
-      ],
-      [
-        {
-          title: "Temporibus autem quibusdam",
-          thumb: "/images/videos/page3-img4.jpg",
-          link: ""
-        },
-        {
-          title: "Temporibus autem quibusdam",
-	  thumb: "/images/videos/page3-img5.jpg",
-          link: "link_style_1"
-        },
-        {
-          title: "Temporibus autem quibusdam",
-	  thumb: "/images/videos/page3-img6.jpg",
-          link: "link_style_2"
-        }
+  Artist.findOne({}, function(err, artist) {
+    if (err) throw err;
+
+    res.render('video', {
+      title: 'Video',
+      videos: artist.videos,
+      links: [
+        '',
+	'link-style1',
+	'link-style2',
       ]
-    ]
+    });
   });
 });
 
