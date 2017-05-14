@@ -321,7 +321,76 @@ router.get('/gallery.:format?', function(req, res) {
 
 router.get('/tour-dates.:format?', function(req, res) {
   res.render('tours', { 
-    title: 'Tour Dates'
+    title: 'Tour Dates',
+    tours: [
+      {
+        time: "2011-11-09",
+	day: "09",
+	month: "nov",
+	city: "New York",
+        text: "Lorem ipsum dolor consctetur",
+	tickets: " http://demolink.org/Okedo",
+	phone: "+1 959 603 6035"
+      },
+      {
+        time: "2011-11-05",
+	day: "05",
+	month: "nov",
+	city: "Los Angeles",
+        text: "Adipisicing elitdo esmod tempor",
+	tickets: " http://demolink.org/Okedo",
+	phone: "+1 959 603 6035"
+      },
+      {
+        time: "2011-11-01",
+	day: "01",
+	month: "nov",
+	city: "San Diego",
+        text: "Lorem ipsum dolor consctetur",
+	tickets: " http://demolink.org/Okedo",
+	phone: "+1 959 603 6035"
+      },
+      {
+        time: "2011-10-31",
+	day: "31",
+	month: "oct",
+	city: "San Francisco",
+        text: "Lorem ipsum dolor consctetur",
+	tickets: " http://demolink.org/Okedo",
+	phone: "+1 959 603 6035"
+      },
+      {
+        time: "2011-10-29",
+	day: "29",
+	month: "oct",
+	city: "Washington",
+        text: "Adipisicing elitdo esmod tempor",
+	tickets: " http://demolink.org/Okedo",
+	phone: "+1 959 603 6035"
+      },
+      {
+        time: "2011-10-24",
+	day: "24",
+	month: "oct",
+	city: "Las Vegas",
+        text: "Lorem ipsum dolor consctetur",
+	tickets: " http://demolink.org/Okedo",
+	phone: "+1 959 603 6035"
+      }
+    ],
+    past: [
+      "Lorem ipsum dolor consctetur",
+      "Adipisicing eusmod tempor incididunt",
+      "Dolore magna aliqua enim ad minim",
+      "Quis nostrud exercitation ullamco laboris",
+      "Nisi ut aliquip ex ea commodo",
+      "Duis aute irure dolor in reprehenderit",
+      "Coluptate velit esse cillum",
+      "Dolore eu fugiat nulla pariatur",
+      "Excepteur sint occaecat cupidatat",
+      "Sunt in culpa qui officia",
+      "Deserunt mollit anim id est laborum"
+    ]
   });
 });
 
