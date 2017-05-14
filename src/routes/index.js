@@ -289,7 +289,33 @@ router.get('/video.:format?', function(req, res) {
 
 router.get('/gallery.:format?', function(req, res) {
   res.render('gallery', { 
-    title: 'Gallery'
+    title: 'Gallery',
+    images: [
+      {
+        href: "/images/images/page4-img1.jpg",
+	thumb: "/images/images/thumb-1.jpg"
+      },
+      {
+        href: "/images/images/page4-img2.jpg",
+	thumb: "/images/images/thumb-2.jpg"
+      },
+      {
+        href: "/images/images/page4-img3.jpg",
+	thumb: "/images/images/thumb-3.jpg"
+      },
+      {
+        href: "/images/images/page4-img2.jpg",
+	thumb: "/images/images/thumb-2.jpg"
+      },
+      {
+        href: "/images/images/page4-img3.jpg",
+	thumb: "/images/images/thumb-3.jpg"
+      },
+      {
+        href: "/images/images/page4-img1.jpg",
+	thumb: "/images/images/thumb-1.jpg"
+      }
+    ]
   });
 });
 
