@@ -247,7 +247,43 @@ router.get('/audio.:format?', function(req, res) {
 
 router.get('/video.:format?', function(req, res) {
   res.render('video', { 
-    title: 'Video'
+    title: 'Video',
+    videos: [
+      [
+        {
+          title: "Temporibus autem quibusdam",
+          thumb: "/images/videos/page3-img1.jpg",
+          link: ""
+        },
+        {
+          title: "Temporibus autem quibusdam",
+	  thumb: "/images/videos/page3-img2.jpg",
+          link: "link_style_1"
+        },
+        {
+          title: "Temporibus autem quibusdam",
+	  thumb: "/images/videos/page3-img3.jpg",
+          link: "link_style_2"
+        }
+      ],
+      [
+        {
+          title: "Temporibus autem quibusdam",
+          thumb: "/images/videos/page3-img4.jpg",
+          link: ""
+        },
+        {
+          title: "Temporibus autem quibusdam",
+	  thumb: "/images/videos/page3-img5.jpg",
+          link: "link_style_1"
+        },
+        {
+          title: "Temporibus autem quibusdam",
+	  thumb: "/images/videos/page3-img6.jpg",
+          link: "link_style_2"
+        }
+      ]
+    ]
   });
 });
 
