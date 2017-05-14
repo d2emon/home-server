@@ -19,6 +19,8 @@ html
     script(type='text/javascript', src='/javascripts/hover-image.js')
     script(type='text/javascript', src='/javascripts/jquery.prettyPhoto.js')
     script(type='text/javascript', src='/javascripts/jquery.easing.1.3.js')
+    script(type='text/javascript', src='/javascripts/jquery.galleriffic.js')
+    script(type='text/javascript', src='/javascripts/jquery.opacityrollover.js')
     script(type='text/javascript', src='/javascripts/tms-0.3.js')
     script(type='text/javascript', src='/javascripts/tms_presets.js')
     script(type='text/javascript')
@@ -34,6 +36,65 @@ html
       | 		pauseOnHover:true
       | 	});
       | 	$("a[data-gal^='prettyVideo']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      | });
+    script(type='text/javascript')
+      | $(window).load(function(){
+      |   $("a[data-gal^='prettyVideo']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_1']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_2']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_3']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_4']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_5']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      | }); 
+    script(type='text/javascript')
+      | $(document).ready(function() {
+      | 	$('div.navigation').css({'width' : '920px', 'float' : 'left'});
+      | 	$('div.content').css('display', 'block');
+      | 	// Initially set opacity on thumbs and add
+      | 	// additional styling for hover effect on thumbs
+      | 	var onMouseOutOpacity = 1;
+      | 	$('#thumbs ul.thumbs li a').opacityrollover({
+      | 		mouseOutOpacity:   onMouseOutOpacity,
+      | 		mouseOverOpacity:  0.6,
+      | 		fadeSpeed:		'fast',
+      | 		exemptionSelector: '.selected'
+      | 	});
+      | 	// Initialize Advanced Galleriffic Gallery
+      | 	var gallery = $('#thumbs').galleriffic({
+      | 		delay:					30000,
+      | 		numThumbs:				6,
+      | 		preloadAhead:			6,
+      | 		enableTopPager:			false,
+      | 		enableBottomPager:		false,
+      | 		imageContainerSel:		'#slideshow',
+      | 		controlsContainerSel:	'#controls',
+      | 		captionContainerSel:	'#caption',
+      | 		loadingContainerSel:	'',
+      | 		renderSSControls:		true,
+      | 		renderNavControls:		true,
+      | 		playLinkText:			'',
+      | 		pauseLinkText:			'P',
+      | 		prevLinkText:			'Prev',
+      | 		nextLinkText:			'Next',
+      | 		nextPageLinkText:		'',
+      | 		prevPageLinkText:		'',
+      | 		enableHistory:			false,
+      | 		autoStart:				7000,
+      | 		syncTransitions:		true,
+      | 		defaultTransitionDuration: 900,
+      | 		onSlideChange:			function(prevIndex, nextIndex) {
+      | 			// 'this' refers to the gallery, which is an extension of $('#thumbs')
+      | 			this.find('ul.thumbs li').children()
+      | 				.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+      | 				.eq(nextIndex).fadeTo('fast', 0.6);
+      | 		},
+      | 		onPageTransitionOut:	function(callback) {
+      | 			this.fadeTo('fast', 0.0, callback);
+      | 		},
+      | 		onPageTransitionIn:		function() {
+      | 			this.fadeTo('fast', 1.0);
+      | 		}
+      | 	});
       | });
     //if lt IE 7
       div(style=' clear: both; text-align:center; position: relative;')
