@@ -76,7 +76,40 @@ var tours = [
     text: "Lorem ipsum dolor consctetur",
     tickets: "http://demolink.org/Okedo",
     phone: "+1 959 603 6035"
-  })
+  }),
+  new Tour({
+    text: "Lorem ipsum dolor consctetur",
+  }),
+  new Tour({
+    text: "Adipisicing eusmod tempor incididunt",
+  }),
+  new Tour({
+    text: "Dolore magna aliqua enim ad minim",
+  }),
+  new Tour({
+    text: "Quis nostrud exercitation ullamco laboris",
+  }),
+  new Tour({
+    text: "Nisi ut aliquip ex ea commodo",
+  }),
+  new Tour({
+    text: "Duis aute irure dolor in reprehenderit",
+  }),
+  new Tour({
+    text: "Coluptate velit esse cillum",
+  }),
+  new Tour({
+    text: "Dolore eu fugiat nulla pariatur",
+  }),
+  new Tour({
+    text: "Excepteur sint occaecat cupidatat",
+  }),
+  new Tour({
+    text: "Sunt in culpa qui officia",
+  }),
+  new Tour({
+    text: "Deserunt mollit anim id est laborum"
+  }),
 ];
 
 var images = [
@@ -268,12 +301,12 @@ Artist.count({ title: artist.title}, function(err, c) {
   if (c > 0) {
     console.log('Artist ' + artist.title + ' exists(' + c + ').');
   } else {
+    console.log('Artist ' + artist + ' trying to save.');
     artist.save(function(err, artist, affected) {
       if (err) throw err;
 
       console.log('Artist is ' + artist + '. Saved ' + affected + ' times.');
     });
-    console.log('Artist saved');
   }
 });
 

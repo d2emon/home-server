@@ -10,35 +10,35 @@ block content
           .wrapper
             article(class='grid_4 alpha')
               .padding-grid-1
-                - for (var t in tours)
+                each t, id in tours
                   div(class='wrapper img-indent-bot2')
-                    time(class='time time-stule-2', datetime=tours[t].time)
+                    time(class='time time-stule-2', datetime=t.date.toISOString())
                       strong(class='text-3')
-                        = tours[t].day
+                        = t.moment.format('DD')
                       strong(class='text-4')
-                        = tours[t].month
+                        = t.moment.format('MMM')
                     .extra-wrap
                       h4(class='indent-top')
                         a(href='#')
-                          = tours[t].city
-                      = tours[t].text 
+                          = t.city
+                      = t.text
             article(class='grid_4 omega')
               .padding-grid-4
-                - for (var t in tours)
+                each t, id in tours
                   div(class= 'margin-bot1')
                     span(class='text-width') Tickets:
                     span(class='inline')
                       a(class='link', href='#')
-                        = tours[t].tickets
+                        = t.tickets
                     = "\n"
                     span(class='text-width') Telephone:
                     span(class='color-1 inline')
-                        = tours[t].phone
+                        = t.phone
         article(class='grid_4 alpha')
           .padding-grid-3
             h3 Past <strong>Tours</strong>
             ul(class="list-3")
-              - for (var p in past)
+              each p, id in past
                 li
                   a(href="#")
-                    = past[p]
+                    = p.text

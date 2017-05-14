@@ -8,10 +8,7 @@ var schema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  city: {
-    type: String,
-    required: true
-  },
+  city: String,
   title: String,
   tickets: String,
   phone: String,
