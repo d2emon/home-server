@@ -2,234 +2,167 @@ doctype html
 html
   head
     meta(charset="utf-8")
-    title Шаблоны сайтов
-    meta(name="description", content="")
-    meta(name="keywords", content="")
-    link(rel="stylesheet", type="text/css", href="style.css", media="all")
+    title 
+      = title
+    meta(name="description", content="#{description}")
+    meta(name="keywords", content="#{keywords}")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/cherry/style.css", media="all")
   body
-    div(class="wrapper")
-      div(class="header")
-        div(class="headerContent")
-          div(class="left")
+    .wrapper
+      .header
+        .headerContent
+          .left
             h1
-              a(href="#") Cherry
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit
-          div(class="right")
-            form(class="search")
-              input(type="text", placeholder="Search...")
-              input(type="image", src="/images/search.png", title="Search")
+              a(href="/")
+                = siteName
+            p 
+              = siteDescription
+          .right
+            form.search
+              input(type="text", placeholder="Искать...")
+              input(type="image", src="/images/cherry/search.png", title="Искать")
       .slider
         .itemSlider
           .bgSlide
-            img(src="images/bg-slide.jpg")
+            img(src="/images/cherry/bg-slide.jpg")
           .descSlide
-            h1 Eaten berry
-            p and go for a walk
-            span Duis aute irure dolor...
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    .nav
-      ul.menu
-        li
-          a(href="#") Home
-        li
-          a(href="#") Sliders
-        li
-          a(href="#") Portfolio
-        li
-          a(href="#") Styles
-        li
-          a(href="#") Blog
-        li
-          a(href="#") Cherry
-        li
-          a(href="#") Contact
-    .breadcrumbs
-      a(href="#") Home
-      | / 
-      a(href="#") Another Page
-      | / This page
-    .main
-      .leftCol
-        form
-          h2 Contact us
-          input(type="text", placeholder="Lorem ipsum")
-	  input(type="text", placeholder="Dolor sit")
-	  input(type="text", disabled="disabled", placeholder="Disabled")
-	  input(type="text", placeholder="Consectetur")
-	  select
-            option 1
-            option 2
-            option 3
-	  .row
-            h4 Radio
-            input(type="radio")
-            label Lorem ipsum dolor sit amet
-            .clear
-            input(type="radio")
-            label Duis aute irure dolor
-            .clear
-            input(type="radio")
-            label Excepteur sint occaecat
-            .clear
-          .row
-            h4 Checkbox
-            input(type="checkbox")
-	    label Duis aute irure dolor
-            .clear
-            input(type="checkbox")
-	    label Excepteur sint occaecat
-            .clear
-	  button(type="submit", class="minWidth") Lorem ipsum
-          button(type="reset", class="minWidth") Reset
-        .row
-          h2 Headline
-          p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          p
-            a(href="#") More about
-      .rightCol
-        h1 What We Do…
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href="#">voluptate velit esse cillum dolore</a> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        ul.img
-          li
-            a(href="#")
-              img(src="images/img1.png")
-          li
-            a(href="#")
-              img(src="images/img2.png")
-          li
-            a(href="#")
-              img(src="images/img3.png")
-	h1 Lists
-        .row
-          .span
-            h4 List style type circle <code>&lt;ul&gt;</code>
-            ul
-              li Lorem ipsum dolor sit amet
-              li Sed ut perspiciatis unde
-              li At vero eos et accusamus
-                ul
-                  li Lorem ipsum dolor sit amet
-                  li Sed ut perspiciatis unde
-                  li At vero eos et accusamus
-              li Lorem ipsum dolor sit amet
-	      li Sed ut perspiciatis unde
-              li At vero eos et accusamus
-          .span
-            h4 Unstyled <code>&lt;ul class="unstyled"&gt;</code>
-            ul(class="unstyled")
-              li Lorem ipsum dolor sit amet
-              li Sed ut perspiciatis unde
-              li At vero eos et accusamus
-                ul
-                  li Lorem ipsum dolor sit amet
-                  li Sed ut perspiciatis unde
-                  li At vero eos et accusamus
-              li Lorem ipsum dolor sit amet
-	      li Sed ut perspiciatis unde
-              li At vero eos et accusamus
-
-	  .span
-            h4 Ordered <code>&lt;ol&gt;</code>
-            ol
-              li Lorem ipsum dolor sit amet
-              li Sed ut perspiciatis unde
-              li At vero eos et accusamus
-              li Lorem ipsum dolor sit amet
-	      li Sed ut perspiciatis unde
-              li At vero eos et accusamus
-
-	h1 Tables
-        table
-	  thead
-            tr
-              th #
-              th Lorem
-              th Ipsum
-              th Dolor
-              th Sit
-              th Amet
-          tbody>
-            tr
-              td 1
-              td Lorem ipsum
-              td At vero eos
-              td Sed ut
-              td Dolor sit amet
-              td 
-                a(href="#") Epd.
-            tr
-              td 2
-              td Sed ut
-              td Dolor sit amet
-              td Lorem ipsum
-              td At vero eos
-              td 
-                a(href="#") Epd.
-            tr
-              td 3
-              td Lorem ipsum
-              td At vero eos
-              td Sed ut
-              td Dolor sit amet
-              td 
-                a(href="#") Epd.
-            tr
-              td 4
-              td Sed ut
-              td Dolor sit amet
-              td Lorem ipsum
-              td At vero eos
-              td 
-                a(href="#") Epd.
-            tr
-              td 5
-              td At vero eos
-              td Lorem ipsum
-              td Sed ut
-              td Dolor sit amet
-              td
-                a(href="#")
-                  Epd.
-    .footer
-      .footerContent
-        .span1
-          h1 Sed ut
-          .borderBottom
-          p Lorem ipsum dolor sit
-          ul(class="clock")
-            li Nights! Absolutely No Extra Charge
-            li Weekends! Absolutely No Extra Charge
-            li Holidays! Absolutely No Extra Charge
-          .social
-            div Мы в социальных сетях: 
-            ul
-              li
-                a(target="newtab", href="http://www.facebook.com/?sk=app_2309869772")
-                  img(src="images/facebook.png")
-              li
-                a(target="newtab", href="https://twitter.com/psdhtmlcss")
-                  img(src="images/twitter.png")
-              li
-                img(src="images/vk.png")
-        .span1
-          h1 At vero eos
-          .borderBottom
-          p Lorem ipsum dolor sit
-          ul
-            li West Hollywood (323) 221-1107
-            li Beverly Hills (310) 202-5428
-            li Pasadena (626) 296-2664
-            li West Hollywood (323) 221-1107
-            li Beverly Hills (310) 202-5428
-          p
-            strong Lorem ipsum dolor sit amet
-        .span1
-          h1 Lorem ipsum dolor
-          .borderBottom
-          p Lorem ipsum dolor sit
-          ul(class="unstyled")
-            li Hi-Tech Cherry Company
+            h1 Заголовок
+            p Какой-то текст
+            span Еще один заголовок...
+            p Тут идет очень длинный текст. Чем больше, тем лучше. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      .nav
+        ul.menu
+          each m in menu
             li
-              a(href="mailto:psdhtmlcss@mail.ru") infocherry@gmail.com
-            li 5104 W. Washington Blvd
-            li Los Angeles , CA , 90016 United States
+              a(href=m.href)
+                = m.title
+      .breadcrumbs
+        each c, id in breadcrumbs
+          if id < breadcrumbs.length - 1
+            a(href=c.href)
+              = c.title
+            |  / 
+          else
+            = c.title
+      .main
+        .leftCol
+          form
+            h2 Контакты
+            each i in form.inputs
+              input(type="text", placeholder=i)
+            input(type="text", disabled="disabled", placeholder="Disabled")
+            each i in form.inputs
+              input(type="text", placeholder=i)
+            select
+              each i in form.select
+                option
+                  = i
+            .row
+              h4 Радио-кнопки
+              each i in form.radio
+                input(type="radio")
+                label 
+                  = i
+                .clear
+            .row
+              h4 Чекбоксы
+              each i in form.check
+                input(type="checkbox")
+                label 
+                  = i
+                .clear
+            button(type="submit", class="minWidth") Подтвердить
+            button(type="reset", class="minWidth") Отменить
+          .row
+            h2
+              = sidebar.title
+            p
+              != sidebar.text
+            p
+              a(href="#") Читать далее
+        .rightCol
+          h1
+            = article.title
+          p
+            != article.text
+          ul.img
+            each i in images
+              li
+                a(href="#")
+                  img(src=i)
+          h1 Списки
+          .row
+            .span
+              h4 Со стилем <code>&lt;ul&gt;</code>
+              ul
+                each i in list
+                  li
+                    != i
+            .span
+              h4 Без стиля <code>&lt;ul class="unstyled"&gt;</code>
+              ul(class="unstyled")
+                each i in list
+                  li
+                    != i
+            .span
+              h4 Упорядоченные <code>&lt;ol&gt;</code>
+              ol
+                each i in list
+                  li
+                    != i
+          h1 Таблицы
+          table
+            thead
+              tr
+                each t in table.titles
+                  th
+                    != t
+            tbody
+              each r in table.data
+                tr
+                  each c in r
+                    td
+                      != c
+      .footer
+        .footerContent
+          .span1
+            h1 Заголовок
+            .borderBottom
+            p Какой-то текст
+            ul(class="clock")
+              li Nights! Absolutely No Extra Charge
+              li Weekends! Absolutely No Extra Charge
+              li Holidays! Absolutely No Extra Charge
+            .social
+              div Мы в социальных сетях: 
+              ul
+                li
+                  a(target="newtab", href="http://www.facebook.com/?sk=app_2309869772")
+                    img(src="/images/cherry/facebook.png")
+                li
+                  a(target="newtab", href="https://twitter.com/psdhtmlcss")
+                    img(src="/images/cherry/twitter.png")
+                li
+                  img(src="/images/cherry/vk.png")
+          .span1
+            h1 Заголовок
+            .borderBottom
+            p Какой-то текст
+            ul
+              li West Hollywood (323) 221-1107
+              li Beverly Hills (310) 202-5428
+              li Pasadena (626) 296-2664
+              li West Hollywood (323) 221-1107
+              li Beverly Hills (310) 202-5428
+            p
+              strong Еще какой-то текст
+          .span1
+            h1 Lorem ipsum dolor
+            .borderBottom
+            p Какой-то текст
+            ul(class="unstyled")
+              li Название компании
+              li
+                a(href="mailto:psdhtmlcss@mail.ru") infocherry@gmail.com
+              li 5104 W. Washington Blvd
+              li Los Angeles , CA , 90016 United States

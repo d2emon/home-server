@@ -10,90 +10,170 @@ router.get('/', function(req, res) {
 });
 
 router.get('/index.:format?', function(req, res) {
-  Artist.findOne({}, function(err, artist) {
-    if (err) throw err;
-
-    News.find({}, function(err, news) {
-      if (err) throw err;
-
-      Event.find({}, function(err, events) {
-        if (err) throw err;
-
-        res.render('index', { 
-          title: 'About',
-          slides: [
-            "/images/slider/img1.jpg",
-            "/images/slider/img2.jpg",
-            "/images/slider/img3.jpg"
-          ],
-          news: news, 
-	  artist: artist,
-          events: events,
-        });
-      });
-    });   
-  }); 
-});
-
-router.get('/audio.:format?', function(req, res) {
-  Artist.findOne({}, function(err, artist) {
-    if (err) throw err;
-
-    res.render('audio', {
-      title: 'Audio',
-      albums: artist.albums
-    });
-  });
-});
-
-router.get('/video.:format?', function(req, res) {
-  Artist.findOne({}, function(err, artist) {
-    if (err) throw err;
-
-    res.render('video', {
-      title: 'Video',
-      videos: artist.videos,
-      links: [
-        '',
-	'link-style1',
-	'link-style2',
+  res.render('cherry', { 
+    title: 'Main',
+    siteName: "Home Server",
+    siteDescription: " This is my home server",
+    menu: [
+      {
+        href: "/",
+	title: "Главная"
+      },
+      {
+        href: "#",
+	title: "Слайдеры"
+      },
+      {
+        href: "#",
+	title: "Портфолио"
+      },
+      {
+        href: "#",
+	title: "Стили"
+      },
+      {
+        href: "#",
+	title: "Блог"
+      },
+      {
+        href: "#",
+	title: "Cherry"
+      },
+      {
+        href: "#",
+	title: "Контакты"
+      }
+    ],
+    breadcrumbs: [
+      {
+        href: "/",
+	title: "Главная"
+      },
+      {
+        href: "#",
+	title: "Промежуточная"
+      },
+      {
+        href: "#",
+	title: "Текущая"
+      }
+    ],
+    form: {
+      inputs: [
+        "Первый пункт",
+        "Второй пункт",
+        "Третий пункт"
+      ],
+      select: [
+        "Первый пункт",
+        "Второй пункт",
+        "Третий пункт"
+      ],
+      radio: [
+        "Первый пункт",
+        "Второй пункт",
+        "Третий пункт"
+      ],
+      check: [
+        "Первый пункт",
+        "Второй пункт",
+        "Третий пункт"
       ]
-    });
-  });
-});
-
-router.get('/gallery.:format?', function(req, res) {
-  Artist.findOne({}, function(err, artist) {
-    if (err) throw err;
-
-    res.render('gallery', {
-      title: 'Gallery',
-      images: artist.images
-    });
-  });
-});
-
-router.get('/tour-dates.:format?', function(req, res) {
-  Artist.findOne({}, function(err, artist) {
-    if (err) throw err;
-    console.log(artist.tours);
-
-    res.render('tours', {
-      title: 'Tour Dates',
-      tours: artist.tours.slice(0, 6),
-      past: artist.tours.slice(6),
-    });
-  });
-});
-
-router.get('/contacts.:format?', function(req, res) {
-  res.render('contacts', { 
-    title: 'Contacts',
-    googleMap: "http://maps.google.com/maps?f=q&source=s_q&hl=ru&geocode=&q=Brooklyn,+New+York,+NY,+United+States&aq=0&sll=37.0625,-95.677068&sspn=61.282355,146.513672&ie=UTF8&hq=&hnear=Brooklyn,+Kings,+New+York&ll=40.649974,-73.950005&spn=0.01628,0.025663&z=14&iwloc=A&output=embed",
-    api: "AIzaSyAAf325MZjyphK8NE18drFEIBU3t91Gr8g",
-    addres: "8901 Marmora Road,<br>Glasgow, D04 89GR.",
-    phone: "+1 959 603 6035",
-    mail: "mail@demolink.org"
+    },
+    images: [
+      "/images/cherry/img1.png",
+      "/images/cherry/img2.png",
+      "/images/cherry/img3.png"
+    ],
+    table: {
+      titles: [
+        "#",
+        "Колонка",
+        "Графа",
+        "Столбец",
+        "Раздел",
+        "Ссылка",
+      ],
+      data: [
+        [
+	  1,
+          "Lorem ipsum",
+          "At vero eos",
+          "Sed",
+          "Dolor sit amet",
+          "<a href=\"#\">Epd.</a>"
+	],
+        [
+	  2,
+          "Lorem ipsum",
+          "At vero eos",
+          "Sed",
+          "Dolor sit amet",
+          "<a href=\"#\">Epd.</a>"
+	],
+        [
+	  3,
+          "Lorem ipsum",
+          "At vero eos",
+          "Sed",
+          "Dolor sit amet",
+          "<a href=\"#\">Epd.</a>"
+	],
+        [
+	  4,
+          "Lorem ipsum",
+          "At vero eos",
+          "Sed",
+          "Dolor sit amet",
+          "<a href=\"#\">Epd.</a>"
+	],
+        [
+	  5,
+          "Lorem ipsum",
+          "At vero eos",
+          "Sed",
+          "Dolor sit amet",
+          "<a href=\"#\">Epd.</a>"
+	],
+      ],
+    },
+    list: [
+      "Lorem ipsum dolor sit amet",
+      "Sed ut perspiciatis unde",
+      "At vero eos et accusamus"
+        + "<ul>"
+        + "<li>Lorem ipsum dolor sit amet</li>"
+        + "<li>Sed ut perspiciatis unde</li>"
+	+ "<li>At vero eos et accusamus</li>"
+        + "</ul>",
+      "Lorem ipsum dolor sit amet",
+      "Sed ut perspiciatis unde",
+      "At vero eos et accusamus"
+    ],
+    sidebar: {
+      title: "Заголовок",
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed "
+        + "do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
+        + "enim ad minim veniam, quis nostrud exercitation ullamco laboris "
+        + "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in "
+        + "reprehenderit in "
+	+ "<a href=\"#\">voluptate velit esse cillum dolore</a> "
+        + "eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non "
+        + "proident, sunt in culpa qui officia deserunt mollit anim id est "
+        + "laborum."
+    },
+    article: {
+      title: "Заголовок…",
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed "
+        + "do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
+        + "enim ad minim veniam, quis nostrud exercitation ullamco laboris "
+        + "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in "
+        + "reprehenderit in "
+	+ "<a href=\"#\">voluptate velit esse cillum dolore</a> "
+        + "eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non "
+        + "proident, sunt in culpa qui officia deserunt mollit anim id est "
+        + "laborum."
+    }
   });
 });
 

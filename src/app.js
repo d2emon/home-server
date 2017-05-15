@@ -12,6 +12,7 @@ log.info(config.get('port'));
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var rock = require('./routes/rock');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(express.static(publicPath));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/rock', rock);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
