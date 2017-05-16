@@ -1,0 +1,39 @@
+/*Lists*/
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+
+  li, ol li {
+    line-height: 22px;
+  }
+
+  li ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  &.unstyled {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &.unstyled ul li {
+    list-style-type: disc;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: 25px;
+}
+
+code {
+  padding: 1px 3px;
+  background-color: #dedede;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  font-weight: normal;
+  font-size: 11px;
+}

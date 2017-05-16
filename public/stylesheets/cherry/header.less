@@ -1,0 +1,83 @@
+@head-bg: #2f3441;
+@head-link: #a5adb8;
+@search-bg: #24272d;
+@search-text: #a5adb8;
+@search-border: #875f66;
+@search-focus-border: #a5adb8;
+@search-placeholder: #5b636e;
+
+/*Header*/
+.header {
+  width: 100%;
+  height: 72px;
+  background: @head-bg url("/images/cherry/bg-header.png") repeat-x;
+  
+  .headerContent {
+    width: 960px;
+    padding: 20px 10px 0;
+    height: 52px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 30px;
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 24px;
+
+      a {
+        text-decoration: none;
+        color: @head-link;
+      }
+    }
+
+    p {
+      margin: 0;
+      line-height: 18px;
+    }
+  }
+}
+
+form.search {
+  display: inline-block;
+  float: right;
+
+  & > input[type=text] {
+    width: 205px;
+    height: 22px;
+    padding: 5px;
+    color: @search-text;
+    background-color: @search-bg;
+    border: 1px solid @search-border;
+    font-size: 14px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+    margin: 0 5px 0 0;
+    box-shadow: inset 0 5px 5px rgba(0,0,0, 0.3);
+    -webkit-box-shadow: inset 0 5px 5px rgba(0,0,0, 0.3);
+    -moz-box-shadow: inset 0 5px 5px rgba(0,0,0, 0.3);
+  }
+
+  & > input[type=image] {
+    width: 36px;
+    height: 34px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+
+  & > input:-moz-placeholder {
+    color: i@search-placeholder;
+  }
+
+  & > input::-webkit-input-placeholder {
+    color: i@search-placeholder;
+  }	
+
+  & > input[type=text]:focus {
+    border: 1px solid @search-focus-border;
+  }
+}
