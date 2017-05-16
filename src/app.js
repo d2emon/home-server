@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var config = require('config');
 var log = require('winston');
 var mongoose = require('mongoose');
+var menu = require('menu');
 
 log.info(config.get('port'));
 
@@ -39,6 +40,9 @@ app.locals.companyAdress = [
   "30, ул. Бетховена",
   "г. Луганск, ЛНР"
 ];
+app.locals.menu = menu;
+
+console.log(menu);
 
 app.use('/', routes);
 app.use('/users', users);

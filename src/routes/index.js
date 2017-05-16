@@ -13,36 +13,6 @@ router.get('/index.:format?', function(req, res) {
   console.log(res.app.locals);
   res.render('cherry', { 
     title: 'Main',
-    menu: [
-      {
-        href: "/",
-	title: "Главная"
-      },
-      {
-        href: "#",
-	title: "Слайдеры"
-      },
-      {
-        href: "#",
-	title: "Портфолио"
-      },
-      {
-        href: "#",
-	title: "Стили"
-      },
-      {
-        href: "#",
-	title: "Блог"
-      },
-      {
-        href: "#",
-	title: "Cherry"
-      },
-      {
-        href: "#",
-	title: "Контакты"
-      }
-    ],
     breadcrumbs: [
       {
         href: "/",
