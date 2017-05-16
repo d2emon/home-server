@@ -10,16 +10,9 @@ router.get('/', function(req, res) {
 });
 
 router.get('/index.:format?', function(req, res) {
+  console.log(res.app.locals);
   res.render('cherry', { 
     title: 'Main',
-    siteName: "Home Server",
-    siteDescription: " This is my home server",
-    companyName: "Dmitry Kutsenko",
-    companyEmail: "d2emonium@gmail.com",
-    companyAdress: [
-      "30, ул. Бетховена",
-      "г. Луганск, ЛНР"
-    ],
     menu: [
       {
         href: "/",

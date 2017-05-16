@@ -31,6 +31,15 @@ log.info(publicPath);
 app.use(require('less-middleware')({ src: publicPath }));
 app.use(express.static(publicPath));
 
+app.locals.siteName = "Home Server";
+app.locals.siteDescription = " This is my home server";
+app.locals.companyName = "Dmitry Kutsenko";
+app.locals.companyEmail = "d2emonium@gmail.com";
+app.locals.companyAdress = [
+  "30, ул. Бетховена",
+  "г. Луганск, ЛНР"
+];
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/rock', rock);
