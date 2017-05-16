@@ -14,6 +14,12 @@ router.get('/index.:format?', function(req, res) {
     title: 'Main',
     siteName: "Home Server",
     siteDescription: " This is my home server",
+    companyName: "Dmitry Kutsenko",
+    companyEmail: "d2emonium@gmail.com",
+    companyAdress: [
+      "30, ул. Бетховена",
+      "г. Луганск, ЛНР"
+    ],
     menu: [
       {
         href: "/",
@@ -149,6 +155,47 @@ router.get('/index.:format?', function(req, res) {
       "Lorem ipsum dolor sit amet",
       "Sed ut perspiciatis unde",
       "At vero eos et accusamus"
+    ],
+    'footer': [
+      {
+        title: "Заголовок",
+        text: "Какой-то текст",
+        list: [
+          "Nights! Absolutely No Extra Charge",
+          "Weekends! Absolutely No Extra Charge",
+          "Holidays! Absolutely No Extra Charge"
+        ]
+      },
+      {
+        title: "Заголовок",
+        text: "Какой-то текст",
+        ending: "Еще какой-то текст"
+      },
+      {
+        title: "Заголовок",
+        text: "Какой-то текст"
+      }
+    ],
+    phones: [
+      "West Hollywood (323) 221-1107",
+      "Beverly Hills (310) 202-5428",
+      "Pasadena (626) 296-2664",
+      "West Hollywood (323) 221-1107",
+      "Beverly Hills (310) 202-5428"
+    ],
+    social: [
+      {
+        image: "/images/cherry/facebook.png",
+        link: "http://www.facebook.com/?sk=app_2309869772"
+      },
+      {
+        image: "/images/cherry/twitter.png",
+        link: "https://twitter.com/psdhtmlcss"
+      },
+      {
+        image: "/images/cherry/vk.png",
+        link: "http://vk.com/"
+      }
     ],
     sidebar: {
       title: "Заголовок",

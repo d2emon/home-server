@@ -126,43 +126,47 @@ html
       .footer
         .footerContent
           .span1
-            h1 Заголовок
+            h1 
+              = footer[0].title
             .borderBottom
-            p Какой-то текст
+            p 
+              = footer[0].text
             ul(class="clock")
-              li Nights! Absolutely No Extra Charge
-              li Weekends! Absolutely No Extra Charge
-              li Holidays! Absolutely No Extra Charge
+              each i in footer[0].list
+                li
+                  = i
             .social
               div Мы в социальных сетях: 
               ul
-                li
-                  a(target="newtab", href="http://www.facebook.com/?sk=app_2309869772")
-                    img(src="/images/cherry/facebook.png")
-                li
-                  a(target="newtab", href="https://twitter.com/psdhtmlcss")
-                    img(src="/images/cherry/twitter.png")
-                li
-                  img(src="/images/cherry/vk.png")
+                each i in social
+                  li
+                    a(target="newtab", href=i.link)
+                      img(src=i.image)
           .span1
-            h1 Заголовок
+            h1 
+              = footer[1].title
             .borderBottom
-            p Какой-то текст
+            p 
+              = footer[1].text
             ul
-              li West Hollywood (323) 221-1107
-              li Beverly Hills (310) 202-5428
-              li Pasadena (626) 296-2664
-              li West Hollywood (323) 221-1107
-              li Beverly Hills (310) 202-5428
+              each p in phones
+                li
+                  = p
             p
-              strong Еще какой-то текст
+              strong
+                = footer[1].ending
           .span1
-            h1 Lorem ipsum dolor
+            h1 
+              = footer[2].title
             .borderBottom
-            p Какой-то текст
+            p 
+              = footer[2].text
             ul(class="unstyled")
-              li Название компании
               li
-                a(href="mailto:psdhtmlcss@mail.ru") infocherry@gmail.com
-              li 5104 W. Washington Blvd
-              li Los Angeles , CA , 90016 United States
+                = companyName
+              li
+                a(href="mailto:" + companyEmail)
+                  = companyEmail
+              each a in companyAdress
+                li
+                  = a
