@@ -5,19 +5,19 @@ menu = [
   },
   {
     href: "#",
-    title: "Слайдеры"
+    title: "Книги"
+  },
+  {
+     href: "/games/index.html",
+     title: "Игры"
   },
   {
      href: "#",
-     title: "Портфолио"
+     title: "Музыка"
   },
   {
      href: "#",
-     title: "Стили"
-  },
-  {
-     href: "#",
-     title: "Блог"
+     title: "Кино"
   },
   {
      href: "#",

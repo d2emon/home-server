@@ -1,0 +1,166 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="utf-8")
+    link(rel='stylesheet', href='/stylesheets/rock/reset.css', type='text/css', media='screen')
+    link(rel='stylesheet', href='/stylesheets/rock/style.css', type='text/css', media='screen')
+    link(rel='stylesheet', href='/stylesheets/rock/grid.css', type='text/css', media='screen')
+    script(type='text/javascript', src='/javascripts/jquery-1.6.3.min.js')
+    // script(type='text/javascript', src='/bower/Cufon/cufon.js')
+    script(type='text/javascript', src='/javascripts/fonts/cufon-yui.js')
+    script(type='text/javascript', src='/javascripts/fonts/cufon-replace.js')
+    script(type='text/javascript', src='/javascripts/fonts/Vegur_700.font.js')
+    script(type='text/javascript', src='/javascripts/fonts/Vegur_400.font.js')
+    script(type='text/javascript', src='/javascripts/FF-cash.js')
+    script(type='text/javascript', src='/javascripts/script.js')
+    script(type='text/javascript', src='/javascripts/easyTooltip.js')
+    script(type='text/javascript', src='/javascripts/jquery.easing.1.3.js')
+    script(type='text/javascript', src='/javascripts/hover-image.js')
+    script(type='text/javascript', src='/javascripts/jquery.prettyPhoto.js')
+    script(type='text/javascript', src='/javascripts/jquery.easing.1.3.js')
+    script(type='text/javascript', src='/javascripts/jquery.galleriffic.js')
+    script(type='text/javascript', src='/javascripts/jquery.opacityrollover.js')
+    script(type='text/javascript', src='/javascripts/tms-0.3.js')
+    script(type='text/javascript', src='/javascripts/tms_presets.js')
+    script(type='text/javascript')
+      | $(window).load(function(){
+      | 	$('.slider')._TMS({
+      | 		duration:800,
+      | 		easing:'easeOutQuad',
+      | 		preset:'diagonalFade',
+      | 		pagination:false,
+      | 		slideshow:6000,
+      | 		banners:false,
+      | 		waitBannerAnimation:false,
+      | 		pauseOnHover:true
+      | 	});
+      | 	$("a[data-gal^='prettyVideo']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      | });
+    script(type='text/javascript')
+      | $(window).load(function(){
+      |   $("a[data-gal^='prettyVideo']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_1']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_2']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_3']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_4']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      |   $("a[data-gal^='prettyVideo_5']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
+      | }); 
+    script(type='text/javascript')
+      | $(document).ready(function() {
+      | 	$('div.navigation').css({'width' : '920px', 'float' : 'left'});
+      | 	$('div.content').css('display', 'block');
+      | 	// Initially set opacity on thumbs and add
+      | 	// additional styling for hover effect on thumbs
+      | 	var onMouseOutOpacity = 1;
+      | 	$('#thumbs ul.thumbs li a').opacityrollover({
+      | 		mouseOutOpacity:   onMouseOutOpacity,
+      | 		mouseOverOpacity:  0.6,
+      | 		fadeSpeed:		'fast',
+      | 		exemptionSelector: '.selected'
+      | 	});
+      | 	// Initialize Advanced Galleriffic Gallery
+      | 	var gallery = $('#thumbs').galleriffic({
+      | 		delay:					30000,
+      | 		numThumbs:				6,
+      | 		preloadAhead:			6,
+      | 		enableTopPager:			false,
+      | 		enableBottomPager:		false,
+      | 		imageContainerSel:		'#slideshow',
+      | 		controlsContainerSel:	'#controls',
+      | 		captionContainerSel:	'#caption',
+      | 		loadingContainerSel:	'',
+      | 		renderSSControls:		true,
+      | 		renderNavControls:		true,
+      | 		playLinkText:			'',
+      | 		pauseLinkText:			'P',
+      | 		prevLinkText:			'Prev',
+      | 		nextLinkText:			'Next',
+      | 		nextPageLinkText:		'',
+      | 		prevPageLinkText:		'',
+      | 		enableHistory:			false,
+      | 		autoStart:				7000,
+      | 		syncTransitions:		true,
+      | 		defaultTransitionDuration: 900,
+      | 		onSlideChange:			function(prevIndex, nextIndex) {
+      | 			// 'this' refers to the gallery, which is an extension of $('#thumbs')
+      | 			this.find('ul.thumbs li').children()
+      | 				.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+      | 				.eq(nextIndex).fadeTo('fast', 0.6);
+      | 		},
+      | 		onPageTransitionOut:	function(callback) {
+      | 			this.fadeTo('fast', 0.0, callback);
+      | 		},
+      | 		onPageTransitionIn:		function() {
+      | 			this.fadeTo('fast', 1.0);
+      | 		}
+      | 	});
+      | });
+    //if lt IE 7
+      div(style=' clear: both; text-align:center; position: relative;')
+        a(href='http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode')
+          img(src='http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg', border='0', height='42', width='820', alt='You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.')
+    //if lt IE 9
+      script(type='text/javascript', src='/js/html5.js')
+      link(rel='stylesheet', href='/stylesheets/rock/ie.css', type='text/css', media='screen')
+  body
+    .extra
+      header
+        .main
+          .bg-1
+            h1
+              a(href='index.html') Rock Band
+          nav
+            .menu-bg-tail
+              .menu-bg
+                .container_12
+                  .grid_12
+                    ul(class='menu')
+                      li(class='item')
+                        a(class=(title === 'About') ? 'active' : '', href='/rock/index.html') About
+                      li
+                        a(class=(title === 'Audio') ? 'active' : '', href='/rock/audio.html') Audio
+                      li
+                        a(class=(title === 'Video') ? 'active' : '', href='/rock/video.html') Video
+                      li
+                        a(class=(title === 'Gallery') ? 'active' : '', href='/rock/gallery.html') Gallery
+                      li(class='item-1')
+                        a(class=(title === 'Tour Dates') ? 'active' : '', href='/rock/tour-dates.html') Tour Dates
+                      li(class='last')
+                        a(class=(title === 'Contacts') ? 'active' : '', href='/rock/contacts.html') Contacts
+                    .clear
+                  .clear
+          - if (slides)
+            .slider-wrapper
+              .slider
+                ul(class='items')
+                  - for (var s in slides)
+                    li
+                      img(src=slides[s], alt='')
+
+      section(id='content')
+        .main
+          block content
+        .block
+    footer
+      .main
+        .footer-bg
+          .container_12
+            .wrapper
+              .grid_12
+                .footer-padding
+                  .wrapper
+                    span(class='footer-link')
+                      span Superior.com &copy; 2011
+                      a(rel='nofollow', target='_blank', class='link', href='http://www.templatemonster.com/') Website Template
+                      = " by TemplateMonster.com"
+                    ul(class="list-services")
+                      li
+                        a(class='tooltips n-1', title='Twitter', href='#')
+                      li
+                        a(class='tooltips n-2', title='Facebook', href='#')
+                      li(class='last')
+                        a(class='tooltips n-3', title='Youtube', href='#')
+                  .aligncenter
+                    //{%FOOTER_LINK}
+  script(type='text/javascript') Cufon.now();

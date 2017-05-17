@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  .bg-2
+    .content-padding-1
+      .container_12
+        .wrapper
+          article(class='grid_4')
+            .padding-grid-1
+              h3 Latest <strong>News</strong>
+              each n, id in news.slice(0, 3)
+                div.wrapper(class = (id < news.length - 1) ? 'img-indent-bot1' : '')
+                  time(class='time time-stule-1', datetime='#{n.published.toISOString()}')
+                    strong(class='text-1')
+                      = n.moment.format('DD')
+                    strong(class='text-2')
+                      = n.moment.format('MMM')
+                  .extra-wrap
+                    .indent-top
+                      != n.text
+          article(class='grid_4 alpha')
+            .padding-grid-1
+              h3 Tour <strong>Dates</strong>
+              each t, id in artist.tours.slice(-3)
+                div.wrapper(class = (id < artist.tours.length - 1) ? 'img-indent-bot2' : '')
+                  time(class='time time-stule-2', datetime='#{t.date.toISOString()}')
+                    strong(class='text-3')
+                      = (t.moment) ? (t.moment.format('DD')) : "00"
+                    strong(class='text-4')
+                      = (t.moment) ? (t.moment.format('MMM')) : "000"
+                  .extra-wrap
+                    h4.indent-top
+                      a(href='#')
+                        = t.city
+                    != ' ' + t.text
+          article(class='grid_4 alpha')
+            .padding-grid-2
+              h3.letter In Stores <strong>Now!</strong>
+              .wrapper
+                each a, id in artist.albums.slice(0, 1)
+                  figure(class='style-img fleft')
+                    a(href='#')
+                      img(src=a.thumb, alt='')
+  .content-padding-2
+    .container_12
+      .wrapper
+        article(class='grid_4')
+          .padding-grid-2
+            h3.letter Upcoming <strong>Events</strong>
+            each e, id in events
+              div.wrapper(class = (id < events.length - 1) ? 'img-indent-bot1' : '')
+                time(class='time time-stule-3', datetime='#{e.date.toISOString()}')
+                  strong(class='text-5')
+                    = (e.moment) ? (e.moment.format('DD')) : "00"
+                  strong(class='text-6')
+                    = (e.moment) ? (e.moment.format('MMM')) : "000"
+                .extra-wrap
+                  .indent-top
+                    != e.text
+        article(class='grid_4 alpha')
+          .padding-grid-2
+            h3.letter Latest <strong>Video</strong>
+            each v, id in artist.videos.slice(0, 1)
+              div.wrapper(class = (id < artist.videos.length - 1) ? 'img-indent-bot1' : '')
+                figure(class='style-img-2 fleft')
+                  a(href='#')
+                  a(class='lightbox-image', href=v.link, data-gal='prettyVideo[prettyVideo]')
+                    img(src=v.thumb, alt='')
+        article(class='grid_4 alpha')
+          .padding-grid-2
+            h3(class='letter prev-indent-bot1') Shortly <strong>About</strong>
+            h6
+              = artist.article.title
+            = artist.article.text
+
