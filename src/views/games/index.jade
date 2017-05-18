@@ -4,138 +4,68 @@ block content
         #leftPan
           #welcome
             h2
-            p(class="subtitle") Morbi volutpat leo in ligula. Integer vel magna. Quisque ut magna et nisi bibendum sagittis. Fusce
+            p(class="subtitle")= subtitle
             ul(id="list01")
-              li
-                a(href="#") Morbi volutpat leo in
-              li
-                a(href="#") ligula. Integer vel lorem
-              li
-                a(href="#") magna. Quisque ut
-              li
-                a(href="#") umagna et nisi bibendum
-              li
-                a(href="#") sagittis. Fusce elit ligula,
-              li
-                a(href="#") sodales sit amet
+              each i in items.slice(0, 5)
+                li
+                  a(href="#")= i
 
             ul(id="list02")
-              li
-                a(href="#") Morbi volutpat leo in
-              li
-                a(href="#") ligula. Integer vel lorem
-              li
-                a(href="#") magna. Quisque ut
-              li
-                a(href="#") umagna et nisi bibendum
-              li
-                a(href="#") sagittis. Fusce elit ligula,
-              li
-                a(href="#") sodales sit amet
+              each i in items.slice(6, 11)
+                li
+                  a(href="#")= i
 
             .clear
 
           #previews
             h2
 
-            .previewItem01
-              img(src="/images/games/img_previews.jpg", width="68", height="68", alt="")
-
-              .previewText
-                p <span class="headline">Morbi volutpat leo in ligula.</span> <a href="#">Cras quam augue, consectetuer</a> ut, tincidunt a, velit. Quisque euismod tortor sed nulla. Nunc dapibus, nisi et iaculis
-              .score
-                p Score:<br /><span>67</span>
-                .clear
-
-            .previewItem02
-              img(src="/images/games/img_previews-12.jpg", width="68", height="68", alt="")
-
-              .previewText
-                p <span class="headline">Morbi volutpat leo in ligula.</span> <a href="#">Cras quam augue, consectetuer</a> ut, tincidunt a, velit. Quisque euismod tortor sed nulla. Nunc dapibus, nisi et iaculis
-              .score
-                p Score: <span>82</span>
-                .clear
-
-            .previewItem01
-              img(src="/images/games/img_previews-15.jpg", width="68", height="68", alt="")
-
-              .previewText
-                p <span class="headline">Morbi volutpat leo in ligula.</span> <a href="#">Cras quam augue, consectetuer</a> ut, tincidunt a, velit. Quisque euismod tortor sed nulla. Nunc dapibus, nisi et iaculis
-              .score
-                p Score:<br /><span>79</span>
-                .clear
-
-            .previewItem02
-              img(src="/images/games/img_previews-16.jpg", width="68", height="68", alt="")
-
-              .previewText
-                p <span class="headline">Morbi volutpat leo in ligula.</span> <a href="#">Cras quam augue, consectetuer</a> ut, tincidunt a, velit. Quisque euismod tortor sed nulla. Nunc dapibus, nisi et iaculis
-              .score
-                p Score: <span>91</span>
-                .clear
+            each r, id in reviews
+              div(class=(id % 2) ? "previewItem01" : "previewItem02")
+                img(src=r.image, width="68", height="68", alt="")
+                .previewText
+                  p <span class="headline">#{r.title}</span> 
+                    != r.text
+                .score
+                  p Score: <span>#{r.score}</span>
+                  .clear
 
         #rightPan
           #ad
-            img(src="/images/games/img_feat.jpg", width="380", height="199", alt="", id="mainImg")
+            img(src=random.image, width="380", height="199", alt="", id="mainImg")
 
             #description
               #title
                 h2
-                p Morbi volutpat leo in ligula. Integer vel magna. <a href="#">Quisque ut magna</a> et nisi bibendum sagittis. Fusce
+                p
+                  != random.text
               #stars
                 img(src="/images/games/stars_feat.gif", width="80", height="15", alt="")
-                p Score: <span>76/100</span>
+                p Score: <span>#{random.score}/100</span>
               ul
                 li
                   a(href="#", title="read more") read more
           #new
-            h2
+            h2 a
+            each i, id in newGames
+              .newItem
+                img(src=i.image, width="68", height="68", alt="")
+                p
+                  a(href="#")= i.title
+                ul.btn_more
+                  li
+                    a(href="#", title="details") details
+                .clear
 
-            .newItem
-              img(src="/images/games/img_new.jpg", width="68", height="68", alt="")
-              p
-                a(href="#") Quisque ut magna et nisi bibendum
-              ul.btn_more
-                li
-                  a(href="#", title="details") details
-              .clear
-
-            .newItem
-              img(src="/images/games/img_new-11.jpg", width="68", height="68", alt="")
-              p
-                a(href="#") Integer vel magna. Quisque
-              ul.btn_more
-                li
-                  a(href="#", title="details") details
-              .clear
-
-            .clear
-
-            .newItem
-              img(src="/images/games/img_new-13.jpg", width="68", height="68", alt="")
-              p
-                a(href="#") Morbi volutpat leo in ligula. Integer
-              ul.btn_more
-                li
-                  a(href="#", title="details") details
-              .clear
-
-            .newItem
-              img(src="/images/games/img_new-14.jpg", width="68", height="68", alt="")
-              p
-                a(href="#") Quisque ut magna et nisi bibendum
-              ul.btn_more
-                li
-                  a(href="#", title="details") details
-              .clear
-
-            .clear
+              if id % 2
+                .clear
 
           #wanted
             h2
             p(class="subtitle") Morbi volutpat leo in ligula. Integer vel. Quisque ut magna et nisi bibendum sagittis. Fusce
-            img(src="/images/games/img_wanted.jpg", width="68", height="68", alt="")
+            img(src=wanted.image, width="68", height="68", alt="")
             p
-              <span class="headline">Aenean sit amet massa. Nam mattis enim ut</span><a href="#">Cras quam augue, consectetuer ut, Aliquam ut massa.</a> <br />Suspendisse dolor. Cras quam augue, consectetuer id, auctor ut, tincidunt a, velit. Quisque euismod tortor sed nulla. Nunc dapibus, nisi et iaculis feugiat, leo ipsum
+              span(class="headline")= wanted.title
+              != wanted.text
 
         .clear

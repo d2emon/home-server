@@ -31,4 +31,4 @@ html
       each i, id in chapterMenu
         a(href=i.href, title=i.title)= i.title
         != (id < chapterMenu.length - 1) ? " | " : "<br>"
-      != "Copyright &copy; Your Company Name. Designed by <a href=\"http://www.freecsstemplates.com\" target=\"_blank\">FreeCSSTemplates.com</a>"
+      | Copyright &copy; <a href="mailto:#{companyEmail}">#{companyName}</a>.
