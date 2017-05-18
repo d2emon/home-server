@@ -19,8 +19,40 @@ router.get('/index.:format?', function(req, res) {
       Event.find({}, function(err, events) {
         if (err) throw err;
 
-        res.render('index', { 
-          title: 'About',
+        res.render('games/index', { 
+          title: 'Games',
+          chapterMenu: [
+            {
+	      href: "/games/index.html",
+              title: "Игры",
+              style: "home"
+	    },
+            {
+	      href: "/games/previews.html",
+              title: "Афиша",
+              style: "previews"
+	    },
+            {
+	      href: "/games/reviews.html",
+              title: "Обзоры",
+              style: "reviews"
+	    },
+            {
+	      href: "/games/new-games.html",
+              title: "Новые",
+              style: "new"
+	    },
+            {
+	      href: "/games/top-games.html",
+              title: "Лучшие",
+              style: "top"
+	    },
+            {
+	      href: "/games/contacts.html",
+              title: "Контакты",
+              style: "contacts"
+	    },
+	  ],
           slides: [
             "/images/slider/img1.jpg",
             "/images/slider/img2.jpg",
