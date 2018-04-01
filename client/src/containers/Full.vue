@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="body">
     <nav-sidebar />
 
     <app-header />
@@ -35,3 +35,13 @@ export default {
 }
 </script>
 
+<style scoped>
+/* .application.theme--light { */
+.body {
+  line-height: 1;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size:  100%;
+  height: 100%;
+  color: #1f1f1f;
+}
+</style>
