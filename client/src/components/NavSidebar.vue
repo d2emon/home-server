@@ -35,7 +35,7 @@ export default {
         icon: 'bubble_chart',
         title: 'Inspire'
       }],
-      miniVariant: false
+      miniVariant: true
     }
   },
   name: 'NavSidebar'

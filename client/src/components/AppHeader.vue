@@ -1,72 +1,78 @@
 <template>
-  <v-toolbar
-    app
-    :clipped-left="clipped"
+  <v-jumbotron
     id="header"
+    color="grey darken-4"
+    height="135px"
     dark
   >
-    <v-layout row>
-      <v-flex>
-        <v-toolbar-title>
-          <a href="/"><img src="/static/style/torn/img/logo.png" :alt="title" id="logo" /></a>
-        </v-toolbar-title>
-      </v-flex>
+    <v-container>
+      <v-layout row>
+        <v-flex md3>
+          <h1>
+            <v-button to="/"><img src="/static/style/torn/img/logo.png" :alt="title" id="logo" /></v-button>
+          </h1>
+        </v-flex>
 
-      <v-flex>
-        <v-layout row>
-          <v-flex xs6>
-            <v-toolbar-side-icon @click.stop="drawer = !drawer" class="menu-item"></v-toolbar-side-icon>
-            <v-btn icon @click.stop="miniVariant = !miniVariant" class="menu-item">
-              <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-            </v-btn>
-            <v-btn icon @click.stop="clipped = !clipped" class="menu-item">
-              <v-icon>web</v-icon>
-            </v-btn>
-            <v-btn icon @click.stop="fixed = !fixed" class="menu-item">
-              <v-icon>remove</v-icon>
-            </v-btn>
-          </v-flex>
-          <!-- search -->
-          <v-flex xs8 class="top-search">
-          <v-text-field
-            v-model="search"
-            label="Search..."
-            single-line
-            append-icon="search"
-            :append-icon-cb="doSearch"
-            class="searchform"
-            light
-          />
-          </v-flex>
-          <!-- ENDS search -->
-        </v-layout>
-		
-        <v-layout row>
-        <!-- wrapper -->
-        <div class="wrapper-header">
+        <v-flex>
+          <v-layout
+            row
+            reverse
+            mb-auto
+          >
+            <v-flex md6>
+              <v-text-field
+                v-model="search"
+                label="Search..."
+                single-line
+                append-icon="search"
+                :append-icon-cb="doSearch"
+                class="searchform"
+                light
+              />
+            </v-flex>
+            <!-- v-flex xs8 class="top-search" -->
+            <v-flex>
+              <v-toolbar-side-icon @click.stop="drawer = !drawer" class="menu-item"></v-toolbar-side-icon>
+              <v-btn icon @click.stop="miniVariant = !miniVariant" class="menu-item">
+                <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+              </v-btn>
+              <v-btn icon @click.stop="clipped = !clipped" class="menu-item">
+                <v-icon>web</v-icon>
+              </v-btn>
+              <v-btn icon @click.stop="fixed = !fixed" class="menu-item">
+                <v-icon>remove</v-icon>
+              </v-btn>
 
-        <!-- navigation -->		
-        <v-btn
-          v-for="(i, id) in items"
-          :key="id"
-          flat
-          class="menu-item"
-          :to="i.to"
-        >
-          {{ i.title }}
-        </v-btn>		
-	<!-- ENDS navigation -->
+              <v-btn icon @click.stop="rightDrawer = !rightDrawer" class="menu-item">
+                <v-icon>menu</v-icon>
+              </v-btn>		
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <!-- wrapper -->
+            <v-flex>
+              <!-- div class="wrapper-header" -->
 
-        <v-btn icon @click.stop="rightDrawer = !rightDrawer" class="menu-item">
-          <v-icon>menu</v-icon>
-        </v-btn>		
+              <!-- navigation -->		
+              <v-btn
+                v-for="(i, id) in items"
+                :key="id"
+                flat
+                class="menu-item"
+                :to="i.to"
+              >
+                {{ i.title }}
+              </v-btn>		
+              <!-- ENDS navigation -->
 	
-        </div>
-        <!-- ENDS wrapper -->
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-toolbar>
+            </v-flex>
+            <!-- ENDS wrapper -->
+          </v-layout>
+        </v-flex>
+      </v-layout>
+		
+    </v-container>
+  </v-jumbotron>
 </template>
 
 <script>
@@ -104,12 +110,10 @@ export default {
 <style>
 #header {
   /* background: #1f1f1f url(/static/style/torn/img/bgs/strips-bold.png); */
-  /* position: relative; */
-  /* width: 100%; */
-  height: 149px;
+  background-color: #1f1f1f;
   font-size: 14px;
   /* z-index: 10; */
-  padding: 60px 0px 0px 0px;
+  /* padding: 0px 0px 0px 0px; */
 }
 
 #header:after {
