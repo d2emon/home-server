@@ -29,8 +29,8 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: true,
+      clipped: true,
+      drawer: false,
       items: [{
         icon: 'bubble_chart',
         title: 'Inspire'

@@ -1,31 +1,9 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
-        <blockquote>
-          &#8220;First, solve the problem. Then, write the code.&#8221;
-          <footer>
-            <small>
-              <em>&mdash;John Johnson</em>
-            </small>
-          </footer>
-        </blockquote>
-      </v-layout>
-    </v-slide-y-transition>
-
-
-
-		
-
+    <h1>TORN IS A FREE HTML/CSS TEMPLATE</h1>
+    <h2>LEFT SIDE ALIGNED FIXED TEMPLATE WITH 5 DIFFERENT AND SKINS</h2>
     <!-- MAIN -->
     <div id="main">
-      <!-- main-wrapper -->
-      <div class="wrapper">
-        <div class="page-title">TORN IS A FREE HTML/CSS TEMPLATE</div>
-        <div class="page-subtitle">LEFT SIDE ALIGNED FIXED TEMPLATE WITH 5 DIFFERENT AND SKINS</div>
-      </div>	
-			
       <div class="wrapper-slideshow">	
         <!-- slideshow -->
         <div id="slideshow">
@@ -47,6 +25,19 @@
       <!-- main-wrapper -->
       <div class="wrapper">
 
+    <v-slide-y-transition mode="out-in">
+      <v-layout column align-center>
+        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
+        <blockquote>
+          &#8220;First, solve the problem. Then, write the code.&#8221;
+          <footer>
+            <small>
+              <em>&mdash;John Johnson</em>
+            </small>
+          </footer>
+        </blockquote>
+      </v-layout>
+    </v-slide-y-transition>
         <!-- blocks -->
         <div class="page-title">RECENT POSTS</div>
         <ul class="blocks-holder">
