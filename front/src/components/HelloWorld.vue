@@ -5,6 +5,33 @@
       wrap
     >
       <v-flex xs12>
+        <ul>
+          <li>audiobooks</li>
+          <li>board</li>
+          <li>clouds</li>
+          <li>Db</li>
+          <li>Emulation</li>
+          <li>gamebooks</li>
+          <li>Games</li>
+          <li>hack</li>
+          <li>if</li>
+          <li>images</li>
+          <li>ISO</li>
+          <li>Linux</li>
+          <li>Music</li>
+          <li>Portable</li>
+          <li>rpg</li>
+          <li>Server</li>
+          <li>soft</li>
+          <li>Temp</li>
+          <li>text</li>
+          <li>Unsorted</li>
+          <li>Upload</li>
+          <li>wiki</li>
+          <li>work</li>
+        </ul>
+      </v-flex>
+      <v-flex xs12>
         <v-img
           :src="require('../assets/logo.svg')"
           class="my-3"
