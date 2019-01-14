@@ -5,6 +5,7 @@
     <app-header />
 
     <v-content>
+      Full:
       <router-view />
     </v-content>
     <drawer />
