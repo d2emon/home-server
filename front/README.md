@@ -1,4 +1,4 @@
-# home-server
+# Home server
 
 ## Project setup
 ```
