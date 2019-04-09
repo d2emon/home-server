@@ -42,7 +42,7 @@ export default new Router({
         {
           path: 'index',
           name: 'IndexTorn',
-          component: () => import('@/views/HelloWorld'),
+          component: () => import('@/views/HelloTorn'),
         },
       ],
     },

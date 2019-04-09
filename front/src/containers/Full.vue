@@ -1,46 +1,40 @@
 <template>
   <v-app class="body">
-    <nav-sidebar />
+    <!-- nav-sidebar / -->
 
-    <app-header />
+    <!-- app-header / -->
 
     <v-content>
-      Full:
       <router-view />
     </v-content>
-    <drawer />
+    <!-- drawer / -->
 
-    <app-footer />
+    <!-- app-footer / -->
   </v-app>
 </template>
 
 <script>
+  /*
 import {
   AppHeader,
   AppFooter,
   NavSidebar,
   Drawer,
 } from '@/components/';
-
+  */
 export default {
   name: 'full',
+  /*
   components: {
     AppHeader,
     AppFooter,
     NavSidebar,
     Drawer,
   },
+   */
   data: () => ({}),
 }
 </script>
 
 <style scoped>
-/* .application.theme--light { */
-.body {
-  line-height: 1;
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
-  font-size:  100%;
-  height: 100%;
-  color: #1f1f1f;
-}
 </style>

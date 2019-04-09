@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
-    <h1 v-text="title"></h1>
-    <h2 v-text="subtitle"></h2>
+    <h1 v-html="title"></h1>
+    <h2 v-html="subtitle"></h2>
     <!-- MAIN -->
     <div id="main">
       <v-carousel class="slideshow">
@@ -188,6 +188,14 @@
 
     </div>
     <!-- ENDS MAIN -->
+
+
+
+
+
+
+
+
   </v-container>
 </template>
 
@@ -197,10 +205,9 @@ export default {
   name: 'main-page',
   data () {
     return {
-      title: 'Home server',
-      subtitle: 'This is your home server',
+      title: 'Torn is a free CSS/HTML template',
+      subtitle: 'Left side aligned fixed template with 5 different and skins',
       slides: [
-        /*
         { src: '/static/style/torn/slides/01.jpg' },
         { src: '/static/style/torn/slides/02.jpg' },
         { src: '/static/style/torn/slides/03.jpg' },
@@ -213,9 +220,7 @@ export default {
         { src: 'https://vuetifyjs.com/static/doc-images/carousel/sky.jpg' },
         { src: 'https://vuetifyjs.com/static/doc-images/carousel/bird.jpg' },
         { src: 'https://vuetifyjs.com/static/doc-images/carousel/planet.jpg' }
-        */
       ],
-         */
       recent: [
         {
           title: 'One image file skin',
@@ -251,5 +256,47 @@ export default {
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* @import '/public/style/torn/css/style.css' */
+/*
+h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #1f1f1f;
+  margin-left: 30px;
+}
+h2 {
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #555555;
+  margin-left: 30px;
+}
+.slideshow {
+  width: 970px;
+  height: 345px;
+  margin: 15px 0px;
+}
+.recent-posts {
+  margin-bottom: 15px;
+  .card {
+    h3 {
+      font-size: 26px;
+      margin-top: auto;
+      margin-left: 10px;
+      padding: 10px;
+      // width: 100%;
+      height: 50px;
+      background-color: #ffffff;
+      z-index: 10;
+    }
+    .image {
+      height: 162px;
+      width: 100%;
+    }
+    // width: 460px;
+    // margin: 10px;
+  }
+}
+*/
 </style>
