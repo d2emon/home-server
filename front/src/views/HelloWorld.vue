@@ -1,9 +1,33 @@
 <template>
   <v-container fluid>
-    <h1 v-text="title"></h1>
-    <h2 v-text="subtitle"></h2>
     <!-- MAIN -->
     <div id="main">
+      <!-- main-wrapper -->
+      <div class="wrapper">
+        <div class="page-title">TORN IS A FREE HTML/CSS TEMPLATE</div>
+        <div class="page-subtitle">LEFT SIDE ALIGNED FIXED TEMPLATE WITH 5 DIFFERENT AND SKINS</div>
+        <h1 v-text="title"></h1>
+        <h2 v-text="subtitle"></h2>
+      </div>
+
+      <div class="wrapper-slideshow">
+        <!-- slideshow -->
+        <div id="slideshow">
+          <a href="" id="slideshow-link" ><span></span></a>
+          <ul id="slides">
+            <li><a href="#1"><img src="slides/01.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#2"><img src="slides/02.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#3"><img src="slides/03.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#1"><img src="slides/01.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#2"><img src="slides/02.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#3"><img src="slides/03.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#1"><img src="slides/01.jpg"  alt="Imagen" /></a></li>
+            <li><a href="#2"><img src="slides/02.jpg"  alt="Imagen" /></a></li>
+          </ul>
+        </div>
+        <!-- ENDS slideshow -->
+      </div>
+
       <ul>
         <li>mywiki</li>
         <li>home-server</li>
@@ -159,190 +183,64 @@
         </li>
       </ul>
 
-      <!-- v-carousel class="slideshow">
-        <v-carousel-item
-          v-for="(slide, id) in slides"
-          :src="slide.src"
-          :key="id"
-          to="/"
-        >
-        </v-carousel-item>
-      </v-carousel -->
-
       <!-- blocks -->
-      <!-- v-layout
-        row
-        wrap
-        class="recent-posts"
-      >
-        <v-flex sm12>
-          <h1 v-html="'Recent posts'"></h1>
-        </v-flex>
-        <v-flex
-          sm6
-          pa-2
-          v-for="(post, id) in recent"
-          :key="id"
-        >
-          <v-card :to="post.to">
-            <v-card-media
-              :src="post.img"
-            >
-              <v-container
-                fill-height
-                fluid
-                class="image"
-              >
-                <v-layout
-                  col
-                  fill-height
-                >
-                  <v-flex
-                    xs12
-                    flexbox
-                    mt-auto
-                  >
-                    <h3 v-text="post.title" />
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-card-media>
-            <v-card-text>
-              {{ post.text }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn :to="post.to" class="link-button" v-text="post.link" />
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-        <v-flex sm6>
-          <v-card>
-            <v-card-title>
-              <h3>5 Predefined skins to choose from.</h3>
-            </v-card-title>
-            <v-card-media>
-              <v-btn to="/about">
-                <img src="/static/style/torn/img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" />
-              </v-btn>
-            </v-card-media>
-            <v-card-text>
-              Set your theme really fast by choosing one of the predifined skins of modify it to your like very fast and easy.
-              <p><v-btn to="/about" class="link-button">Dynamic link size</v-btn></p>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex sm6>
-          <v-card>
-            <v-card-title>
-              <h3>6 different layouts</h3>
-            </v-card-title>
-            <v-card-media>
-              <v-btn to="/about">
-                <img src="/static/style/torn/img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" />
-              </v-btn>
-            </v-card-media>
-            <v-card-text>
-              Choose from the different layouts included to have a complete website in minutes.
-              <p><v-btn to="/about" class="link-button">More</v-btn></p>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex sm6>
-          <v-card>
-            <v-card-media>
-              <v-btn flat to="/about">
-                <img src="/static/style/torn/img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" />
-              </v-btn>
-            </v-card-media>
-            <v-card-title>
-              <h3>3 columns gallery layout</h3>
-            </v-card-title>
-            <v-card-text>
-              Choose from 3 different gallery layouts 2, 3 or 4 columns with filterable content control.
-              <p><v-btn to="/about" class="link-button">More</v-btn></p>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex sm6>
-          12345
-        </v-flex>
-        <v-flex sm6>
-          12345
-        </v-flex>
-        <v-flex sm6>
-          12345
-        </v-flex>
-      </v-layout -->
+      <v-container>
+        <div class="page-title">RECENT POSTS</div>
+        <v-layout row wrap class="__ul blocks-holder">
+          <v-flex sm6 class="block">
+            <v-card>
+              <v-img class="img-holder" src="/images/dummy/block-1.jpg">
+                <v-card-title class="block-title ">ONE IMAGE FILE SKIN</v-card-title>
+              </v-img>
+              <div class="block-text">One file to modify all the graphic elements of the theme. Easy and fast!
+                <p><a href="about.html" class="link-button"><span>MORE</span></a></p>
+              </div>
+            </v-card>
+          </v-flex>
+          <v-flex sm6 class="block">
+            <v-card>
+              <div class="img-holder">
+                <p class="block-title ">5 Predifined skins to choose from.</p>
+                <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
+              </div>
+              <div class="block-text">Set your theme really fast by choosing one of the predifined skins of modify it to your like very fast and easy.
+                <p><a href="about.html" class="link-button"><span>DYNAMIC LINK SIZE</span></a></p>
+              </div>
+            </v-card>
+          </v-flex>
 
-      <!-- main-wrapper -->
-      <div class="wrapper">
-        <!-- ul class="blocks-holder">
-          <li class="block">
-            <div class="img-holder">
-              <p class="block-title ">ONE IMAGE FILE SKIN</p>
-              <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
-            </div>
-            <div class="block-text">
-              One file to modify all the graphic elements of the theme. Easy and fast!
-              <p><a href="about.html" class="link-button"><span>MORE</span></a></p>
-            </div>
-          </li>
-          <li class="block">
-            <div class="img-holder">
-              <p class="block-title ">5 Predifined skins to choose from.</p>
-              <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
-            </div>
-            <div class="block-text">
-              Set your theme really fast by choosing one of the predifined skins of modify it to your like very fast and easy.
-              <p><a href="about.html" class="link-button"><span>DYNAMIC LINK SIZE</span></a></p>
-            </div>
-          </li>
-          <li class="block">
-            <div class="img-holder">
-              <p class="block-title ">6 DIFFERENT LAYOUTS</p>
-              <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
-            </div>
-            <div class="block-text">
-              Choose from the different layouts included to have a complete website in minutes.
-              <p><a href="about.html" class="link-button"><span>MORE</span></a></p>
-            </div>
-          </li>
-          <li class="block">
-            <div class="img-holder">
-              <p class="block-title ">3 columns gallery layout</p>
-              <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
-            </div>
-            <div class="block-text">
-              Choose from 3 different gallery layouts 2, 3 or 4 columns with filterable content control.
-              <p><a href="about.html" class="link-button"><span>MORE</span></a></p>
-            </div>
-          </li>
-        </ul -->
-        <!-- ENDS blocks -->
-        <!-- v-slide-y-transition mode="out-in">
-          <v-layout column align-center>
-            <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
-            <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
-          </v-layout>
-        </v-slide-y-transition -->
-      </div>
-      <!-- ENDS main-wrapper -->
-
-      <!-- twitter -->
-      <!-- div class="twitter-reader">
-        <div id="twitter-holder"></div>
-      </div -->
-      <!-- ENDS twitter -->
-
+          <v-flex sm6 class="block">
+            <v-card>
+              <div class="img-holder">
+                <p class="block-title ">6 DIFFERENT LAYOUTS</p>
+                <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
+              </div>
+              <div class="block-text">Choose from the different layouts included to have a complete website in minutes.
+                <p><a href="about.html" class="link-button"><span>MORE</span></a></p>
+              </div>
+            </v-card>
+          </v-flex>
+          <v-flex sm6 class="block">
+            <v-card>
+              <div class="img-holder">
+                <p class="block-title ">3 columns gallery layout</p>
+                <a href="about.html" ><img src="img/dummies/block-1.jpg" alt="Thumb" class="thumb" title="Thumbnail" /> </a>
+              </div>
+              <div class="block-text">Choose from 3 different gallery layouts 2, 3 or 4 columns with filterable content control.
+                <p><a href="about.html" class="link-button"><span>MORE</span></a></p>
+              </div>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+      <!-- ENDS blocks -->
     </div>
-    <!-- ENDS MAIN -->
+
+    <!-- twitter -->
+    <div class="twitter-reader">
+      <div id="twitter-holder"></div>
+    </div>
+    <!-- ENDS twitter -->
   </v-container>
 </template>
 
