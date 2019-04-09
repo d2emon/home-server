@@ -33,6 +33,19 @@ export default new Router({
         },
       ],
     },
+    {
+      path: '/torn',
+      redirect: '/torn/index',
+      name: 'HelloTorn',
+      component: () => import('@/containers/Torn'),
+      children: [
+        {
+          path: 'index',
+          name: 'IndexTorn',
+          component: () => import('@/views/HelloWorld'),
+        },
+      ],
+    },
 
   ],
 });

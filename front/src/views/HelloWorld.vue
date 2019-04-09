@@ -187,11 +187,11 @@
       <!-- ENDS twitter -->
 
     </div>
-    <!-- ENDS MAIN -->	
-	
-	
-	
-	
+    <!-- ENDS MAIN -->
+
+
+
+
 
 
 
@@ -257,8 +257,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
+<style scoped>
 /* @import '/public/style/torn/css/style.css' */
+/*
 h1 {
   font-size: 40px;
   text-transform: uppercase;
@@ -284,7 +285,7 @@ h2 {
       margin-top: auto;
       margin-left: 10px;
       padding: 10px;
-      /* width: 100%; */
+      // width: 100%;
       height: 50px;
       background-color: #ffffff;
       z-index: 10;
@@ -293,8 +294,9 @@ h2 {
       height: 162px;
       width: 100%;
     }
-    /* width: 460px; */
-    /* margin: 10px; */
+    // width: 460px;
+    // margin: 10px;
   }
 }
+*/
 </style>
