@@ -19,8 +19,8 @@ import {
   AppHeader,
   AppFooter,
   NavSidebar,
-  Drawer
-} from '@/components/'
+  Drawer,
+} from '@/components/';
 
 export default {
   name: 'full',
@@ -28,11 +28,9 @@ export default {
     AppHeader,
     AppFooter,
     NavSidebar,
-    Drawer
+    Drawer,
   },
-  data () {
-    return {}
-  }
+  data: () => ({}),
 }
 </script>
 

@@ -12,7 +12,7 @@
             <h1 id="logo">
               <v-btn to="/" block><img src="/static/style/torn/img/logo.png" :alt="title" /></v-btn>
             </h1>
-          </v-layout>  
+          </v-layout>
         </v-flex>
 
         <v-flex align-content-space-between>
@@ -34,7 +34,7 @@
                 color="primary"
                 light
               />
-              </v-layout>  
+              </v-layout>
             </v-flex>
             <v-flex>
               <v-btn
@@ -44,7 +44,7 @@
                 class="menu-item"
               >
                 <v-icon small>menu</v-icon>
-              </v-btn>		
+              </v-btn>
               <v-btn
                 icon
                 small
@@ -76,7 +76,7 @@
                 class="menu-item"
               >
                 <v-icon small>menu</v-icon>
-              </v-btn>		
+              </v-btn>
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -91,7 +91,7 @@
                 :to="i.to"
               >
                 {{ i.title }}
-              </v-btn>		
+              </v-btn>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -214,7 +214,7 @@ export default {
   }
   /*-- NAV ---------------------------------------------------------------*/
   .main-menu {
-    height: 72px; 
+    height: 72px;
     text-align: right;
     .btn {
       /* display: block; */
@@ -281,7 +281,7 @@ export default {
 <style>
 .wrapper-header{
   /* width: 1075px; */
-  /* position: relative; */	
+  /* position: relative; */
 
   display: block;
   /* position: absolute; */
