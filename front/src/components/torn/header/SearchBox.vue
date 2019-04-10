@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style scoped>
+  /*
   .top-search {
     width: 230px;
     height: 50px;
@@ -32,4 +33,5 @@ export default {
     border: 0;
     background: #d2d2d2 url(/images/bg/strips-thin.png);
   }
+  */
 </style>

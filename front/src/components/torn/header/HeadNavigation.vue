@@ -1,92 +1,54 @@
 <template>
   <nav class="sf-menu">
-    <v-btn
-      to="/"
-      class="current_page_item"
+    <template
+      v-for="item in items"
     >
-      Home
-    </v-btn>
-    <v-menu :nudge-width="100">
-      <template v-slot:activator="{ on }">
-        <v-btn v-on="on">
-          <span>Features</span>
+      <v-menu
+        v-if="item.items"
+        :key="item.title"
+        :nudge-width="100"
+      >
+        <v-btn slot="activator">
+          <span>{{item.title}}</span>
           <v-icon dark>arrow_drop_down</v-icon>
         </v-btn>
-      </template>
 
-      <v-list>
-        <v-list-tile to="/about">
-          <v-list-tile-title>Layout</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/about-styld">
-          <v-list-tile-title>Styled</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/about-more">
-          <v-list-tile-title>More</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
-    <v-btn to="/portfolio">
-      Portfolio
-    </v-btn>
-    <v-menu :nudge-width="100">
-      <template v-slot:activator="{ on }">
-        <v-btn v-on="on">
-          <span>Gallery</span>
-          <v-icon dark>arrow_drop_down</v-icon>
-        </v-btn>
-      </template>
-
-      <v-list>
-        <v-list-tile to="/gallery-2">
-          <v-list-tile-title>Two Columns</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/gallery">
-          <v-list-tile-title>Three Columns</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/gallery-4">
-          <v-list-tile-title>Four Columns</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
-    <v-btn to="/blog">
-      Blog
-    </v-btn>
-    <v-btn to="/contact">
-      Contact
-    </v-btn>
-    <v-menu :nudge-width="100">
-      <template v-slot:activator="{ on }">
-        <v-btn v-on="on">
-          <span>Color skins</span>
-          <v-icon dark>arrow_drop_down</v-icon>
-        </v-btn>
-      </template>
-
-      <v-list>
-        <v-list-tile to="/">
-          <v-list-tile-title>Yellow</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/blue">
-          <v-list-tile-title>Blue</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/red">
-          <v-list-tile-title>Red</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/pink">
-          <v-list-tile-title>Pink</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/green">
-          <v-list-tile-title>Green</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
+        <v-list>
+          <v-list-tile
+            v-for="subitem in item.items"
+            :key="subitem.title"
+            :to="subitem.to"
+          >
+            <v-list-tile-title>
+              {{subitem.title}}
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+      <v-btn
+        v-else
+        :key="item.title"
+        :to="item.to"
+      >
+        {{item.title}}
+      </v-btn>
+    </template>
+    <!-- v-btn
+      flat
+      href="https://github.com/vuetifyjs/vuetify/releases/latest"
+      target="_blank"
+    >
+      <span class="mr-2">Latest Release</span>
+    </v-btn -->
   </nav>
 </template>
 
 <script>
 export default {
   name: 'HeadNavigation',
+  props: [
+    'items',
+  ],
 };
 </script>
 
