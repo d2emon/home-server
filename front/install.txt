@@ -2,3 +2,5 @@ less
 less-loader
 stylus
 stylus-loader
+axios
+showdown
