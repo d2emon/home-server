@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/views/Home.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -18,18 +19,18 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/About.vue')
+      component: () => import('@/views/About.vue'),
     },
     {
       path: '/',
       redirect: '/index',
       name: 'HelloWorld',
-      component: () => import('@/containers/Full'),
+      component: () => import('@/containers/Full.vue'),
       children: [
         {
           path: 'index',
           name: 'Index',
-          component: () => import('@/views/HelloWorld'),
+          component: () => import('@/views/HelloWorld.vue'),
         },
       ],
     },
@@ -37,12 +38,12 @@ export default new Router({
       path: '/torn',
       redirect: '/torn/index',
       name: 'HelloTorn',
-      component: () => import('@/containers/Torn'),
+      component: () => import('@/containers/Torn.vue'),
       children: [
         {
           path: 'index',
           name: 'IndexTorn',
-          component: () => import('@/views/HelloTorn'),
+          component: () => import('@/views/HelloTorn.vue'),
         },
       ],
     },

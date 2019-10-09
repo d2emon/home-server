@@ -4,6 +4,12 @@
   </v-app>
 </template>
 
+<script lang="ts">
+import Vue from 'vue';
+
+export default class App extends Vue {};
+</script>
+
 <style>
   /**
    Torn v.1.2

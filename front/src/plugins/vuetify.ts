@@ -3,9 +3,12 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 // import 'vuetify/src/stylus/app.styl';
 // import '@mdi/font/css/materialdesignicons.css';
+// @ts-ignore
 import ru from 'vuetify/es5/locale/ru';
 
-Vue.use(Vuetify, {
+Vue.use(Vuetify);
+
+export default new Vuetify({
   /*
   theme: {
     primary: '#ee44aa',
@@ -18,9 +21,11 @@ Vue.use(Vuetify, {
   },
   customProperties: true,
   */
-  iconfont: 'md',
   lang: {
     locales: { ru },
     current: 'ru',
+  },
+  icons: {
+    iconfont: 'mdi',
   },
 });
