@@ -30,6 +30,7 @@
           <v-list-item
             v-for="(subitem, subitemId) in item.items"
             :key="subitemId"
+            :to="subitem.to"
           >
             <v-list-item-title>
               {{ subitem.title }}
@@ -69,7 +70,7 @@ interface MenuItem {
     SearchBox: () => import('@/components/SearchBox.vue'),
   },
 })
-export default class App extends Vue {
+export default class AppHeader extends Vue {
   menu: MenuItem[] = [
     {
       title: 'Home',
@@ -80,37 +81,46 @@ export default class App extends Vue {
       items: [
         {
           title: 'Layout',
+          to: '/layout',
         },
         {
           title: 'Styled',
+          to: '/styles',
         },
         {
           title: 'More',
+          to: '/more',
         },
       ],
     },
     {
       title: 'Portfolio',
+      to: '/portfolio',
     },
     {
       title: 'Gallery',
       items: [
         {
           title: 'Two Columns',
+          to: '/gallery-2',
         },
         {
           title: 'Three Columns',
+          to: '/gallery-3',
         },
         {
           title: 'Four Columns',
+          to: '/gallery-4',
         },
       ],
     },
     {
       title: 'Blog',
+      to: '/blog',
     },
     {
       title: 'Contact',
+      to: '/contact',
     },
     {
       title: 'Skins',
