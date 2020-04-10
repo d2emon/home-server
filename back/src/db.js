@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var config = require('config');
+var config = require('back/src/config');
 
 console.log(config.get('mongo:uri'))
 mongoose.connect(config.get('mongo:uri'), config.get('mongo:options'));

@@ -1,0 +1,286 @@
+/* CSS Document */
+body {
+  padding:0px; 
+  margin:0px; 
+  background:#fff url(/images/games/b_body.gif) 0 0 repeat-x; 
+  color:#848484; 
+  font:10px/12px Tahoma, sans-serif;
+}
+
+div, p, ul, h2, h3, h4, img {
+  padding:0px;
+  margin:0px;
+}
+
+ul {
+  list-style-type:none;
+}
+
+.clear {
+  clear: both;
+  margin: 0px;
+  height:0
+}
+
+p a {
+  font: 10px/12px Tahoma, sans-serif;
+  color:#60b13b;
+  text-decoration:underline;
+  &:hover { 
+    color:#000; 
+    text-decoration:none;
+  }
+}
+
+p span.headline {
+  font: 11px/14px Trebuchet MS, sans-serif;
+  color :#464646;
+  font-weight: bold
+}
+
+p.subtitle {
+  font: 11px/12px Arial, Helvetica, sans-serif;
+  color: #b2b2b2;
+  text-transform: uppercase;
+  display: block;
+  border-bottom: #b2b2b2 1px dotted;
+  padding-bottom: 10px;
+  padding-left: 3px
+}
+
+#container{
+  width:775px;
+  margin:0 auto;
+  position:relative;
+  background:url(/images/games/b_header.jpg) 0 0 no-repeat;
+}
+
+/* HEADER */
+header {
+  height:184px;
+  position:relative;
+  margin:0 auto;
+
+  ul.menu {
+    position:absolute; 
+    top:58px;
+    left:63px;
+    width:675px;
+    li {
+      float:left; 
+      width:97px; 
+      height:97px; 
+      margin-right:11px;
+      a { 
+        width:97px; 
+        height:97px;
+        display:block;
+        text-indent:-20000px;
+        &:hover {
+          width:97px; 
+          height:97px;
+        }
+      }
+      &.home a { 
+        background: url(/images/games/btn_1.jpg) 0 0 no-repeat; 
+        &:hover{
+	  background:url(/images/games/btn_1_over.jpg) 0 0 no-repeat;
+        }
+      }
+
+      &.previews a{
+        background:url(/images/games/btn_2.jpg) 0 0 no-repeat; 
+        &:hover{
+	  background:url(/images/games/btn_2_over.jpg) 0 0 no-repeat;
+        }
+      }
+
+
+      &.reviews a{
+        background:url(/images/games/btn_3.jpg) 0 0 no-repeat; 
+        &:hover{
+	  background:url(/images/games/btn_3_over.jpg) 0 0 no-repeat;
+        }
+      }
+
+      &.new a{
+        background:url(/images/games/btn_4.jpg) 0 0 no-repeat; 
+        &:hover{
+	  background:url(/images/games/btn_4_over.jpg) 0 0 no-repeat;
+        }
+      }
+
+      &.top a{
+        background:url(/images/games/btn_5.jpg) 0 0 no-repeat; 
+        &:hover{
+	  background:url(/images/games/btn_5_over.jpg) 0 0 no-repeat;
+        }
+      }
+
+      &.contacts {
+        margin-right: 0;
+        a{
+          background:url(/images/games/btn_6.jpg) 0 0 no-repeat; 
+          &:hover{
+	    background:url(/images/games/btn_6_over.jpg) 0 0 no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
+
+#logo{
+  position: absolute; 
+  top: 14px; 
+  left: 51px;
+}
+
+#searchForm {
+  position: absolute;
+  top: 21px;
+  left:473px;
+
+  img#h_search {
+    float:left;
+     margin-right:5px;
+     padding-top:1px;
+  }
+  input {
+    width:112px;
+    height:14px; 
+    background:#4a4a4a; 
+    float:left; 
+    margin-right:5px; 
+    font:10px/12px Tahoma, sans-serif; 
+    color:#fff; 
+    border:none;
+  }
+  img#submit {
+    float:left; 
+    padding-top:1px;
+  }
+}
+
+/* CONTENT */
+
+#content{width:695px; position:relative; margin:0 auto; clear:both}
+
+#leftPan{width:315px; margin:17px 0 0 0; float:left;}
+#rightPan{width:380px; float:left;}
+
+#welcome
+{
+  width:290px;
+  margin-left:11px; 
+  margin-bottom:30px;
+  h2 {
+    height:60px;
+    position:relative;
+    background:url(/images/games/h_welcome.gif) 0 0 no-repeat;
+    margin-bottom:27px;
+  }
+  p.subtitle {
+    margin-bottom: 15px;
+  }
+  ul {
+    width:135px;
+    float:left;
+    li {
+      font: 10px/14px Tahoma, Geneva, sans-serif;
+      background: url(/images/games/check.gif) 0 0 no-repeat;
+      padding-left:22px;
+      height:20px;
+      a {
+        color:#878787;
+        text-decoration:underline;
+        &:hover {
+	  color:#000;
+	  text-decoration:none;
+        }
+      }
+    }
+    &#list01{
+      margin:0 10px 0 3px;
+    }
+  }
+}
+
+
+#previews h2{height:23px; position:relative; background:url(/images/games/h_previews.gif) 14px 0 no-repeat; margin-bottom:13px}
+
+#previews p span.headline{display:block; margin-bottom:2px}
+
+.previewItem01{display: block; height:76px; background:#f7f7f7; margin-bottom:5px; }
+.previewItem01 img{float:left; margin:4px 14px 0 18px;}
+.previewItem01 .previewText{width:147px; margin-right:6px; float:left; margin-top:7px}
+.previewItem01 .score{width:47px; height:47px; background:url(/images/games/b_score.gif) 0 0 no-repeat; margin:5px 0 0 0; float:left}
+.previewItem01 .score p{ text-align:center; font: 11px/20px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; padding-top:3px }
+.previewItem01 .score p span{ font: 14px/20px "Trebuchet MS", Arial, Helvetica, sans-serif; font-weight:bold }
+
+.previewItem02{display: block; height:76px; margin-bottom:5px; }
+.previewItem02 img{float:left; margin:4px 14px 0 18px;}
+.previewItem02 .previewText{width:147px; margin-right:6px; float:left; margin-top:7px}
+.previewItem02 .score{width:47px; height:47px; background:url(/images/games/b_score.gif) 0 0 no-repeat; margin:5px 0 0 0; float:left}
+.previewItem02 .score p{ text-align:center; font: 11px/20px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#000; padding-top:3px }
+.previewItem02 .score p span{ font: 14px/20px "Trebuchet MS", Arial, Helvetica, sans-serif; font-weight:bold }
+
+#ad{margin-bottom:20px;}
+#ad img#mainImg{margin:0; height:199px}
+#description{height:85px; background: url(/images/games/back_feat.gif) 0 0 no-repeat; position:relative}
+#title{width:225px; margin:11px 0 0 22px; }
+#title h2{height:19px; background:url(/images/games/name_feat.gif) 0 0 no-repeat; margin-bottom:10px}
+
+#stars{width:80px; position:absolute; top:11px; left:281px}
+#stars img{margin-bottom:5px; clear:both}
+#stars p{text-align:right; font:11px/14px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#848484;}
+#stars p span{ font-weight:bold}
+
+#description ul{width:90px; height:29px; position:absolute; top:56px; left:277px; background:url(/images/games/b_btn_feat.gif) 0 0 no-repeat; }
+#description ul li{text-align:center; padding-top:8px}
+#description ul li a{font:11px/14px Arial, Helvetica, sans-serif; color:#fff; text-decoration:none; text-transform:uppercase}
+#description ul li a:hover{color:#c0e4f6}
+
+#new{width:350px; margin-left:21px; margin-bottom:10px}
+#new h2{height:23px; position:relative; background:url(/images/games/h_new.gif) 0 0 no-repeat; margin-bottom:17px}
+.newItem {width:165px; float:left; margin-right:10px; margin-bottom:13px}
+.newItem img{float:left; margin-right:10px}
+.newItem p{width:85px; margin-bottom:10px; padding-top:7px; float:left}
+.newItem ul.btn_more{float:left; height:14px}
+.newItem ul.btn_more li{ height:14px; background:url(/images/games/arrow.gif) 0 0 no-repeat; padding-left:22px}
+.newItem ul.btn_more li a{font:11px/12px Arial, Helvetica, sans-serif; color:#b2b2b2; text-decoration:none; text-transform:uppercase}
+.newItem ul.btn_more li a:hover{color:#000}
+
+#wanted{width:340px; margin-left:21px;}
+#wanted h2{height:23px; position:relative; background:url(/images/games/h_wanted.gif) 0 0 no-repeat; margin-bottom:6px}
+#wanted p.subtitle{margin-bottom:10px}
+#wanted img{float:left; margin-right:10px}
+#wanted p span.headline{display:block; margin-bottom:2px; padding-top:2px}
+
+/* FOOTER */
+
+footer {
+  height: 90px;
+  clear: both;
+  margin:15px auto 0 auto;
+  background:url(/images/games/b_footer.gif) 0 0 repeat-x;
+  p {
+    padding: 25px 0 0 0;
+    font:12px/16px Tahoma, Geneva, sans-serif;
+    font-weight:normal;
+    text-align:center;
+    color:#848484;
+    a {
+      font:12px/16px Tahoma, Geneva, sans-serif;
+      font-weight:normal;
+      color:#848484;
+      text-decoration:none;
+      padding: 0 3px;
+      &:hover {
+        text-decoration:none;
+        background:#848484;
+        color:#fff;
+      }
+    }
+  }
+}

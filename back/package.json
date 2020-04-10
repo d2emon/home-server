@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "My Home Server",
   "private": true,
-  "main": "./src/app.js",
+  "main": "src/app.js",
   "bin": {
-    "app": "./bin/www"
+    "app": "bin/www"
   },
   "scripts": {
-    "start": "NODE_PATH=./src DEBUG=home-server ./bin/www",
+    "start": "NODE_PATH=./src DEBUG=home-server bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "homepage": "https://github.com/d2emon/home-server#readme",

@@ -1,26 +1,26 @@
-var User = require('models/user').User;
-var Artist = require('models/artist').Artist;
-var News = require('models/news').News;
-var Tour = require('models/tour').Tour;
-var Album = require('models/album').Album;
-var Image = require('models/image').Image;
-var Video = require('models/video').Video;
-var Event = require('models/event').Event;
-var Track = require('models/track').Track;
+var User = require('back/src/models/user').User;
+var Artist = require('back/src/models/artist').Artist;
+var News = require('back/src/models/news').News;
+var Tour = require('back/src/models/tour').Tour;
+var Album = require('back/src/models/album').Album;
+var Image = require('back/src/models/image').Image;
+var Video = require('back/src/models/video').Video;
+var Event = require('back/src/models/event').Event;
+var Track = require('back/src/models/track').Track;
 
 var news = [
   new News({
     published: new Date(2011, 10, 9),
     text: "Rock Band is one of <a class=\"link\" target=\"_blank\" href=\"http://blog.templatemonster.com/free-website-templates/\">free website templates</a> created by Template Monster team."
-  }), 
+  }),
   new News({
     published: new Date(2011, 10, 7),
     text: "This <a class=\"link\" target=\"_blank\" href=\"http://blog.templatemonster.com/2011/11/21/free-website-template-jquery-gallery-music/ \">Rock Band Template</a> goes with two packages – with PSD source files and without them."
-  }), 
+  }),
   new News({
     published: new Date(2011, 10, 2),
     text: "PSD source files are available for free for the registered members <br />of Templates.com."
-  }) 
+  })
 ];
 
 var events = [
@@ -232,21 +232,21 @@ var albums = [
     thumb: "/images/albums/page2-img1.jpg",
     description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     tracks: tracks
-  }), 
+  }),
   new Album({
     title: "Genres",
     date: new Date(2010, 0, 1),
     thumb: "/images/albums/page2-img2.jpg",
     description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     tracks: tracks.slice(1, 10)
-  }), 
+  }),
   new Album({
     title: "Rock & Roll",
     date: new Date(2010, 0, 1),
     thumb: "/images/albums/page2-img3.jpg",
     description: "Lorem ipsum dolor consctetur adipisicing elitdo eusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     tracks: tracks
-  }), 
+  }),
 ];
 
 var artist = Artist({

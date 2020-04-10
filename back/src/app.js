@@ -4,14 +4,14 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var config = require('config');
+var config = require('back/src/config');
 var log = require('winston');
 var mongoose = require('mongoose');
-var menu = require('menu');
+var menu = require('back/src/menu');
 
 log.info(config.get('port'));
 
-var routes = require('./routes/index');
+var routes = require('./routes');
 var users = require('./routes/users');
 var games = require('./routes/games');
 var rock = require('./routes/rock');
