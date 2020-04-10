@@ -12,5 +12,6 @@ services:
     ports:
       - "8082:3000"
     volumes:
+      - ./back/package.json:/app/package.json
       - ./back/src:/app/src
     command: npm run serve
