@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 services:
   front:
     build: ./front
@@ -6,9 +6,11 @@ services:
       - "8080:8080"
     volumes:
       - ./front/src:/app/src
+    command: npm run serve
   back:
     build: ./back
     ports:
       - "8082:3000"
     volumes:
       - ./back/src:/app/src
+    command: npm run serve

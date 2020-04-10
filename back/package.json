@@ -1,6 +1,6 @@
 {
   "name": "home-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "My Home Server",
   "private": true,
   "main": "src/app.js",
@@ -8,7 +8,12 @@
     "app": "bin/www"
   },
   "scripts": {
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "prebuild": "npm run lint",
+    "build": "tsc",
+    "prestart": "npm run build",
     "start": "NODE_PATH=./src DEBUG=home-server bin/www",
+    "serve": "nodemon --watch src -e ts,ejs --exec npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "homepage": "https://github.com/d2emon/home-server#readme",
@@ -25,7 +30,7 @@
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
-    "express": "~4.0.0",
+    "express": "^4.17.1",
     "jade": "~1.3.0",
     "less-middleware": "0.1.15",
     "moment": "^2.18.1",
@@ -34,5 +39,10 @@
     "nconf": "^0.8.4",
     "static-favicon": "~1.0.0",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
   }
 }
