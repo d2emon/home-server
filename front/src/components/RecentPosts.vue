@@ -1,12 +1,7 @@
 <template>
-  <v-card
-    flat
+  <page-card
+    title="Recent Posts"
   >
-    <v-card-title>
-      <h1 class="headline">
-        Recent Posts
-      </h1>
-    </v-card-title>
     <v-row>
       <v-col
         v-for="(post, postId) in posts"
@@ -38,7 +33,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-card>
+  </page-card>
 </template>
 
 <script lang="ts">
@@ -51,7 +46,11 @@ interface Post {
   short?: string;
 }
 
-@Component({})
+@Component({
+  components: {
+    PageCard: () => import('@/components/PageCard.vue'),
+  },
+})
 export default class RecentPosts extends Vue {
   posts: Post[] = [
     {

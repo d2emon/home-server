@@ -21,17 +21,17 @@ const routes: Array<RouteConfig> = [
   {
     path: '/layout',
     name: 'Layout',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Layout.vue'),
   },
   {
     path: '/styles',
     name: 'Styles',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Layout.vue'),
   },
   {
     path: '/more',
     name: 'More',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Layout.vue'),
   },
   {
     path: '/portfolio',

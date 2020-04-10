@@ -1,20 +1,11 @@
 <template>
   <v-container class="home">
-    <v-card
-      flat
+    <page-card
+      title="Home Server"
+      subtitle="Home Server Subtitle"
     >
-      <v-card-title>
-        <h1 class="headline">
-          Home Server
-        </h1>
-      </v-card-title>
-      <v-card-subtitle>
-        <h2 class="title">
-          Home Server Subtitle
-        </h2>
-      </v-card-subtitle>
       <images-carousel />
-    </v-card>
+    </page-card>
 
     <recent-posts />
   </v-container>
@@ -26,6 +17,7 @@ import Component from 'vue-class-component';
 
 @Component({
   components: {
+    PageCard: () => import('@/components/PageCard.vue'),
     ImagesCarousel: () => import('@/components/ImagesCarousel.vue'),
     RecentPosts: () => import('@/components/RecentPosts.vue'),
   },
