@@ -44,19 +44,19 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/PortfolioItem.vue'),
   },
   {
-    path: '/gallery-2',
+    path: '/gallery-:cols',
     name: 'Gallery',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Gallery.vue'),
   },
   {
-    path: '/gallery-3',
+    path: '/gallery-:cols',
     name: 'Gallery',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Gallery.vue'),
   },
   {
-    path: '/gallery-4',
+    path: '/gallery-:cols',
     name: 'Gallery',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Gallery.vue'),
   },
   {
     path: '/blog',
