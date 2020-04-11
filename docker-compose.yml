@@ -6,6 +6,7 @@ services:
       - "8080:8080"
     volumes:
       - ./front/src:/app/src
+    command: npm run serve
   back:
     build: ./back
     ports:

@@ -36,7 +36,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/portfolio',
     name: 'Portfolio',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Portfolio.vue'),
+  },
+  {
+    path: '/portfolio/:itemId',
+    name: 'PortfolioItem',
+    component: () => import('@/views/PortfolioItem.vue'),
   },
   {
     path: '/gallery-2',
