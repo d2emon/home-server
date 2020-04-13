@@ -57,6 +57,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import { mapState } from 'vuex';
 
 interface MenuItem {
   title: string;
@@ -69,79 +70,74 @@ interface MenuItem {
     AppLogo: () => import('@/components/AppLogo.vue'),
     SearchBox: () => import('@/components/SearchBox.vue'),
   },
+  computed: {
+    ...mapState([
+      'categories',
+    ]),
+  },
 })
 export default class AppHeader extends Vue {
-  menu: MenuItem[] = [
-    {
-      title: 'Home',
-      to: '/',
-    },
-    {
-      title: 'Feature',
-      items: [
-        {
-          title: 'Layout',
-          to: '/layout',
-        },
-        {
-          title: 'Styled',
-          to: '/styles',
-        },
-        {
-          title: 'More',
-          to: '/more',
-        },
-      ],
-    },
-    {
-      title: 'Portfolio',
-      to: '/portfolio',
-    },
-    {
-      title: 'Gallery',
-      items: [
-        {
-          title: 'Two Columns',
-          to: '/gallery-2',
-        },
-        {
-          title: 'Three Columns',
-          to: '/gallery-3',
-        },
-        {
-          title: 'Four Columns',
-          to: '/gallery-4',
-        },
-      ],
-    },
-    {
-      title: 'Blog',
-      to: '/blog',
-    },
-    {
-      title: 'Contact',
-      to: '/contact',
-    },
-    {
-      title: 'Skins',
-      items: [
-        {
-          title: 'Yellow',
-        },
-        {
-          title: 'Blue',
-        },
-        {
-          title: 'Red',
-        },
-        {
-          title: 'Pink',
-        },
-        {
-          title: 'Green',
-        },
-      ],
-    },
-  ];
+  get menu(): MenuItem[] {
+    // ts-lint:ignore-next-line
+    return [
+      {
+        title: 'Главная',
+        to: '/',
+      },
+      {
+        title: 'Фичи',
+        items: [
+          {
+            title: 'Layout',
+            to: '/layout',
+          },
+          {
+            title: 'Styled',
+            to: '/styles',
+          },
+          {
+            title: 'More',
+            to: '/more',
+          },
+        ],
+      },
+      {
+        title: 'Портфолио',
+        to: '/portfolio',
+      },
+      {
+        title: 'Галерея',
+        items: [
+          {
+            title: 'Two Columns',
+            to: '/gallery-2',
+          },
+          {
+            title: 'Three Columns',
+            to: '/gallery-3',
+          },
+          {
+            title: 'Four Columns',
+            to: '/gallery-4',
+          },
+        ],
+      },
+      {
+        title: 'Блог',
+        to: '/blog',
+      },
+      {
+        title: 'Контакты',
+        to: '/contact',
+      },
+      {
+        title: 'Категории',
+        items: this.categories.map((title) => ({
+          title,
+          to: '/',
+        })),
+      },
+    ];
+  }
 }
 </script>
