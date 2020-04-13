@@ -61,7 +61,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/blog',
     name: 'Blog',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Blog.vue'),
   },
   {
     path: '/contacts',
