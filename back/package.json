@@ -37,6 +37,7 @@
     "mongoose": "^4.9.8",
     "morgan": "~1.0.0",
     "nconf": "^0.8.4",
+    "pug": "^2.0.4",
     "static-favicon": "~1.0.0",
     "winston": "^2.3.1"
   },

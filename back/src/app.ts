@@ -26,7 +26,7 @@ const app =express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // app.use(favicon());
 app.use(logger('dev'));
@@ -36,14 +36,11 @@ app.use(cookieParser());
 // app.use(lessMiddleware({ src: publicPath }));
 app.use(express.static(publicPath));
 
-app.locals.siteName = "Home Server";
-app.locals.siteDescription = "Мой домашний сервер";
-app.locals.companyName = "Dmitry Kutsenko";
-app.locals.companyEmail = "d2emonium@gmail.com";
-app.locals.companyAdress = [
-  "30, ул. Бетховена",
-  "г. Луганск, ЛНР"
-];
+app.locals.siteName = config.get('siteName');
+app.locals.siteDescription = config.get('siteDescription');
+app.locals.companyName = config.get('companyName');
+app.locals.companyEmail = config.get('companyEmail');
+app.locals.companyAdress = config.get('companyAddress');
 app.locals.menu = menu;
 
 // tslint:disable-next-line
