@@ -36,27 +36,32 @@ const routes: Array<RouteConfig> = [
   {
     path: '/portfolio',
     name: 'Portfolio',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Portfolio.vue'),
   },
   {
-    path: '/gallery-2',
-    name: 'Gallery',
-    component: () => import('@/views/Home.vue'),
+    path: '/portfolio/:itemId',
+    name: 'PortfolioItem',
+    component: () => import('@/views/PortfolioItem.vue'),
   },
   {
-    path: '/gallery-3',
+    path: '/gallery-:cols',
     name: 'Gallery',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Gallery.vue'),
   },
   {
-    path: '/gallery-4',
+    path: '/gallery-:cols',
     name: 'Gallery',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Gallery.vue'),
+  },
+  {
+    path: '/gallery-:cols',
+    name: 'Gallery',
+    component: () => import('@/views/Gallery.vue'),
   },
   {
     path: '/blog',
     name: 'Blog',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/Blog.vue'),
   },
   {
     path: '/contacts',
