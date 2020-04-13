@@ -1,15 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var News = require('models/news').News;
-var Event = require('models/event').Event;
-var Artist = require('models/artist').Artist;
+import express from 'express';
+// let News = require('models/news').News;
+// let Event = require('models/event').Event;
+// let Artist = require('models/artist').Artist;
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res) {
-  res.redirect('/games/index.html');
-});
+router.get('/', (req: express.Request, res: express.Response) => res
+    .redirect('/games/index.html'));
 
-router.get('/index.:format?', function(req, res) {
+router.get('/index.:format?', (req: express.Request, res: express.Response) => {
+  /*
   Artist.findOne({}, function(err, artist) {
     if (err) throw err;
 
@@ -19,7 +20,7 @@ router.get('/index.:format?', function(req, res) {
       Event.find({}, function(err, events) {
         if (err) throw err;
 
-        res.render('games/index', { 
+        res.render('games/index', {
           title: 'Games',
           chapterMenu: [
             {
@@ -158,13 +159,15 @@ router.get('/index.:format?', function(req, res) {
               + "sagittis. Fusce",
             score: 76,
           },
-          news: news, 
-	  artist: artist,
-          events: events,
+          news,
+	  artist,
+          events,
         });
       });
-    });   
-  }); 
+    });
+  });
+   */
+  return res.json({})
 });
 
-module.exports = router;
+export default router;

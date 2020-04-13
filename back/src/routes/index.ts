@@ -9,71 +9,69 @@ const router = express.Router();
 router.get('/', (req: express.Request, res: express.Response) => res
     .redirect('/index.html'));
 
-router.get('/index.:format?', (req: express.Request, res: express.Response) => {
-    // tslint:disable-next-line
-    console.log(res.app.locals);
-    res
-        .render('cherry', {
-            title: 'Main',
-            breadcrumbs: [
-                {
-                  href: "/",
-                  title: "Главная"
-                },
-                {
-                    href: "#",
-                    title: "Промежуточная"
-                },
-                {
-                    href: "#",
-                    title: "Текущая"
-                }
-            ],
-            form: {
-                inputs: [
-                    "Первый пункт",
-                    "Второй пункт",
-                    "Третий пункт"
-                ],
-                select: [
-                    "Первый пункт",
-                    "Второй пункт",
-                    "Третий пункт"
-                ],
-                radio: [
-                    "Первый пункт",
-                    "Второй пункт",
-                    "Третий пункт"
-                ],
-                check: [
-                    "Первый пункт",
-                    "Второй пункт",
-                    "Третий пункт"
-                ]
+router.get('/index.:format?', (req: express.Request, res: express.Response) => res
+    .json({
+        locals: res.app.locals,
+        title: 'Main',
+        breadcrumbs: [
+            {
+                href: "/",
+                title: "Главная"
             },
-            images: [
-                "/images/cherry/img1.png",
-                "/images/cherry/img2.png",
-                "/images/cherry/img3.png"
+            {
+                href: "#",
+                title: "Промежуточная"
+            },
+            {
+                href: "#",
+                title: "Текущая"
+            }
+        ],
+        form: {
+            inputs: [
+                "Первый пункт",
+                "Второй пункт",
+                "Третий пункт"
             ],
-            table: {
-                titles: [
-                    "#",
-                    "Колонка",
-                    "Графа",
-                    "Столбец",
-                    "Раздел",
-                    "Ссылка",
+            select: [
+                "Первый пункт",
+                "Второй пункт",
+                "Третий пункт"
+            ],
+            radio: [
+                "Первый пункт",
+                "Второй пункт",
+                "Третий пункт"
+            ],
+            check: [
+                "Первый пункт",
+                "Второй пункт",
+                "Третий пункт"
+            ]
+        },
+        images: [
+            "/images/cherry/img1.png",
+            "/images/cherry/img2.png",
+            "/images/cherry/img3.png"
+        ],
+        table: {
+            titles: [
+                "#",
+                "Колонка",
+                "Графа",
+                "Столбец",
+                "Раздел",
+                "Ссылка",
+            ],
+            data: [
+                [
+                    1,
+                    "Lorem ipsum",
+                    "At vero eos",
+                    "Sed",
+                    "Dolor sit amet",
+                    "<a href=\"#\">Epd.</a>"
                 ],
-                data: [
-                    [
-                        1,
-                        "Lorem ipsum",
-                        "At vero eos",
-                        "Sed",
-                        "Dolor sit amet",
-                        "<a href=\"#\">Epd.</a>"
-                    ],
                 [
                     2,
                     "Lorem ipsum",
@@ -186,7 +184,6 @@ router.get('/index.:format?', (req: express.Request, res: express.Response) => {
                 + "proident, sunt in culpa qui officia deserunt mollit anim id est "
                 + "laborum."
         }
-    });
-});
+    }));
 
 export default router;

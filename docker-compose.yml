@@ -1,12 +1,11 @@
 version: "3"
 services:
-  front:
-    build: ./front
-    ports:
-      - "8080:8080"
+  db:
+    image: mongo
     volumes:
-      - ./front/src:/app/src
-    command: npm run serve
+      - ./data/db:/data/db
+    ports:
+    - 27017:27017
   back:
     build: ./back
     ports:
@@ -15,3 +14,19 @@ services:
       - ./back/package.json:/app/package.json
       - ./back/src:/app/src
     command: npm run serve
+  front:
+    build: ./front
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./front/src:/app/src
+    command: npm run serve
+  proxy:
+    image: nginx
+    ports:
+      - 8083:80
+    volumes:
+      - ./proxy/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - back
+      - front
