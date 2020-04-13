@@ -13,9 +13,9 @@ import config from './config'
 import menu from './menu'
 
 import routes from './routes'
-// import routesUsers from './routes/users'
-// import routesGames from './routes/gamers'
-// import routesRock from './routes/rock'
+import routesUsers from './routes/users'
+import routesGames from './routes/games'
+import routesRock from './routes/rock'
 
 log.info(config.get('port'));
 
@@ -47,9 +47,9 @@ app.locals.menu = menu;
 console.log(menu);
 
 app.use('/', routes);
-// app.use('/users', users);
-// app.use('/games', games);
-// app.use('/rock', rock);
+app.use('/users', routesUsers);
+app.use('/games', routesGames);
+app.use('/rock', routesRock);
 
 /// catch 404 and forwarding to error handler
 app.use((req: express.Request, res: any, next: express.NextFunction) => {
