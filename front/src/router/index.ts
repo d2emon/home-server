@@ -63,6 +63,11 @@ const routes: Array<RouteConfig> = [
     name: 'Contacts',
     component: () => import('@/views/Home.vue'),
   },
+  {
+    path: '/cherry',
+    name: 'Cherry',
+    component: () => import('@/views/Cherry.vue'),
+  },
 ];
 
 const router = new VueRouter({
