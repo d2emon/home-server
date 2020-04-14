@@ -1,10 +1,10 @@
 <template>
   <div class="d-flex align-center mr-2">
     <v-img
-      alt="Home Server"
+      :alt="title"
       class="shrink mr-2"
       contain
-      src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+      :src="logo"
       transition="scale-transition"
       width="40"
     />
@@ -15,12 +15,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
+import { mapState } from 'vuex';
 
-export default Vue.extend({
-  name: 'AppLogo',
+@Component({
+  computed: {
+    ...mapState([
+      'title',
+      'logo',
+    ]),
+  },
+})
+export default class AppLogo extends Vue {
+  title!: string;
 
-  data: () => ({
-    title: 'Home Server',
-  }),
-});
+  logo!: string;
+}
 </script>

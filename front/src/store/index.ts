@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    title: 'Home Server',
+    logo: 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png',
     categories: [
       'Игры',
       'Искусство',

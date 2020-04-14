@@ -77,8 +77,9 @@ interface MenuItem {
   },
 })
 export default class AppHeader extends Vue {
+  categories!: string[];
+
   get menu(): MenuItem[] {
-    // ts-lint:ignore-next-line
     return [
       {
         title: 'Главная',
@@ -132,7 +133,7 @@ export default class AppHeader extends Vue {
       },
       {
         title: 'Категории',
-        items: this.categories.map((title) => ({
+        items: this.categories.map((title: string) => ({
           title,
           to: '/',
         })),
