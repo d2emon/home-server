@@ -1,5 +1,8 @@
 <template>
-  <div class="d-flex align-center mr-2">
+  <div
+    class="d-flex align-center mr-2"
+    @click="$router.push('/')"
+  >
     <v-img
       :alt="title"
       class="shrink mr-2"
@@ -16,15 +19,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { mapState } from 'vuex';
 
 @Component({
-  computed: {
-    ...mapState([
-      'title',
-      'logo',
-    ]),
-  },
+  props: [
+    'title',
+    'logo',
+  ],
 })
 export default class AppLogo extends Vue {
   title!: string;

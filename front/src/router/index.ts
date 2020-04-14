@@ -71,6 +71,37 @@ const routes: Array<RouteConfig> = [
       },
     ],
   },
+  {
+    path: '/music',
+    name: 'Music',
+    component: () => import('@/music/views/Music.vue'),
+    children: [
+      {
+        path: '',
+        redirect: '/music/search',
+      },
+      {
+        path: 'search',
+        name: 'Search',
+        component: () => import('@/music/views/Search.vue'),
+      },
+      {
+        path: 'search/:search',
+        name: 'SearchedSongs',
+        component: () => import('@/music/views/Songs.vue'),
+      },
+      {
+        path: 'genres',
+        name: 'Genres',
+        component: () => import('@/music/views/Genres.vue'),
+      },
+      {
+        path: 'genres/:genre',
+        name: 'GenreSongs',
+        component: () => import('@/music/views/Songs.vue'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
