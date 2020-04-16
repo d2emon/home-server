@@ -15,6 +15,7 @@
       <v-menu
         v-if="item.items"
         :key="itemId"
+        class="mx-1"
         offset-y
         open-on-hover
       >
@@ -26,6 +27,9 @@
             v-on="on"
           >
             {{ item.title }}
+            <v-icon>
+              mdi-chevron-down
+            </v-icon>
           </v-btn>
         </template>
 
@@ -44,6 +48,7 @@
       <v-btn
         v-else
         :key="itemId"
+        class="mx-1"
         text
         :to="item.to"
       >
@@ -54,6 +59,13 @@
     <v-spacer></v-spacer>
 
     <search-box />
+    <v-btn
+      icon
+      class="mx-2"
+      to="/music/login"
+    >
+      <v-icon>mdi-login</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 
@@ -61,12 +73,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { mapState } from 'vuex';
-
-interface MenuItem {
-  title: string;
-  to?: string;
-  items?: MenuItem[];
-}
+import { MenuItem } from '../types/MenuItem';
 
 @Component({
   components: {
@@ -75,77 +82,39 @@ interface MenuItem {
   },
   computed: {
     ...mapState([
-      'title',
-      'logo',
       'categories',
     ]),
   },
 })
 export default class AppHeader extends Vue {
-  title!: string;
-
-  logo!: string;
-
   categories!: string[];
+
+  title = 'Home Server';
+
+  logo = 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png';
+
+  languages: MenuItem[] = [
+    'Russian',
+    'English',
+  ].map((title) => ({ title, to: '/music' }));
+
+  get pages(): MenuItem[] {
+    return this.categories.map((title) => ({ title, to: '/music' }));
+  }
 
   get menu(): MenuItem[] {
     return [
       {
-        title: 'Главная',
-        to: '/',
+        title: 'Жанры',
+        to: '/music/genres',
       },
       {
-        title: 'Фичи',
-        items: [
-          {
-            title: 'Layout',
-            to: '/layout',
-          },
-          {
-            title: 'Styled',
-            to: '/styles',
-          },
-          {
-            title: 'More',
-            to: '/more',
-          },
-        ],
+        title: 'Языки',
+        items: this.languages,
       },
       {
-        title: 'Портфолио',
-        to: '/portfolio',
-      },
-      {
-        title: 'Галерея',
-        items: [
-          {
-            title: 'Two Columns',
-            to: '/gallery-2',
-          },
-          {
-            title: 'Three Columns',
-            to: '/gallery-3',
-          },
-          {
-            title: 'Four Columns',
-            to: '/gallery-4',
-          },
-        ],
-      },
-      {
-        title: 'Блог',
-        to: '/blog',
-      },
-      {
-        title: 'Контакты',
-        to: '/contact',
-      },
-      {
-        title: 'Категории',
-        items: this.categories.map((title: string) => ({
-          title,
-          to: '/',
-        })),
+        title: 'Страницы',
+        items: this.pages,
       },
     ];
   }

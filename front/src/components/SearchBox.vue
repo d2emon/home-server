@@ -1,10 +1,25 @@
 <template>
   <v-text-field
     v-model="value"
-    placeholder="Search"
+    placeholder="Найти…"
     @change="search"
   >
-    <template v-slot:append>
+    <template
+      v-if="full"
+      v-slot:append-outer
+    >
+      <v-btn
+        text
+        @click="search"
+      >
+        Найти
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+    </template>
+    <template
+      v-else
+      v-slot:append
+    >
       <v-btn
         text
         icon
@@ -22,13 +37,17 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'SearchBox',
 
+  props: [
+    'full',
+  ],
+
   data: () => ({
     value: '',
   }),
 
   methods: {
     search() {
-      console.log('Search', this.value);
+      this.$emit('search');
     },
   },
 });

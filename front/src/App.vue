@@ -1,24 +1,11 @@
 <template>
-  <v-app>
-    <app-header />
-
-    <v-content>
-      <router-view />
-    </v-content>
-
-    <app-footer />
-  </v-app>
+  <router-view />
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-@Component({
-  components: {
-    AppHeader: () => import('@/components/AppHeader.vue'),
-    AppFooter: () => import('@/components/AppFooter.vue'),
-  },
-})
+@Component
 export default class App extends Vue {}
 </script>
