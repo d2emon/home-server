@@ -93,10 +93,12 @@ export default class AppHeader extends Vue {
 
   logo = 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png';
 
+  /*
   languages: MenuItem[] = [
     'Russian',
     'English',
   ].map((title) => ({ title, to: '/music' }));
+   */
 
   get pages(): MenuItem[] {
     return this.categories.map((title) => ({ title, to: '/music' }));
@@ -109,8 +111,34 @@ export default class AppHeader extends Vue {
         to: '/music/genres',
       },
       {
+        title: 'Альбомы',
+        to: '/music/albums',
+      },
+      {
+        title: 'Песни',
+        to: '/music/songs',
+      },
+      {
+        title: 'Плейлисты',
+        to: '/music/playlists',
+      },
+      /*
+      {
         title: 'Языки',
         items: this.languages,
+      },
+       */
+      {
+        title: 'Инструменты',
+        to: '/music/instruments',
+      },
+      {
+        title: 'Misheard',
+        to: '/music/misheard',
+      },
+      {
+        title: 'Статьи',
+        to: '/music/articles',
       },
       {
         title: 'Страницы',

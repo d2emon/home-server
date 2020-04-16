@@ -1,9 +1,11 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
+import music from '@/music/store/music';
+import { RootState } from './types';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
   state: {
     title: 'Home Server',
     logo: 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png',
@@ -229,5 +231,8 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    music,
   },
-});
+};
+
+export default new Vuex.Store<RootState>(store);
