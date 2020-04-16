@@ -105,6 +105,16 @@ const routes: Array<RouteConfig> = [
         name: 'Misheard',
         component: () => import('@/music/views/Misheard.vue'),
       },
+      {
+        path: 'instruments',
+        name: 'Instruments',
+        component: () => import('@/music/views/Instruments.vue'),
+      },
+      {
+        path: 'instruments/:slug',
+        name: 'Instrument',
+        component: () => import('@/music/views/Instruments.vue'),
+      },
     ],
   },
 ];

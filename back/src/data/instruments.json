@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "gitara",
+    "name": "Гитара",
+    "wiki": "/app/src/data/instruments/Гитара/index.md"
+  },
+  {
+    "slug": "mandolina",
+    "name": "Мандолина"
+  }
+]

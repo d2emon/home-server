@@ -35,9 +35,6 @@ import { Genre } from '../types/Genre';
 @Component({
   components: {
     PageCard: () => import('@/components/PageCard.vue'),
-    ImagesCarousel: () => import('@/components/ImagesCarousel.vue'),
-    RecentPosts: () => import('@/components/RecentPosts.vue'),
-    SearchBox: () => import('@/components/SearchBox.vue'),
   },
   computed: {
     ...mapState('music', ['misheard']),
@@ -50,9 +47,6 @@ export default class Misheard extends Vue {
   misheard!: string[];
 
   fetchMisheard!: () => MisheardInterface[];
-
-  genres: Genre[] = [
-  ];
 
   mounted() {
     this.fetchMisheard();

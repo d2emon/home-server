@@ -1,4 +1,7 @@
 import express from 'express';
+import Misheard from '../models/misheard';
+import Instrument from '../models/instrument';
+import { InstrumentInterface } from '../types';
 
 const router = express.Router();
 
@@ -35,21 +38,24 @@ router.get('/', (req: express.Request, res: express.Response) => res.json({
     ],
 }));
 
-router.get('/misheard', (req: express.Request, res: express.Response) => {
-    const misheard = () => require('/app/src/data/misheard.json');
-    return res.json({
-        title: 'Misheard Lyrics',
-        misheard: misheard(),
-    })
-})
+router.get('/misheard', (req: express.Request, res: express.Response) => Misheard
+    .all()
+    .then((misheard: string[]) => res.json({ misheard }))
+    .catch((error) => {
+        // tslint:disable-next-line
+        console.error(error);
+        res.json({ error });
+    }));
 
-router.get('/instruments', (req: express.Request, res: express.Response) => res.json({
-    title: 'Инструменты',
-    instruments: [
-        'Гитара',
-        'Мандолина',
-    ],
-}))
+router.get('/instruments', (req: express.Request, res: express.Response) => Instrument
+    .all()
+    .then((instruments: InstrumentInterface[]) => res.json({ instruments }))
+    .catch((error) => { throw new Error(error); }));
+
+router.get('/instruments/:slug', (req: express.Request, res: express.Response) => Instrument
+    .get(req.params.slug)
+    .then((instrument: InstrumentInterface) => res.json({ instrument }))
+    .catch((error) => { throw new Error(error); }));
 
 router.get('/covers', (req: express.Request, res: express.Response) => res.json({
     title: 'Каверы',
