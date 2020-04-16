@@ -2,25 +2,60 @@ version: "3"
 services:
   db:
     image: mongo
+    ports:
+      - 27017:27017
+    restart: always
     volumes:
       - ./data/db:/data/db
-    ports:
-    - 27017:27017
   back:
     build: ./back
+    command: npm run serve
+    depends_on:
+      - db
+    environment:
+      DEBUG: chordlib:*
+      PORT: 4000
+    links:
+      - db
     ports:
-      - "8082:3000"
+      - 8082:4000
+    restart: always
     volumes:
       - ./back/package.json:/app/package.json
       - ./back/src:/app/src
-    command: npm run serve
+      - ./back/public:/app/public
   front:
     build: ./front
+    command: npm run serve
+    depends_on:
+      - back
+    links:
+      - back
     ports:
-      - "8080:8080"
+      - 8080:8080
+    restart: always
     volumes:
       - ./front/src:/app/src
-    command: npm run serve
+      - ./front/public:/app/public
+  mongo-express:
+    depends_on:
+      - db
+    image: mongo-express
+    links:
+      - db
+    ports:
+      - 8085:8081
+    restart: always
+  ftp:
+    environment:
+      FTP_USER_HOME: /home/ftp
+    image: stilliard/pure-ftpd:hardened
+    ports:
+      - 21:21
+      - "30000-30009:30000-30009"
+    restart: always
+    volumes:
+      - ./data/ftp:/home/ftp
   proxy:
     image: nginx
     ports:
