@@ -13,6 +13,7 @@ import config from './config'
 import menu from './menu'
 
 import routes from './routes'
+import routesMusic from './routes/music'
 import routesUsers from './routes/users'
 import routesGames from './routes/games'
 import routesRock from './routes/rock'
@@ -48,6 +49,7 @@ console.log(menu);
 
 app.use('/', routes);
 app.use('/users', routesUsers);
+app.use('/music', routesMusic);
 app.use('/games', routesGames);
 app.use('/rock', routesRock);
 
