@@ -18,11 +18,15 @@ import routesUsers from './routes/users'
 import routesGames from './routes/games'
 import routesRock from './routes/rock'
 
-log.level = 'debug';
-log.info(config.get('port'));
+log.configure({
+    transports: [
+        new log.transports.Console({ level: config.get('LOG_LEVEL') })
+    ],
+})
 
 const publicPath = path.join(__dirname, '..', 'public');
-log.info(publicPath);
+log.debug(`Config: ${JSON.stringify(config)}`);
+log.debug(`Path: ${publicPath}`);
 
 const app =express();
 
@@ -45,8 +49,7 @@ app.locals.companyEmail = config.get('companyEmail');
 app.locals.companyAdress = config.get('companyAddress');
 app.locals.menu = menu;
 
-// tslint:disable-next-line
-log.info(JSON.stringify(menu));
+log.debug(JSON.stringify(menu));
 
 app.use('/', routes);
 app.use('/users', routesUsers);

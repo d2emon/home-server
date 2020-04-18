@@ -13,8 +13,9 @@ services:
     depends_on:
       - mongo
     environment:
-      DEBUG: chordlib:*
+      DEBUG: home-server:*
       PORT: 4000
+      LOG_LEVEL: debug
     links:
       - mongo
     ports:
