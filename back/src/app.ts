@@ -18,6 +18,7 @@ import routesUsers from './routes/users'
 import routesGames from './routes/games'
 import routesRock from './routes/rock'
 
+log.level = 'debug';
 log.info(config.get('port'));
 
 const publicPath = path.join(__dirname, '..', 'public');
@@ -45,7 +46,7 @@ app.locals.companyAdress = config.get('companyAddress');
 app.locals.menu = menu;
 
 // tslint:disable-next-line
-console.log(menu);
+log.info(JSON.stringify(menu));
 
 app.use('/', routes);
 app.use('/users', routesUsers);
