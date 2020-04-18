@@ -1,9 +1,16 @@
 import express from 'express';
-import Misheard from '../models/misheard';
-import Instrument from '../models/instrument';
-import { InstrumentInterface } from '../types';
+import MisheardModel from '../models/misheard';
+import InstrumentModel from '../models/instrument';
+import { Instrument, Misheard } from '../types';
 
 const router = express.Router();
+
+const onError = (error: Error) => {
+    // // tslint:disable-next-line
+    // console.error(error);
+    // res.json({ error });
+    throw error;
+}
 
 router.get('/', (req: express.Request, res: express.Response) => res.json({
     'contents': [
@@ -38,24 +45,25 @@ router.get('/', (req: express.Request, res: express.Response) => res.json({
     ],
 }));
 
-router.get('/misheard', (req: express.Request, res: express.Response) => Misheard
+router.get('/misheard', (req: express.Request, res: express.Response) => MisheardModel
     .all()
-    .then((misheard: string[]) => res.json({ misheard }))
-    .catch((error) => {
-        // tslint:disable-next-line
-        console.error(error);
-        res.json({ error });
-    }));
+    .then((misheard) => res.json({ misheard }))
+    .catch(onError));
 
-router.get('/instruments', (req: express.Request, res: express.Response) => Instrument
+router.get('/instruments', (req: express.Request, res: express.Response) => InstrumentModel
     .all()
-    .then((instruments: InstrumentInterface[]) => res.json({ instruments }))
-    .catch((error) => { throw new Error(error); }));
+    .then((instruments) => res.json({ instruments }))
+    .catch(onError));
 
-router.get('/instruments/:slug', (req: express.Request, res: express.Response) => Instrument
+router.get('/instruments/:slug', (req: express.Request, res: express.Response) => InstrumentModel
     .get(req.params.slug)
-    .then((instrument: InstrumentInterface) => res.json({ instrument }))
-    .catch((error) => { throw new Error(error); }));
+    .then((instrument) => res.json({ instrument }))
+    .catch(onError));
+
+router.get('/instruments/:slug/:page.md', (req: express.Request, res: express.Response) => InstrumentModel
+    .page(req.params.slug, req.params.page)
+    .then((page) => res.send(page))
+    .catch(onError));
 
 router.get('/covers', (req: express.Request, res: express.Response) => res.json({
     title: 'Каверы',

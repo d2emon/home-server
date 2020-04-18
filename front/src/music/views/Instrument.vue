@@ -1,65 +1,77 @@
 <template>
-  <v-container class="instruments">
-    <page-card
-      title="Инструменты"
+  <v-container class="instrument">
+    <v-card
+      v-if="instrument"
     >
-      <v-row>
-        <v-col
-          v-for="item in instruments"
-          :key="item.slug"
-          md="2"
-        >
-          <v-card
-            :to="`/music/instruments/${item.slug}`"
-          >
-            <v-img
-              :src="item.image || defaultImage"
-              class="align-end"
-            >
-              <v-card
-                dark
-              >
-                <v-card-title>
-                  <h2>{{ item.name }}</h2>
-                </v-card-title>
-              </v-card>
-            </v-img>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-img
+        v-if="instrument.image"
+        :src="instrument.image"
+      />
+      <v-container
+        v-html="instrument.html"
+      />
+    </v-card>
+    <page-card
+      v-else-if="instrument === undefined"
+      title="Загрузка…"
+    >
+      <v-card-text>
+        Идет загрузка…
+      </v-card-text>
+    </page-card>
+    <page-card
+      v-else
+      title="Ошибка"
+    >
+      <v-card-text>
+        Инструмент не найден
+      </v-card-text>
     </page-card>
   </v-container>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
-  import Component from 'vue-class-component';
-  import {
-    mapActions,
-    mapState,
-  } from 'vuex';
-  import { Instrument } from '../types';
+import Vue from 'vue';
+import {
+  Component,
+  Watch,
+} from 'vue-property-decorator';
+import { Route } from 'vue-router';
+import {
+  mapActions,
+  mapState,
+} from 'vuex';
+import { Instrument } from '../types';
 
-  @Component({
-    components: {
-      PageCard: () => import('@/components/PageCard.vue'),
-    },
-    computed: {
-      ...mapState('music', ['instruments']),
-    },
-    methods: {
-      ...mapActions('music', ['fetchInstruments']),
-    },
-  })
-  export default class Instruments extends Vue {
-    defaultImage = 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg';
+@Component({
+  components: {
+    PageCard: () => import('@/components/PageCard.vue'),
+  },
+  computed: {
+    ...mapState('music', ['instrument']),
+  },
+  methods: {
+    ...mapActions('music', ['fetchInstrument']),
+  },
+})
+export default class InstrumentData extends Vue {
+  instrument!: Instrument;
 
-    instruments!: Instrument[];
+  fetchInstrument!: (slug: string) => Instrument | null;
 
-    fetchInstruments!: () => Instrument[];
-
-    mounted() {
-      this.fetchInstruments();
-    }
+  @Watch('$route')
+  onRouteChanged(value: Route) {
+    this.fetchInstrument(value.params.slug);
   }
+
+  mounted() {
+    this.fetchInstrument(this.$route.params.slug);
+  }
+}
 </script>
+
+<style scoped="true">
+.instrument {
+  max-width: 1024px;
+}
+</style>

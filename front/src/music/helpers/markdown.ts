@@ -1,6 +1,7 @@
 import Showdown from 'showdown';
 
 const config = {
+  splitAdjacentBlockquotes: true,
   strikethrough: true,
 };
 

@@ -4,13 +4,15 @@ import {
 } from 'vuex';
 import { RootState } from '@/store/types';
 import musicApi from '@/music/helpers/music';
-import { MisheardInterface } from '@/music/store/types';
-import {Instrument} from "@/music/types";
+import {
+  Instrument,
+  Misheard,
+} from '@/music/types';
 
 interface MusicInterface {
-  misheard: MisheardInterface[];
+  misheard: Misheard[];
   instruments: Instrument[];
-  instrument?: Instrument;
+  instrument: Instrument | undefined | null;
 }
 
 const music: Module<MusicInterface, RootState> = {
@@ -21,8 +23,8 @@ const music: Module<MusicInterface, RootState> = {
     instrument: undefined,
   },
   mutations: {
-    clearMisheard: (state, payload: MisheardInterface[] = []) => Vue.set(state, 'misheard', payload),
-    addMisheard: (state, payload: MisheardInterface) => state.misheard.push(payload),
+    clearMisheard: (state, payload: Misheard[] = []) => Vue.set(state, 'misheard', payload),
+    addMisheard: (state, payload: Misheard) => state.misheard.push(payload),
     clearInstruments: (state, payload: Instrument[] = []) => Vue.set(state, 'instruments', payload),
     addInstrument: (state, payload: Instrument) => state.instruments.push(payload),
     setInstrument: (state, payload: Instrument) => Vue.set(state, 'instrument', payload),
@@ -31,7 +33,7 @@ const music: Module<MusicInterface, RootState> = {
     fetchMisheard: ({
       commit,
     }) => musicApi.getMisheard()
-      .then((items: MisheardInterface[]) => {
+      .then((items: Misheard[]) => {
         commit('clearMisheard');
         items.forEach((item) => commit('addMisheard', item));
         return items;
@@ -49,11 +51,14 @@ const music: Module<MusicInterface, RootState> = {
         commit,
       },
       slug,
-    ) => musicApi.getInstrument(slug)
-      .then((item?: Instrument): Instrument | undefined => {
-        commit('setInstrument', item);
-        return item;
-      }),
+    ) => {
+      commit('setInstrument', undefined);
+      return musicApi.getInstrument(slug)
+        .then((item: Instrument | null): Instrument | null => {
+          commit('setInstrument', item);
+          return item;
+        });
+    },
   },
   modules: {
   },

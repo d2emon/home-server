@@ -5,19 +5,22 @@
     >
       <v-row>
         <v-col
-          v-if="instrument"
+          v-for="item in instruments"
+          :key="item.slug"
           md="2"
         >
-          <v-card>
+          <v-card
+            :to="`/music/instruments/${item.slug}`"
+          >
             <v-img
-              :src="instrument.image || defaultImage"
+              :src="item.image || defaultImage"
               class="align-end"
             >
               <v-card
                 dark
               >
                 <v-card-title>
-                  <h2>{{ instrument.name }}</h2>
+                  <h2>{{ item.name }}</h2>
                 </v-card-title>
               </v-card>
             </v-img>
@@ -42,21 +45,21 @@ import { Instrument } from '../types';
     PageCard: () => import('@/components/PageCard.vue'),
   },
   computed: {
-    ...mapState('music', ['instrument']),
+    ...mapState('music', ['instruments']),
   },
   methods: {
-    ...mapActions('music', ['fetchInstrument']),
+    ...mapActions('music', ['fetchInstruments']),
   },
 })
-export default class InstrumentData extends Vue {
+export default class Instruments extends Vue {
   defaultImage = 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg';
 
-  instrument!: Instrument;
+  instruments!: Instrument[];
 
-  fetchInstrument!: (slug: string) => Instrument[];
+  fetchInstruments!: () => Instrument[];
 
   mounted() {
-    this.fetchInstrument(this.$route.params.slug);
+    this.fetchInstruments();
   }
 }
 </script>

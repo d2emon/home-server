@@ -2,7 +2,11 @@
   {
     "slug": "gitara",
     "name": "Гитара",
-    "wiki": "/app/src/data/instruments/Гитара/index.md"
+    "wiki": "/app/src/data/instruments/Гитара/index.md",
+    "pages": [
+      "Аккорды",
+      "Гитарные техники"
+    ]
   },
   {
     "slug": "mandolina",

@@ -53,3 +53,9 @@ export default class Misheard extends Vue {
   }
 }
 </script>
+
+<style scoped="true">
+  .misheard {
+    max-width: 1024px;
+  }
+</style>
