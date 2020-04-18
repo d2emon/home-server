@@ -1,3 +1,8 @@
+export interface InstrumentPageRequest {
+  instrument: string;
+  page?: string;
+}
+
 export interface Instrument {
   slug: string;
   name: string;

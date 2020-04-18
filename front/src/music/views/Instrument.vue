@@ -8,7 +8,8 @@
         :src="instrument.image"
       />
       <v-container
-        v-html="instrument.html"
+        v-if="instrumentText"
+        v-html="instrumentText"
       />
     </v-card>
     <page-card
@@ -41,14 +42,20 @@ import {
   mapActions,
   mapState,
 } from 'vuex';
-import { Instrument } from '../types';
+import {
+  Instrument,
+  InstrumentPageRequest,
+} from '../types';
 
 @Component({
   components: {
     PageCard: () => import('@/components/PageCard.vue'),
   },
   computed: {
-    ...mapState('music', ['instrument']),
+    ...mapState('music', [
+      'instrument',
+      'instrumentText',
+    ]),
   },
   methods: {
     ...mapActions('music', ['fetchInstrument']),
@@ -57,15 +64,21 @@ import { Instrument } from '../types';
 export default class InstrumentData extends Vue {
   instrument!: Instrument;
 
-  fetchInstrument!: (slug: string) => Instrument | null;
+  fetchInstrument!: (payload: InstrumentPageRequest) => Instrument | null;
 
   @Watch('$route')
   onRouteChanged(value: Route) {
-    this.fetchInstrument(value.params.slug);
+    this.fetchInstrument({
+      instrument: value.params.instrument,
+      page: value.params.page,
+    });
   }
 
   mounted() {
-    this.fetchInstrument(this.$route.params.slug);
+    this.fetchInstrument({
+      instrument: this.$route.params.instrument,
+      page: this.$route.params.page,
+    });
   }
 }
 </script>

@@ -6,6 +6,7 @@ import { RootState } from '@/store/types';
 import musicApi from '@/music/helpers/music';
 import {
   Instrument,
+  InstrumentPageRequest,
   Misheard,
 } from '@/music/types';
 
@@ -13,14 +14,16 @@ interface MusicInterface {
   misheard: Misheard[];
   instruments: Instrument[];
   instrument: Instrument | undefined | null;
+  instrumentText?: string;
 }
 
 const music: Module<MusicInterface, RootState> = {
   namespaced: true,
   state: {
-    misheard: [],
     instruments: [],
     instrument: undefined,
+    misheard: [],
+    instrumentText: undefined,
   },
   mutations: {
     clearMisheard: (state, payload: Misheard[] = []) => Vue.set(state, 'misheard', payload),
@@ -28,6 +31,7 @@ const music: Module<MusicInterface, RootState> = {
     clearInstruments: (state, payload: Instrument[] = []) => Vue.set(state, 'instruments', payload),
     addInstrument: (state, payload: Instrument) => state.instruments.push(payload),
     setInstrument: (state, payload: Instrument) => Vue.set(state, 'instrument', payload),
+    setInstrumentText: (state, payload?: string) => Vue.set(state, 'instrumentText', payload),
   },
   actions: {
     fetchMisheard: ({
@@ -50,12 +54,26 @@ const music: Module<MusicInterface, RootState> = {
       {
         commit,
       },
-      slug,
+      {
+        instrument,
+        page,
+      }: InstrumentPageRequest,
     ) => {
       commit('setInstrument', undefined);
-      return musicApi.getInstrument(slug)
-        .then((item: Instrument | null): Instrument | null => {
+      const promises: [
+        Promise<Instrument | null>,
+        Promise<string> | null,
+      ] = [
+        musicApi.getInstrument(instrument),
+        page ? musicApi.getPage(instrument, page) : null,
+      ];
+      return Promise.all(promises)
+        .then(([
+          item,
+          text,
+        ]): Instrument | null => {
           commit('setInstrument', item);
+          commit('setInstrumentText', text || (item && item.html));
           return item;
         });
     },

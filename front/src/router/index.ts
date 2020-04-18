@@ -111,7 +111,12 @@ const routes: Array<RouteConfig> = [
         component: () => import('@/music/views/Instruments.vue'),
       },
       {
-        path: 'instruments/:slug',
+        path: 'instruments/:instrument',
+        name: 'Instrument',
+        component: () => import('@/music/views/Instrument.vue'),
+      },
+      {
+        path: 'instruments/:instrument/:page.md',
         name: 'Instrument',
         component: () => import('@/music/views/Instrument.vue'),
       },
