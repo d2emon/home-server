@@ -26,7 +26,7 @@ services:
       - ./back/node_modules:/app/node_modules
       - ./back/src:/app/src
       - ./back/public:/app/public
-      - ./data/ftp/wiki/markdown:/app/markdown
+      - ./data/wiki/markdown:/app/markdown
   front:
     build: ./front
     command: npm run serve
