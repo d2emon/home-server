@@ -13,6 +13,7 @@ services:
     depends_on:
       - mongo
     environment:
+      APP_NAME: home-server
       DEBUG: home-server:*
       PORT: 4000
       LOG_LEVEL: debug

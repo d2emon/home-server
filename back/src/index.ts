@@ -1,10 +1,10 @@
 import Debug from 'debug';
+import config from './config';
 import app from './app';
 
-const debug = Debug('home-server');
+const debug = Debug(config.get('APP_NAME'));
 
-const port = process.env.PORT || 3000;
-
+const port = config.get('PORT');
 app.set('port', port);
 app.listen(
     app.get('port'),
