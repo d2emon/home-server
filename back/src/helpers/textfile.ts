@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from 'fs';
 
 export const readTextFile = (filename: string): Promise<string> => new Promise<string | null>(
     (resolve, reject) => filename
