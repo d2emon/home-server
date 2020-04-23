@@ -52,11 +52,17 @@ router.get('/albums', albums.all)
 router.get('/albums/:slug', albums.album);
 router.get('/albums/:slug/:page.md', albums.page);
 
-router.get('/songs', songs)
+router.get('/songs', songs.all)
+router.get('/songs/:slug', songs.song);
+router.get('/songs/:slug/:page.md', songs.page);
 
-router.get('/playlists', lists)
+router.get('/lists', lists.all)
+router.get('/lists/:slug', lists.list);
+router.get('/lists/:slug/:page.md', lists.page);
 
-router.get('/genres', genres)
+router.get('/genres', genres.all)
+router.get('/genres/:slug', genres.genre);
+router.get('/genres/:slug/:page.md', genres.page);
 
 router.get('/subcultures', subcultures)
 

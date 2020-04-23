@@ -1,6 +1,6 @@
 import express from 'express';
-import AlbumModel from "../../models/album";
-import {onError} from "../../helpers/errors";
+import {onError} from '../../helpers/errors';
+import AlbumModel from '../../models/album';
 
 export default {
     all: (req: express.Request, res: express.Response) => AlbumModel
