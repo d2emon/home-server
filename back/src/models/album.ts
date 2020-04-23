@@ -1,4 +1,4 @@
-import {Album} from '../types';
+import { Item } from '../types';
 import Model from './model';
 import wikiHelper from '../helpers/wiki';
 // import mongoose from 'db';
@@ -28,12 +28,12 @@ class AlbumModel extends Model {
         )
     }
 
-    public full(): Promise<Album> {
+    public full(): Promise<Item> {
         return Promise.all([
             this.brief(),
             this.loadPage(this.name),
         ])
-            .then(([brief, description]: [Album, string]) => ({
+            .then(([brief, description]: [Item, string]) => ({
                 ...brief,
                 description,
                 // pages: item.pages,

@@ -8,13 +8,5 @@ export interface Item {
     name: string;
     description?: string;
     wiki?: string;
-}
-
-export interface Instrument extends Item {
-    pages?: string[];
-}
-
-export interface Album extends Item {
-    /* */
     pages?: string[];
 }

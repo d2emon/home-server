@@ -1,4 +1,4 @@
-import {Album, Item} from '../types';
+import { Item } from '../types';
 import { readJsonFile } from '../helpers/jsonfile';
 import wikiHelper from '../helpers/wiki';
 
@@ -15,11 +15,14 @@ class Model implements Item {
 
     public wiki?: string;
 
+    public pages?: string[];
+
     public constructor(item: Item) {
         this.name = item.name;
         this.slug = item.slug;
         this.description = item.description;
         this.wiki = item.wiki;
+        this.pages = item.pages;
     }
 
     public loadPage(page?: string): Promise<string> {
@@ -41,7 +44,7 @@ class Model implements Item {
             this.brief(),
             this.loadPage('index'),
         ])
-            .then(([brief, description]: [Album, string]) => ({
+            .then(([brief, description]: [Item, string]) => ({
                 ...brief,
                 description,
                 // pages: item.pages,

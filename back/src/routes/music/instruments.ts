@@ -8,7 +8,7 @@ export default {
         .then((instruments) => res.json({ instruments }))
         .catch(onError),
     instrument: (req: express.Request, res: express.Response) => InstrumentModel
-        .get(req.params.slug)
+        .item(req.params.slug)
         .then((instrument) => res.json({ instrument }))
         .catch(onError),
     page: (req: express.Request, res: express.Response) => InstrumentModel
