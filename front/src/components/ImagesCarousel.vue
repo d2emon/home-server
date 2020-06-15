@@ -1,36 +1,33 @@
 <template>
   <v-carousel>
     <v-carousel-item
-      v-for="(item, itemId) in items"
-      :key="itemId"
-      :src="item.src"
-    />
+      v-for="item in items"
+      :key="item.itemId"
+    >
+      <v-card
+        height="100%"
+        :img="item.image"
+        :to="`/article/${item.itemId}`"
+      >
+        <v-card-title>
+          {{ item.title }}
+        </v-card-title>
+      </v-card>
+    </v-carousel-item>
   </v-carousel>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import Component from 'vue-class-component';
+import { Article } from '@/types/article';
 
-interface CarouselItem {
-  src: string;
-}
-
-@Component({})
-export default class ImagesCarousel extends Vue {
-  items: CarouselItem[] = [
-    {
-      src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+@Component({
+  props: {
+    items: {
+      type: Array as PropType<Article[]>,
     },
-    {
-      src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-    },
-    {
-      src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-    },
-    {
-      src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-    },
-  ];
-}
+  },
+})
+export default class ImagesCarousel extends Vue {}
 </script>

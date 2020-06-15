@@ -1,66 +1,48 @@
 <template>
-  <v-app>
-    <app-header
-      :title="title"
-      :menu="menu"
-    />
-
-    <v-main>
-      <router-view />
-    </v-main>
-
-    <recent-posts
-      :articles="latest.slice(0, 4)"
-    />
-
-    <app-footer
-      :articles="latest.slice(0, 3)"
-      :social="social"
-      :copyright="copyright"
-    />
-  </v-app>
+  <page-card
+    class="contacts"
+    :articles="carouselItems"
+  >
+    <v-form>
+      <v-text-field
+        label="Full Name"
+      />
+      <v-text-field
+        label="Your Email"
+      />
+      <v-text-field
+        label="Subject"
+      />
+      <v-textarea
+        label="Message"
+      />
+      <v-checkbox
+        label="I agree to the Terms and Conditions"
+      />
+      <v-checkbox
+        label="Subscribe to newsletter"
+      />
+      <v-btn
+        color="success"
+      >
+        Send Message
+      </v-btn>
+    </v-form>
+  </page-card>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { MenuItem } from '@/types/menuItem';
 import { Article } from '@/types/article';
 
 @Component({
   components: {
-    AppHeader: () => import('@/components/app/Header.vue'),
-    AppFooter: () => import('@/components/app/Footer.vue'),
-    RecentPosts: () => import('@/components/RecentPosts.vue'),
+    PageCard: () => import('@/components/PageCard.vue'),
   },
 })
-export default class App extends Vue {
-  title = 'Home Server';
-
-  menu: MenuItem[] = [
-    {
-      title: 'Home',
-      to: '/',
-    },
-    {
-      title: 'About',
-      to: '/about',
-    },
-    {
-      title: 'Blog',
-      to: '/blog',
-    },
-    {
-      title: 'Gallery',
-      to: '/gallery',
-    },
-    {
-      title: 'Contact Us',
-      to: '/contacts',
-    },
-  ];
-
-  latest: Article[] = [
+export default class Contacts extends Vue {
+  carouselItems: Article[] = [
     {
       itemId: 1,
       title: 'This is just a place holder',
@@ -89,41 +71,30 @@ export default class App extends Vue {
       image: 'https://freewebsitetemplates.com/preview/astronomywebsitetemplate/images/space-shuttle.jpg',
       text: 'You can remove any link to our website from this website template, you\'re free to use this website template without linking back to us.',
     },
-  ];
-
-  social: MenuItem[] = [
     {
-      icon: 'mdi-twitter',
-      href: '//twitter.com',
-      title: 'Twitter',
+      itemId: 5,
+      title: 'This is just a place holder',
+      date: new Date(2020, 5, 1),
+      image: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
     },
     {
-      icon: 'mdi-vimeo',
-      href: '//vimeo.com',
-      title: 'Vimeo',
+      itemId: 6,
+      title: 'This is just a place holder',
+      date: new Date(2020, 5, 1),
+      image: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
     },
     {
-      icon: 'mdi-youtube',
-      href: '//youtube.com',
-      title: 'YouTube',
+      itemId: 7,
+      title: 'This is just a place holder',
+      date: new Date(2020, 5, 1),
+      image: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
     },
     {
-      icon: 'mdi-gitlab',
-      href: '//gitlab.com',
-      title: 'GitLab',
-    },
-    {
-      icon: 'mdi-facebook',
-      href: '//facebook.com',
-      title: 'Facebook',
-    },
-    {
-      icon: 'mdi-vk',
-      href: '//vk.com',
-      title: 'VK',
+      itemId: 8,
+      title: 'This is just a place holder',
+      date: new Date(2020, 5, 1),
+      image: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
     },
   ];
-
-  copyright = '© Copyright © 2023.Company name all rights reserved';
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-center mr-2">
     <v-img
-      alt="Home Server"
+      :alt="title"
       class="shrink mr-2"
       contain
       src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
@@ -15,12 +15,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
-  name: 'AppLogo',
-
-  data: () => ({
-    title: 'Home Server',
-  }),
-});
+@Component({
+  props: {
+    title: String,
+  },
+})
+export default class Logo extends Vue {}
 </script>

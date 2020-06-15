@@ -1,10 +1,43 @@
 <template>
   <page-card
-    class="about"
-    title="This is an about page"
+    class="gallery"
     :articles="carouselItems"
+    title="Gallery"
   >
-    <hello-world msg="Welcome to Your Vue.js App" />
+    <v-row
+      v-if="selected"
+    >
+      <v-col
+        md="12"
+      >
+        <v-card
+          :to="`/article/${selected.itemId}`"
+        >
+          <v-img
+            :alt="selected.title"
+            :src="selected.image"
+            :title="selected.title"
+          />
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        md="3"
+        v-for="item in carouselItems"
+        :key="item.itemId"
+      >
+        <v-card
+          @click="selectImage(item.itemId)"
+        >
+          <v-img
+            :alt="item.title"
+            :src="item.image"
+            :title="item.title"
+          />
+        </v-card>
+      </v-col>
+    </v-row>
   </page-card>
 </template>
 
@@ -16,10 +49,9 @@ import { Article } from '@/types/article';
 @Component({
   components: {
     PageCard: () => import('@/components/PageCard.vue'),
-    HelloWorld: () => import('@/components/HelloWorld.vue'),
   },
 })
-export default class About extends Vue {
+export default class Gallery extends Vue {
   carouselItems: Article[] = [
     {
       itemId: 1,
@@ -74,5 +106,15 @@ export default class About extends Vue {
       image: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
     },
   ];
+
+  itemId = 1;
+
+  get selected() {
+    return this.carouselItems.find((i) => (i.itemId === this.itemId));
+  }
+
+  selectImage(value: number) {
+    this.itemId = value;
+  }
 }
 </script>

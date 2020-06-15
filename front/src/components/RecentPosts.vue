@@ -1,78 +1,53 @@
 <template>
-  <page-card
-    title="Recent Posts"
-  >
+  <v-container>
     <v-row>
       <v-col
-        v-for="(post, postId) in posts"
-        :key="postId"
-        md="6"
+        v-for="item in articles"
+        :key="item.itemId"
+        md="3"
       >
-        <v-card>
-          <v-img
-            class="white--text align-end"
-            height="162px"
-            :src="post.image"
+        <v-card
+          flat
+          :to="`/article/${item.itemId}`"
+        >
+          <v-card
+            v-if="item.image"
           >
-            <v-card-title>
-              {{ post.title }}
-            </v-card-title>
-          </v-img>
+            <v-img
+              height="204px"
+              :src="item.image"
+            />
+          </v-card>
+          <v-card-title
+            class="text--black"
+          >
+            {{ item.title }}
+          </v-card-title>
           <v-card-text
-            class="text--primary"
+            v-if="item.text"
           >
-            {{ post.short }}
+            {{ item.text }}
           </v-card-text>
-          <v-card-actions>
-            <v-btn
-              color="primary"
-            >
-              More
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
-  </page-card>
+  </v-container>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import Component from 'vue-class-component';
-
-interface Post {
-  image?: string;
-  title: string;
-  short?: string;
-}
+import { Article } from '@/types/article';
 
 @Component({
   components: {
     PageCard: () => import('@/components/PageCard.vue'),
   },
+  props: {
+    articles: {
+      type: Array as PropType<Article[]>,
+    },
+  },
 })
-export default class RecentPosts extends Vue {
-  posts: Post[] = [
-    {
-      image: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-      title: 'Post Title',
-      short: 'Short text',
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-      title: 'Post Title',
-      short: 'Short text',
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-      title: 'Post Title',
-      short: 'Short text',
-    },
-    {
-      image: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-      title: 'Post Title',
-      short: 'Short text',
-    },
-  ];
-}
+export default class RecentPosts extends Vue {}
 </script>
