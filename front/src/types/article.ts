@@ -1,7 +1,10 @@
 export interface Article {
-  itemId: number;
+  itemId?: number;
   title: string;
-  date: Date;
+  slug: string;
+  url: string;
+  date?: Date;
   image?: string;
   text?: string;
+  html?: string;
 }

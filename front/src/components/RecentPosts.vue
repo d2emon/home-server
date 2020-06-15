@@ -3,12 +3,12 @@
     <v-row>
       <v-col
         v-for="item in articles"
-        :key="item.itemId"
+        :key="item.slug"
         md="3"
       >
         <v-card
           flat
-          :to="`/article/${item.itemId}`"
+          :to="item.url"
         >
           <v-card
             v-if="item.image"
@@ -24,10 +24,9 @@
             {{ item.title }}
           </v-card-title>
           <v-card-text
-            v-if="item.text"
-          >
-            {{ item.text }}
-          </v-card-text>
+            v-if="item.html"
+            v-html="item.html"
+          />
         </v-card>
       </v-col>
     </v-row>

@@ -2,12 +2,12 @@
   <v-carousel>
     <v-carousel-item
       v-for="item in items"
-      :key="item.itemId"
+      :key="item.slug"
     >
       <v-card
         height="100%"
         :img="item.image"
-        :to="`/article/${item.itemId}`"
+        :to="item.url"
       >
         <v-card-title>
           {{ item.title }}
