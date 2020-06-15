@@ -1,30 +1,71 @@
 version: "3"
 services:
-  db:
+  mongo:
     image: mongo
+    ports:
+      - 27017:27017
+    restart: always
     volumes:
       - ./data/db:/data/db
-    ports:
-    - 27017:27017
   back:
     build: ./back
+    command: npm run serve
+    depends_on:
+      - mongo
+    environment:
+      APP_NAME: home-server
+      DEBUG: home-server:*
+      PORT: 4000
+      LOG_LEVEL: debug
+    links:
+      - mongo
     ports:
-      - "8082:3000"
+      - 8082:4000
+    restart: always
     volumes:
       - ./back/package.json:/app/package.json
+      - ./back/node_modules:/app/node_modules
       - ./back/src:/app/src
-    command: npm run serve
+      - ./back/public:/app/public
+      - ./data/wiki/markdown:/app/markdown
   front:
     build: ./front
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./front/src:/app/src
     command: npm run serve
+    depends_on:
+      - back
+    links:
+      - back
+    ports:
+      - 8080:8080
+    restart: always
+    volumes:
+      - ./front/package.json:/app/package.json
+      - ./front/node_modules:/app/node_modules
+      - ./front/src:/app/src
+      - ./front/public:/app/public
+  mongo-express:
+    depends_on:
+      - mongo
+    image: mongo-express
+    links:
+      - mongo
+    ports:
+      - 8085:8081
+    restart: always
+  ftp:
+    environment:
+      FTP_USER_HOME: /home/ftp
+    image: stilliard/pure-ftpd:hardened
+    ports:
+      - 21:21
+      - "30000-30009:30000-30009"
+    restart: always
+    volumes:
+      - ./data/ftp:/home/ftp
   proxy:
     image: nginx
     ports:
-      - 8083:80
+      - 80:80
     volumes:
       - ./proxy/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:

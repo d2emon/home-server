@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "gitara",
+    "name": "Гитара",
+    "pages": [
+      "Аккорды",
+      "Гитарные техники"
+    ]
+  },
+  {
+    "slug": "mandolina",
+    "name": "Мандолина",
+    "pages": [
+      "Devil's Dream"
+    ]
+  }
+]

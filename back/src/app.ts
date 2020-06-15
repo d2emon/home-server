@@ -1,26 +1,33 @@
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+// import cors from 'cors';
 import express from 'express'
+// import lessMiddleware from 'less-middleware'
+// import mongoose from 'mongoose'
+import logger from 'morgan'
 import path from 'path'
 // import favicon from 'static-favicon'
-import logger from 'morgan'
-import cookieParser from 'cookie-parser'
-import bodyParser from 'body-parser'
-// import lessMiddleware from 'less-middleware'
 import log from 'winston'
-// import mongoose from 'mongoose'
-
-import HttpException from './exceptions';
 import config from './config'
+// import db from './db/mongo';
+import HttpException from './exceptions';
 import menu from './menu'
 
 import routes from './routes'
+import routesMusic from './routes/music'
 import routesUsers from './routes/users'
 import routesGames from './routes/games'
 import routesRock from './routes/rock'
 
-log.info(config.get('port'));
+log.configure({
+    transports: [
+        new log.transports.Console({ level: config.get('LOG_LEVEL') })
+    ],
+})
 
 const publicPath = path.join(__dirname, '..', 'public');
-log.info(publicPath);
+log.debug(`Config: ${JSON.stringify(config)}`);
+log.debug(`Path: ${publicPath}`);
 
 const app =express();
 
@@ -30,6 +37,7 @@ app.set('view engine', 'pug');
 
 // app.use(favicon());
 app.use(logger('dev'));
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
@@ -43,13 +51,22 @@ app.locals.companyEmail = config.get('companyEmail');
 app.locals.companyAdress = config.get('companyAddress');
 app.locals.menu = menu;
 
-// tslint:disable-next-line
-console.log(menu);
+log.debug(JSON.stringify(app.locals));
+log.debug(JSON.stringify(menu));
+
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', () => console.log('MongoDB connected'));
 
 app.use('/', routes);
 app.use('/users', routesUsers);
+app.use('/music', routesMusic);
 app.use('/games', routesGames);
 app.use('/rock', routesRock);
+// app.use('/music', indexRouter);
+// app.use('/music/users', usersRouter);
+// app.use('/music/artist', artistRouter);
+// app.use('/music/album', albumRouter);
+// app.use('/music/song', songRouter);
 
 /// catch 404 and forwarding to error handler
 app.use((req: express.Request, res: any, next: express.NextFunction) => {
