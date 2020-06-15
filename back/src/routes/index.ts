@@ -2,6 +2,7 @@ import express from 'express';
 // let News = require('models/news').News;
 // let Event = require('models/event').Event;
 // let Artist = require('models/artist').Artist;
+import getCategories from '../models/categories';
 
 const router = express.Router();
 
@@ -185,5 +186,9 @@ router.get('/index.:format?', (req: express.Request, res: express.Response) => r
                 + "laborum."
         }
     }));
+
+router.get('/categories', (req, res) => getCategories()
+    .then(categories => res.json({ categories }))
+    .catch(error => res.json({ error })))
 
 export default router;
