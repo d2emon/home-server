@@ -4,10 +4,7 @@
     color="primary"
     dark
   >
-    <app-logo
-      :title="title"
-      :logo="logo"
-    />
+    <app-logo />
 
     <template
       v-for="(item, itemId) in menu"
@@ -77,7 +74,7 @@ import { MenuItem } from '../types/MenuItem';
 
 @Component({
   components: {
-    AppLogo: () => import('@/components/music/AppLogo.vue'),
+    AppLogo: () => import('@/components/app/Logo.vue'),
     SearchBox: () => import('@/components/music/SearchBox.vue'),
   },
   computed: {
@@ -88,10 +85,6 @@ import { MenuItem } from '../types/MenuItem';
 })
 export default class AppHeader extends Vue {
   categories!: string[];
-
-  title = 'Home Server';
-
-  logo = 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png';
 
   /*
   languages: MenuItem[] = [

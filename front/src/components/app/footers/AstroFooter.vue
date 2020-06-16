@@ -107,17 +107,24 @@ import Vue, { PropType } from 'vue';
 import Component from 'vue-class-component';
 import { MenuItem } from '@/types/menuItem';
 import { Article } from '@/types/article';
+import { mapState } from 'vuex';
 
 @Component({
+  computed: {
+    ...mapState([
+      'copyright',
+      'social',
+    ]),
+  },
   props: {
-    social: {
-      type: Array as PropType<MenuItem[]>,
-    },
     articles: {
       type: Array as PropType<Article[]>,
     },
-    copyright: String,
   },
 })
-export default class AppFooter extends Vue {}
+export default class Footer extends Vue {
+  copyright!: string;
+
+  social!: MenuItem[];
+}
 </script>

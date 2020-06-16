@@ -16,8 +16,8 @@ import Component from 'vue-class-component';
 
 @Component({
   components: {
-    AppHeader: () => import('@/components/music/AppHeader.vue'),
-    AppFooter: () => import('@/components/music/AppFooter.vue'),
+    AppHeader: () => import('@/components/app/Header.vue'),
+    AppFooter: () => import('@/components/app/footers/MusicFooter.vue'),
   },
 })
 export default class Torn extends Vue {}

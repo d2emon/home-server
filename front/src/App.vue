@@ -1,22 +1,17 @@
 <template>
   <v-app>
-    <app-header
-      :title="title"
-      :menu="menu"
-    />
+    <app-header />
 
     <v-main>
       <router-view />
     </v-main>
 
     <recent-posts
-      :articles="categories"
+      :articles="latest.slice(0, 4)"
     />
 
     <app-footer
       :articles="latest.slice(0, 3)"
-      :social="social"
-      :copyright="copyright"
     />
   </v-app>
 </template>
@@ -37,36 +32,21 @@ blockquote {
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import {
-  mapActions,
   mapState,
 } from 'vuex';
-import { Article } from '@/types/article';
 
 @Component({
   components: {
     AppHeader: () => import('@/components/app/Header.vue'),
-    AppFooter: () => import('@/components/app/Footer.vue'),
+    AppFooter: () => import('@/components/app/footers/AstroFooter.vue'),
     RecentPosts: () => import('@/components/RecentPosts.vue'),
   },
   computed: {
     ...mapState([
-      'title',
-      'menu',
       'latest',
-      'social',
-      'copyright',
     ]),
-    ...mapState('categories', ['categories']),
-  },
-  methods: {
-    ...mapActions('categories', ['fetchCategories']),
   },
 })
 export default class App extends Vue {
-  fetchCategories!: () => Promise<Article | null>;
-
-  async mounted() {
-    await this.fetchCategories();
-  }
 }
 </script>

@@ -1,10 +1,13 @@
 <template>
-  <div class="d-flex align-center mr-2">
+  <div
+    class="d-flex align-center mr-2"
+    @click="$router.push('/')"
+  >
     <v-img
       :alt="title"
       class="shrink mr-2"
       contain
-      src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+      :src="logo"
       transition="scale-transition"
       width="40"
     />
@@ -16,11 +19,19 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import { mapState } from 'vuex';
 
 @Component({
-  props: {
-    title: String,
+  computed: {
+    ...mapState([
+      'logo',
+      'title',
+    ]),
   },
 })
-export default class Logo extends Vue {}
+export default class Logo extends Vue {
+  logo!: string;
+
+  title!: string;
+}
 </script>

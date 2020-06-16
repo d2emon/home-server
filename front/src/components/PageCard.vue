@@ -1,9 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col
-        md="8"
-      >
+      <v-col>
         <v-card
           flat
         >
@@ -25,10 +23,10 @@
         </v-card>
       </v-col>
       <v-col
+        v-if="articles"
         md="4"
       >
         <images-carousel
-          v-if="articles"
           :items="articles"
         />
       </v-col>

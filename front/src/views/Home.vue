@@ -1,16 +1,13 @@
 <template>
   <page-card
     class="home"
-    :articles="carouselItems"
+    :title="title"
+    subtitle="Добро пожаловать на домашний сервер!"
   >
-    This website template has been designed by Free Website Templates for you, for free. You can
-    replace all this text with your own text. Want an easier solution for a Free Website? Head
-    straight to Wix and immediately start customizing your website! Wix is an online website
-    builder with a simple drag & drop interface, meaning you do the work online and instantly
-    publish to the web. Nothing to download, nothing to upload. You can remove any link to our
-    website from this website template, you're free to use this website template without linking
-    back to us. If you're having problems editing this website template, then don't hesitate to ask
-    for help on the Forums.
+    <recent-posts
+      :articles="categories"
+      :item-size="3"
+    />
   </page-card>
 </template>
 
@@ -18,10 +15,22 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Article } from '@/types/article';
+import {
+  mapActions,
+  mapState,
+} from 'vuex';
 
 @Component({
   components: {
     PageCard: () => import('@/components/PageCard.vue'),
+    RecentPosts: () => import('@/components/RecentPosts.vue'),
+  },
+  computed: {
+    ...mapState(['title']),
+    ...mapState('categories', ['categories']),
+  },
+  methods: {
+    ...mapActions('categories', ['fetchCategories']),
   },
 })
 export default class Home extends Vue {
@@ -87,5 +96,11 @@ export default class Home extends Vue {
       image: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
     },
   ];
+
+  fetchCategories!: () => Promise<Article | null>;
+
+  async mounted() {
+    await this.fetchCategories();
+  }
 }
 </script>

@@ -4,7 +4,7 @@
       <v-col
         v-for="item in articles"
         :key="item.slug"
-        md="3"
+        :md="itemSize"
       >
         <v-card
           flat
@@ -45,6 +45,10 @@ import { Article } from '@/types/article';
   props: {
     articles: {
       type: Array as PropType<Article[]>,
+    },
+    itemSize: {
+      type: Number,
+      default: 3,
     },
   },
 })

@@ -17,7 +17,7 @@ import Component from 'vue-class-component';
 
 @Component({
   components: {
-    PageCard: () => import('@/components/music/PageCard.vue'),
+    PageCard: () => import('@/components/PageCard.vue'),
     ImagesCarousel: () => import('@/components/music/ImagesCarousel.vue'),
     RecentPosts: () => import('@/components/music/RecentPosts.vue'),
   },

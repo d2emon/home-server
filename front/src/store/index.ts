@@ -8,28 +8,81 @@ Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
   state: {
-    title: 'Home Server',
+    title: 'Домашний Сервер',
+    copyright: '© Copyright © 2023.Company name all rights reserved',
+    logo: 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png',
     menu: [
       {
-        title: 'Home',
+        title: 'Главная',
         to: '/',
       },
       {
-        title: 'About',
+        title: 'О Сервере',
         to: '/about',
       },
+      /*
       {
-        title: 'Blog',
+        title: 'Фичи',
+        items: [
+          {
+            title: 'Layout',
+            to: '/layout',
+          },
+          {
+            title: 'Styled',
+            to: '/styles',
+          },
+          {
+            title: 'More',
+            to: '/more',
+          },
+        ],
+      },
+      {
+        title: 'Портфолио',
+        to: '/portfolio',
+      },
+       */
+      {
+        title: 'Блог',
         to: '/blog',
       },
       {
-        title: 'Gallery',
+        title: 'Галерея',
         to: '/gallery',
       },
+      /*
       {
-        title: 'Contact Us',
+        title: 'Галерея',
+        items: [
+          {
+            title: 'Two Columns',
+            to: '/gallery-2',
+          },
+          {
+            title: 'Three Columns',
+            to: '/gallery-3',
+          },
+          {
+            title: 'Four Columns',
+            to: '/gallery-4',
+          },
+        ],
+      },
+       */
+      {
+        title: 'Контакты',
         to: '/contacts',
       },
+      /*
+      {
+        title: 'Категории',
+        items: this.categories.map((title: string) => ({
+          title,
+          to: '/',
+        })),
+      },
+       */
     ],
     latest: [
       {
@@ -101,8 +154,6 @@ const store: StoreOptions<RootState> = {
         title: 'VK',
       },
     ],
-    copyright: '© Copyright © 2023.Company name all rights reserved',
-    logo: 'https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png',
     categories: [
       'Игры',
       'Искусство',

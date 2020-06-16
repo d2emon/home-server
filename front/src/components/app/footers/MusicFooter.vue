@@ -7,12 +7,12 @@
     >
       Follow us:
       <v-btn
-        v-for="(social, socialId) in socials"
-        :key="socialId"
+        v-for="(item, itemId) in social"
+        :key="itemId"
         icon
-        :href="social.href"
+        :href="item.href"
       >
-        <v-icon>{{ social.icon }}</v-icon>
+        <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
     </v-col>
 
@@ -60,8 +60,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import Component from 'vue-class-component';
+import { mapState } from 'vuex';
+import { Article } from '@/types/article';
+import { MenuItem } from '@/types/menuItem';
 
 interface LinkItem {
   icon?: string;
@@ -77,37 +80,24 @@ interface BlockItem {
 
 @Component({
   components: {
-    AppLogo: () => import('@/components/music/AppLogo.vue'),
     SearchBox: () => import('@/components/music/SearchBox.vue'),
+  },
+  computed: {
+    ...mapState([
+      'copyright',
+      'social',
+    ]),
+  },
+  props: {
+    articles: {
+      type: Array as PropType<Article[]>,
+    },
   },
 })
 export default class AppFooter extends Vue {
-  socials: LinkItem[] = [
-    {
-      icon: 'mdi-twitter',
-      href: '/',
-    },
-    {
-      icon: 'mdi-vimeo',
-      href: '/',
-    },
-    {
-      icon: 'mdi-youtube',
-      href: '/',
-    },
-    {
-      icon: 'mdi-gitlab',
-      href: '/',
-    },
-    {
-      icon: 'mdi-facebook',
-      href: '/',
-    },
-    {
-      icon: 'mdi-vk',
-      href: '/',
-    },
-  ];
+  copyright!: string;
+
+  social!: MenuItem[];
 
   blocks: BlockItem[] = [
     {
