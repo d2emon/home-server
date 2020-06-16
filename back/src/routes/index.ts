@@ -189,6 +189,6 @@ router.get('/index.:format?', (req: express.Request, res: express.Response) => r
 
 router.get('/categories', (req, res) => getCategories()
     .then(categories => res.json({ categories }))
-    .catch(error => res.json({ error })))
+    .catch(error => res.json({ error: error.toString() })))
 
 export default router;

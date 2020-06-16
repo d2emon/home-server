@@ -1,12 +1,4 @@
-interface Category {
-  itemId: number;
-  slug: string;
-  title: string;
-  image?: string;
-  text?: string;
-}
-
-export default [
+[
   {
     "itemId": 1,
     "slug": "games",
@@ -32,7 +24,7 @@ export default [
     "itemId": 4,
     "slug": "culture",
     "url": "/categories/culture",
-    "title": "Культура",
+    "title": "Культура"
   },
   {
     "itemId": 5,
@@ -120,4 +112,4 @@ export default [
     "title": "Языки",
     "text": "Полезно иногда знать иностранные языки"
   }
-];
+]

@@ -10,5 +10,6 @@
   "companyAddress": [
     "30, ул. Бетховена",
     "г. Луганск, ЛНР"
-  ]
+  ],
+  "categoriesPath": "/app/data/categories.json"
 }

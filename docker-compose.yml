@@ -17,6 +17,7 @@ services:
       DEBUG: home-server:*
       PORT: 4000
       LOG_LEVEL: debug
+      categoriesPath: /app/data/categories.json
     links:
       - mongo
     ports:
@@ -28,6 +29,7 @@ services:
       - ./back/src:/app/src
       - ./back/public:/app/public
       - ./data/wiki/markdown:/app/markdown
+      - ./data/data:/app/data
   front:
     build: ./front
     command: npm run serve
