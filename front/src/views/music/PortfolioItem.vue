@@ -53,9 +53,9 @@ interface PortfolioItem {
 
 @Component({
   components: {
-    PageCard: () => import('@/components/PageCard.vue'),
-    ImagesCarousel: () => import('@/components/ImagesCarousel.vue'),
-    RecentPosts: () => import('@/components/RecentPosts.vue'),
+    PageCard: () => import('@/components/music/PageCard.vue'),
+    ImagesCarousel: () => import('@/components/music/ImagesCarousel.vue'),
+    RecentPosts: () => import('@/components/music/RecentPosts.vue'),
   },
 })
 export default class Portfolio extends Vue {

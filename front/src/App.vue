@@ -36,8 +36,10 @@ blockquote {
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import {mapActions, mapState} from 'vuex';
-import { MenuItem } from '@/types/menuItem';
+import {
+  mapActions,
+  mapState,
+} from 'vuex';
 import { Article } from '@/types/article';
 
 @Component({

@@ -14,7 +14,7 @@ import Component from 'vue-class-component';
 
 @Component({
   components: {
-    PageCard: () => import('@/components/PageCard.vue'),
+    PageCard: () => import('@/components/music/PageCard.vue'),
     HelloWorld: () => import('@/components/HelloWorld.vue'),
   },
 })

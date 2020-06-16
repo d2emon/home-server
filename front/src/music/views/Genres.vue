@@ -38,10 +38,10 @@ import { Genre } from '../types/Genre';
 
 @Component({
   components: {
-    PageCard: () => import('@/components/PageCard.vue'),
-    ImagesCarousel: () => import('@/components/ImagesCarousel.vue'),
-    RecentPosts: () => import('@/components/RecentPosts.vue'),
-    SearchBox: () => import('@/components/SearchBox.vue'),
+    PageCard: () => import('@/components/music/PageCard.vue'),
+    ImagesCarousel: () => import('@/components/music/ImagesCarousel.vue'),
+    RecentPosts: () => import('@/components/music/RecentPosts.vue'),
+    SearchBox: () => import('@/components/music/SearchBox.vue'),
   },
 })
 export default class Genres extends Vue {

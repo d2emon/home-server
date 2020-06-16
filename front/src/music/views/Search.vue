@@ -20,8 +20,8 @@ import Component from 'vue-class-component';
 
 @Component({
   components: {
-    PageCard: () => import('@/components/PageCard.vue'),
-    SearchBox: () => import('@/components/SearchBox.vue'),
+    PageCard: () => import('@/components/music/PageCard.vue'),
+    SearchBox: () => import('@/components/music/SearchBox.vue'),
   },
 })
 export default class Search extends Vue {

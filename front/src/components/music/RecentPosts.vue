@@ -48,7 +48,7 @@ interface Post {
 
 @Component({
   components: {
-    PageCard: () => import('@/components/PageCard.vue'),
+    PageCard: () => import('@/components/music/PageCard.vue'),
   },
 })
 export default class RecentPosts extends Vue {

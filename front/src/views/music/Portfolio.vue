@@ -68,7 +68,7 @@ interface PortfolioItem {
 
 @Component({
   components: {
-    PageCard: () => import('@/components/PageCard.vue'),
+    PageCard: () => import('@/components/music/PageCard.vue'),
   },
 })
 export default class Portfolio extends Vue {

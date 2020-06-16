@@ -70,8 +70,8 @@ interface MenuItem {
 
 @Component({
   components: {
-    AppLogo: () => import('@/components/AppLogo.vue'),
-    SearchBox: () => import('@/components/SearchBox.vue'),
+    AppLogo: () => import('@/components/music/AppLogo.vue'),
+    SearchBox: () => import('@/components/music/SearchBox.vue'),
   },
   computed: {
     ...mapState([
