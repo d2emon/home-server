@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import music from '@/music/store/music';
+import music from '@/modules/music/store/music';
 import categories from './categories';
 import { RootState } from './types';
 

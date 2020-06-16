@@ -32,11 +32,11 @@ interface Breadcrumb {
 
 @Component({
   components: {
-    CherryHeader: () => import('@/components/Cherry/Header.vue'),
-    CherrySlider: () => import('@/components/Cherry/Slider.vue'),
-    CherryNav: () => import('@/components/Cherry/Nav.vue'),
-    CherryMain: () => import('@/components/Cherry/Main.vue'),
-    CherryFooter: () => import('@/components/Cherry/Footer.vue'),
+    CherryHeader: () => import('@/modules/cherry/components/Header.vue'),
+    CherrySlider: () => import('@/modules/cherry/components/Slider.vue'),
+    CherryNav: () => import('@/modules/cherry/components/Nav.vue'),
+    CherryMain: () => import('@/modules/cherry/components/Main.vue'),
+    CherryFooter: () => import('@/modules/cherry/components/Footer.vue'),
   },
 })
 export default class Cherry extends Vue {

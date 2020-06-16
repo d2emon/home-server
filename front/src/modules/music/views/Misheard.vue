@@ -29,7 +29,7 @@ import {
   mapActions,
   mapState,
 } from 'vuex';
-import { MisheardInterface } from '@/music/store/types';
+import { MisheardInterface } from '@/modules/music/store/types';
 import { Genre } from '../types/Genre';
 
 @Component({

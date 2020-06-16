@@ -1,6 +1,6 @@
-import markdown from '@/music/helpers/markdown';
-import { MisheardInterface } from '@/music/store/types';
-import { Instrument, Misheard } from '@/music/types';
+import markdown from '@/modules/music/helpers/markdown';
+import { MisheardInterface } from '@/modules/music/store/types';
+import { Instrument, Misheard } from '@/modules/music/types';
 import api from './api';
 
 interface MisheardResponse {

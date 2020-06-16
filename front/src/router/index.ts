@@ -52,7 +52,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/torn',
     name: 'Torn',
-    component: () => import('@/views/Torn.vue'),
+    component: () => import('@/modules/torn/views/Torn.vue'),
     children: [
       {
         path: '/',
@@ -107,14 +107,14 @@ const routes: Array<RouteConfig> = [
       {
         path: '/cherry',
         name: 'Cherry',
-        component: () => import('@/views/Cherry.vue'),
+        component: () => import('@/modules/cherry/views/Cherry.vue'),
       },
     ],
   },
   {
     path: '/music',
     name: 'Music',
-    component: () => import('@/music/views/Music.vue'),
+    component: () => import('@/modules/music/views/Music.vue'),
     children: [
       {
         path: '',
@@ -123,42 +123,42 @@ const routes: Array<RouteConfig> = [
       {
         path: 'search',
         name: 'Search',
-        component: () => import('@/music/views/Search.vue'),
+        component: () => import('@/modules/music/views/Search.vue'),
       },
       {
         path: 'search/:search',
         name: 'SearchedSongs',
-        component: () => import('@/music/views/Songs.vue'),
+        component: () => import('@/modules/music/views/Songs.vue'),
       },
       {
         path: 'genres',
         name: 'Genres',
-        component: () => import('@/music/views/Genres.vue'),
+        component: () => import('@/modules/music/views/Genres.vue'),
       },
       {
         path: 'genres/:genre',
         name: 'GenreSongs',
-        component: () => import('@/music/views/Songs.vue'),
+        component: () => import('@/modules/music/views/Songs.vue'),
       },
       {
         path: 'misheard',
         name: 'Misheard',
-        component: () => import('@/music/views/Misheard.vue'),
+        component: () => import('@/modules/music/views/Misheard.vue'),
       },
       {
         path: 'instruments',
         name: 'Instruments',
-        component: () => import('@/music/views/Instruments.vue'),
+        component: () => import('@/modules/music/views/Instruments.vue'),
       },
       {
         path: 'instruments/:instrument',
         name: 'Instrument',
-        component: () => import('@/music/views/Instrument.vue'),
+        component: () => import('@/modules/music/views/Instrument.vue'),
       },
       {
         path: 'instruments/:instrument/:page.md',
         name: 'Instrument',
-        component: () => import('@/music/views/Instrument.vue'),
+        component: () => import('@/modules/music/views/Instrument.vue'),
       },
     ],
   },

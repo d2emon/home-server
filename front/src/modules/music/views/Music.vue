@@ -19,8 +19,8 @@ import Component from 'vue-class-component';
 
 @Component({
   components: {
-    AppHeader: () => import('@/music/components/AppHeader.vue'),
-    AppFooter: () => import('@/music/components/AppFooter.vue'),
+    AppHeader: () => import('@/modules/music/components/AppHeader.vue'),
+    AppFooter: () => import('@/modules/music/components/AppFooter.vue'),
   },
 })
 export default class Music extends Vue {

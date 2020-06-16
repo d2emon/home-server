@@ -3,12 +3,12 @@ import {
   Module,
 } from 'vuex';
 import { RootState } from '@/store/types';
-import musicApi from '@/music/helpers/music';
+import musicApi from '@/modules/music/helpers/music';
 import {
   Instrument,
   InstrumentPageRequest,
   Misheard,
-} from '@/music/types';
+} from '@/modules/music/types';
 
 interface MusicInterface {
   misheard: Misheard[];
