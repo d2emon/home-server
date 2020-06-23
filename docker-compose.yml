@@ -45,6 +45,7 @@ services:
       - ./front/node_modules:/app/node_modules
       - ./front/src:/app/src
       - ./front/public:/app/public
+      - ./data/wiki/markdown:/app/public/wiki
   mongo-express:
     depends_on:
       - mongo

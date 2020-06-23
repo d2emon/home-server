@@ -4,6 +4,7 @@
     "slug": "games",
     "url": "/categories/games",
     "title": "Игры",
+    "image": "/wiki/images/categories/games.jpg",
     "text": "Что наша жизнь - игра&hellip;"
   },
   {
@@ -11,6 +12,7 @@
     "slug": "art",
     "url": "/categories/art",
     "title": "Искусство",
+    "image": "/wiki/images/categories/art.jpg",
     "text": "Статьи об искусстве и творчестве"
   },
   {
@@ -18,6 +20,7 @@
     "slug": "history",
     "url": "/categories/history",
     "title": "История",
+    "image": "/wiki/images/categories/history.jpg",
     "text": "В детстве у меня была таблица для сравнения разных исторических событий - какие из них произошли раньше, а какие позже. К тому же этот проект поможет мне пополнить отсутствие знаний по истории."
   },
   {
@@ -31,13 +34,15 @@
     "slug": "lugansk",
     "url": "/categories/lugansk",
     "title": "Луганск",
+    "image": "/wiki/images/categories/lugansk.png",
     "text": "Луганск - моя родина и я, черт возьми, люблю этот город"
   },
   {
     "itemId": 6,
     "slug": "management",
     "url": "/categories/management",
-    "title": "Менеджмент"
+    "title": "Менеджмент",
+    "image": "/wiki/images/categories/management.jpg"
   },
   {
     "itemId": 7,
@@ -51,6 +56,7 @@
     "slug": "science",
     "url": "/categories/science",
     "title": "Наука",
+    "image": "/wiki/images/categories/science.png",
     "text": "Материалы по точным наукам"
   },
   {
