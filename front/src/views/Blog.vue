@@ -2,7 +2,9 @@
   <page-card
     class="blog"
     :articles="carouselItems"
+    :breadcrumbs="breadcrumbs"
     title="Blog"
+    image="https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
   >
     <v-card
       v-for="item in articles"
@@ -46,6 +48,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Article } from '@/types/article';
+import {Breadcrumb} from "@/types/breadcrumb";
 
 @Component({
   components: {
@@ -53,6 +56,17 @@ import { Article } from '@/types/article';
   },
 })
 export default class Home extends Vue {
+  breadcrumbs: Breadcrumb[] = [
+    {
+      text: 'Главная',
+      to: '/',
+    },
+    {
+      text: 'Блог',
+      to: '/blog',
+    },
+  ];
+
   articles: Article[] = [
     {
       slug: '1',

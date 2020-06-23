@@ -3,6 +3,7 @@
     <page-card
       title="Portfolio"
       subtitle="Portfolio Subtitle"
+      :breadcrumbs="[]"
     >
       <v-btn
         color="primary"

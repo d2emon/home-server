@@ -1,24 +1,20 @@
 <template>
   <v-container>
+    <item-header
+      :title="title"
+      :subtitle="subtitle"
+      :image="image"
+    >
+      <slot name="title" />
+    </item-header>
+
+    <v-breadcrumbs :items="breadcrumbs" />
+
     <v-row>
       <v-col>
         <v-card
           flat
         >
-          <v-card-title
-            v-if="title"
-          >
-            <h1 class="headline">
-              {{ title }}
-            </h1>
-          </v-card-title>
-          <v-card-subtitle
-            v-if="subtitle"
-          >
-            <h2 class="title">
-              {{ subtitle }}
-            </h2>
-          </v-card-subtitle>
           <slot />
         </v-card>
       </v-col>
@@ -38,14 +34,20 @@
 import Vue, { PropType } from 'vue';
 import Component from 'vue-class-component';
 import { Article } from '@/types/article';
+import { Breadcrumb } from '@/types/breadcrumb';
 
 @Component({
   components: {
+    ItemHeader: () => import('@/components/app/ItemHeader.vue'),
     ImagesCarousel: () => import('@/components/ImagesCarousel.vue'),
   },
   props: {
     title: String,
     subtitle: String,
+    image: String,
+    breadcrumbs: {
+      type: Array as PropType<Breadcrumb[]>,
+    },
     articles: {
       type: Array as PropType<Article[]>,
     },

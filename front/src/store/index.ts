@@ -97,7 +97,7 @@ const store: StoreOptions<RootState> = {
       {
         itemId: 2,
         title: 'This is just a place holder',
-        slug: 'item-1',
+        slug: 'item-2',
         url: '/aricles/item-1',
         date: new Date(2020, 5, 1),
         image: 'https://freewebsitetemplates.com/preview/astronomywebsitetemplate/images/earth.jpg',
@@ -106,7 +106,7 @@ const store: StoreOptions<RootState> = {
       {
         itemId: 3,
         title: 'This is just a place holder',
-        slug: 'item-1',
+        slug: 'item-3',
         url: '/aricles/item-1',
         date: new Date(2020, 5, 1),
         image: 'https://freewebsitetemplates.com/preview/astronomywebsitetemplate/images/spacecraft-small.jpg',
@@ -115,7 +115,7 @@ const store: StoreOptions<RootState> = {
       {
         itemId: 4,
         title: 'This is just a place holder',
-        slug: 'item-1',
+        slug: 'item-4',
         url: '/aricles/item-1',
         date: new Date(2020, 5, 1),
         image: 'https://freewebsitetemplates.com/preview/astronomywebsitetemplate/images/space-shuttle.jpg',

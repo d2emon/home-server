@@ -3,7 +3,36 @@
     class="about"
     title="This is an about page"
     :articles="carouselItems"
+    :breadcrumbs="breadcrumbs"
+    image="https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
   >
+    <template v-slot:title>
+      <v-row class="text-center">
+        <v-col cols="12">
+          <v-img
+            :src="require('../assets/logo.svg')"
+            class="my-3"
+            contain
+            height="200"
+          />
+        </v-col>
+
+        <v-col class="mb-4">
+          <h1 class="display-2 font-weight-bold mb-3">
+            Welcome to Vuetify
+          </h1>
+
+          <p class="subheading font-weight-regular">
+            For help and collaboration with other Vuetify developers,
+            <br>please join our online
+            <a
+              href="https://community.vuetifyjs.com"
+              target="_blank"
+            >Discord Community</a>
+          </p>
+        </v-col>
+      </v-row>
+    </template>
     <hello-world msg="Welcome to Your Vue.js App" />
   </page-card>
 </template>
@@ -12,6 +41,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Article } from '@/types/article';
+import {Breadcrumb} from "@/types/breadcrumb";
 
 @Component({
   components: {
@@ -20,6 +50,17 @@ import { Article } from '@/types/article';
   },
 })
 export default class About extends Vue {
+  breadcrumbs: Breadcrumb[] = [
+    {
+      text: 'Главная',
+      to: '/',
+    },
+    {
+      text: 'О Сервере',
+      to: '/about',
+    },
+  ];
+
   carouselItems: Article[] = [
     {
       slug: '1',

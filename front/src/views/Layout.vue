@@ -3,6 +3,7 @@
     <page-card
       title="Layouts"
       subtitle="Layouts"
+      :breadcrumbs="[]"
     >
       <v-container>
         <v-row>

@@ -2,6 +2,9 @@
   <page-card
     class="contacts"
     :articles="carouselItems"
+    :breadcrumbs="breadcrumbs"
+    image="https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
+    title="Контакты"
   >
     <v-form>
       <v-text-field
@@ -35,6 +38,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Article } from '@/types/article';
+import {Breadcrumb} from "@/types/breadcrumb";
 
 @Component({
   components: {
@@ -42,6 +46,17 @@ import { Article } from '@/types/article';
   },
 })
 export default class Contacts extends Vue {
+  breadcrumbs: Breadcrumb[] = [
+    {
+      text: 'Главная',
+      to: '/',
+    },
+    {
+      text: 'Контакты',
+      to: '/contacts',
+    },
+  ];
+
   carouselItems: Article[] = [
     {
       slug: '1',

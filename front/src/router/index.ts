@@ -49,6 +49,7 @@ const routes: Array<RouteConfig> = [
     name: 'Contacts',
     component: () => import('@/views/Contacts.vue'),
   },
+
   {
     path: '/torn',
     name: 'Torn',
@@ -103,11 +104,6 @@ const routes: Array<RouteConfig> = [
         path: '/contacts',
         name: 'Contacts',
         component: () => import('@/views/Home.vue'),
-      },
-      {
-        path: '/cherry',
-        name: 'Cherry',
-        component: () => import('@/modules/cherry/views/Cherry.vue'),
       },
     ],
   },

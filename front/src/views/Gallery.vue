@@ -2,7 +2,9 @@
   <page-card
     class="gallery"
     :articles="carouselItems"
+    :breadcrumbs="breadcrumbs"
     title="Gallery"
+    image="https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
   >
     <v-row
       v-if="selected"
@@ -45,6 +47,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Article } from '@/types/article';
+import {Breadcrumb} from "@/types/breadcrumb";
 
 @Component({
   components: {
@@ -52,6 +55,17 @@ import { Article } from '@/types/article';
   },
 })
 export default class Gallery extends Vue {
+  breadcrumbs: Breadcrumb[] = [
+    {
+      text: 'Главная',
+      to: '/',
+    },
+    {
+      text: 'Галерея',
+      to: '/gallery',
+    },
+  ];
+
   carouselItems: Article[] = [
     {
       slug: '1',

@@ -2,6 +2,8 @@
   <page-card
     class="home"
     :title="title"
+    :breadcrumbs="[]"
+    image="https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
     subtitle="Добро пожаловать на домашний сервер!"
   >
     <recent-posts

@@ -3,6 +3,7 @@
     <page-card
       title="Portfolio"
       subtitle="Portfolio Subtitle"
+      :breadcrumbs="[]"
     >
       <v-row
         v-for="(item, itemId) in items"
