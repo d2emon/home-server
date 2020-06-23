@@ -64,6 +64,7 @@
     "slug": "parascience",
     "url": "/categories/parascience",
     "title": "Паранаучное",
+    "image": "/wiki/images/categories/ufo.jpg",
     "text": "Всякие ненаучные, псевдонаучные и паранаучные исследования"
   },
   {
@@ -71,44 +72,51 @@
     "slug": "nature",
     "url": "/categories/nature",
     "title": "Природа",
+    "image": "/wiki/images/categories/nature.jpg",
     "text": "Этот проект является отражением моих увлечений биологией. Все, что касается растений, животных и всего живого на земле отправится в этот проект"
   },
   {
     "itemId": 11,
     "slug": "psychology",
     "url": "/categories/psychology",
-    "title": "Психология"
+    "title": "Психология",
+    "image": "/wiki/images/categories/psychology.png"
   },
   {
     "itemId": 12,
     "slug": "work",
     "url": "/categories/work",
-    "title": "Работа"
+    "title": "Работа",
+    "image": "/wiki/images/categories/work.jpg"
   },
   {
     "itemId": 13,
     "slug": "tech",
     "url": "/categories/tech",
-    "title": "Техника"
+    "title": "Техника",
+    "image": "/wiki/images/categories/technology.jpg"
   },
   {
     "itemId": 14,
     "slug": "quotes",
     "url": "/categories/quotes",
     "title": "Цитаты",
+    "image": "/wiki/images/categories/quotes.jpg",
     "text": "Цитаты и афоризмы"
   },
   {
     "itemId": 15,
     "slug": "economics",
     "url": "/categories/economics",
-    "title": "Экономика"
+    "title": "Экономика",
+    "image": "/wiki/images/categories/nature.jpg"
   },
   {
     "itemId": 16,
     "slug": "humor",
     "url": "/categories/humor",
     "title": "Юмор",
+    "image": "/wiki/images/categories/humor.png",
     "text": "Разные приколы"
   },
   {
@@ -116,6 +124,7 @@
     "slug": "lingua",
     "url": "/categories/lingua",
     "title": "Языки",
+    "image": "/wiki/images/categories/lingua.jpg",
     "text": "Полезно иногда знать иностранные языки"
   }
 ]
