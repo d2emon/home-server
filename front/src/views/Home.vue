@@ -1,6 +1,7 @@
 <template>
   <v-container class="home">
     <drive-contents />
+    <phone-contents />
 
     <page-card
       :title="title"
@@ -23,6 +24,7 @@ import { mapState } from 'vuex';
     PageCard: () => import('@/components/PageCard.vue'),
     ImagesCarousel: () => import('@/components/ImagesCarousel.vue'),
     DriveContents: () => import('@/components/DriveContents.vue'),
+    PhoneContents: () => import('@/components/PhoneContents.vue'),
     RecentPosts: () => import('@/components/RecentPosts.vue'),
   },
   computed: {
