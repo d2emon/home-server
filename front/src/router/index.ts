@@ -24,6 +24,18 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Layout.vue'),
   },
   {
+    path: '/dnd',
+    name: 'DnD',
+    component: () => import('@/views/dnd/DnD.vue'),
+    children: [
+      {
+        path: 'bestiary',
+        name: 'Bestiary',
+        component: () => import('@/views/dnd/Bestiary.vue'),
+      },
+    ],
+  },
+  {
     path: '/styles',
     name: 'Styles',
     component: () => import('@/views/Layout.vue'),
